@@ -13,6 +13,7 @@ img{
 h2,h3,p{
     font-family:Helvetica;
     margin-bottom: -10px;
+    font-size: 1.5em;
 }
 
 .date span{
@@ -28,11 +29,16 @@ h2,h3,p{
     transform-origin: left bottom 0;
 }
 .header h2{
-  font-size: 2em;
+  font-size: 3em;
 }
 .container{
-    padding-left: 3em;
+    padding-left: 5em;
 }
+
+.timeline-event-content h2{
+  font-size: 3em;
+}
+
 
 /*Portfolio*/
 .filter-btn{
