@@ -1,3 +1,10 @@
+html{
+  margin-left: 5em;
+  margin-right: 5em;
+}
+body{
+  background-color: #EDF2FB;
+}
 img{
     width: 50%;
     padding-right: 2%;
@@ -9,7 +16,7 @@ h2,h3,p{
 }
 
 .date span{
-    background-color: greenyellow;
+    background-color: rgba(223, 222, 222, 0.85);
     color: black;
 }
 
@@ -20,7 +27,9 @@ h2,h3,p{
     transform: rotate( 90deg ); /* rotate title element into position */
     transform-origin: left bottom 0;
 }
-
+.header h2{
+  font-size: 2em;
+}
 .container{
     padding-left: 3em;
 }
@@ -44,7 +53,7 @@ h2,h3,p{
 .prt-card{
   border-radius: 15px;
   overflow: hidden;
-  background-color: aquamarine;
+  background-color: #D7E3FC;
   display: grid;
   grid-template-rows: 1fr auto;
 }
