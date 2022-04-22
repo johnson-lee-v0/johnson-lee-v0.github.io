@@ -22,54 +22,53 @@ h2,h3,p{
 }
 
 .container{
-    padding-left: 5em;
+    padding-left: 3em;
 }
 
-/* Style the tab */
-.tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-  }
-  
+/*Portfolio*/
+.filter-btn{
+  display: inline-block;
+  background: none;
+  outline: none;
+  border: none;
+  text-transform:uppercase ;
+  margin-bottom: 1em;
+}
 
-  /*Project*/
-  /* Style the buttons that are used to open the tab content */
-  .tab button {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-  }
-  
-  /* Change background color of buttons on hover */
-  .tab button:hover {
-    background-color: #ddd;
-  }
-  
-  /* Create an active/current tablink class */
-  .tab button.active {
-    background-color: #ccc;
-  }
-  
-  /* Style the tab content */
-  .tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border-top: none;
-    animation: fadeEffect 1s; /* Fading effect takes 1 second */
-  }
+.portfolio-gallery{
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+  gap:2rem ;
+}
 
-  /* Go from zero to full opacity */
-  @keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
-  }
+.prt-card{
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: aquamarine;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+.prt-image{
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.prt-image img{
+  width: 105%
+}
 
-    
+.prt-desc{
+  padding: 0.5em;
+  display: flex;
+  justify-content: space-between;
+}
+
+h4{
+  font-family:Helvetica;
+  margin: 0%;
+}
+
 
 
