@@ -14,11 +14,14 @@ h2,h3,p{
     font-family:Helvetica;
     margin-bottom: -10px;
     font-size: 1.5em;
+    color: rgb(153, 153, 153);
 }
 
 .date span{
-    background-color: rgba(223, 222, 222, 0.85);
-    color: black;
+    background-color: white;
+    color: rgb(153, 153, 153);
+    font-size: 0.75em;
+    font-weight: 700;
 }
 
 
@@ -27,15 +30,24 @@ h2,h3,p{
     position: relative;  
     transform: rotate( 90deg ); /* rotate title element into position */
     transform-origin: left bottom 0;
+    opacity: 0.7;
 }
 .header h2{
   font-size: 3em;
 }
 .container{
-    padding-left: 5em;
+    padding-left: 7em;
+}
+
+.container h2{
+  color: rgb(119, 119, 119);
 }
 
 .timeline-event-content h2{
+  font-size: 3em;
+}
+
+.about h2{
   font-size: 3em;
 }
 
@@ -87,8 +99,15 @@ h4{
 
 /*Projects*/
 h1{
-  font-size: 3em;
-  font-family:Helvetica;
+  font-size: 6em;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight:900;
+  margin: 0;
+  padding: 0;
+}
+
+#project{
+  color: blue;
 }
 
 .carousel,.carousel::before,.carousel::after{
@@ -153,4 +172,5 @@ opacity: 1;
 .carousel-button.next{
   right: -3rem;
 }
+
 
