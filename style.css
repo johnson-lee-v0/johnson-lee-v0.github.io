@@ -1,10 +1,28 @@
 html{
-  margin-left: 5em;
-  margin-right: 5em;
+  margin-left: 3em;
+  margin-right: 3em;
 }
 body{
   background-color: #EDF2FB;
 }
+
+.navbar{
+  display: block;
+  text-align: right;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 95%;
+}
+
+.navbar a{
+color: #5596E6;
+font-weight: 600;
+font-size: 1.5em;
+font-family: Helvetica, sans-serif;
+text-decoration: none;
+padding-left: 30px;
+}
+
 img{
     width: 50%;
     padding-right: 2%;
@@ -23,7 +41,6 @@ h2,h3,p{
     font-size: 0.75em;
     font-weight: 700;
 }
-
 
 .header{
     white-space: nowrap;
@@ -90,6 +107,10 @@ h2,h3,p{
   padding: 0.5em;
   display: flex;
   justify-content: space-between;
+}
+
+.prt-desc a{
+  font-family: Helvetica, sans-serif ;
 }
 
 h4{
