@@ -6,23 +6,6 @@ body{
   background-color: #EDF2FB;
 }
 
-.navbar{
-  display: block;
-  text-align: right;
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
-  width: 95%;
-}
-
-.navbar a{
-color: #5596E6;
-font-weight: 600;
-font-size: 1.5em;
-font-family: Helvetica, sans-serif;
-text-decoration: none;
-padding-left: 30px;
-}
-
 img{
     width: 50%;
     padding-right: 2%;
@@ -76,7 +59,7 @@ h2,h3,p{
   outline: none;
   border: none;
   text-transform:uppercase ;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
 }
 
 .portfolio-gallery{
