@@ -81,7 +81,7 @@ button:hover{
 .prt-card{
   border-radius: 15px;
   overflow: hidden;
-  background-color: #D7E3FC;
+  background-color: #aecbeb;
   display: grid;
   grid-template-rows: 1fr auto;
 }
@@ -104,6 +104,12 @@ button:hover{
 
 .prt-desc a{
   font-family: Helvetica, sans-serif ;
+  color: blue;
+}
+
+.prt-desc a:hover{
+  font-family: Helvetica, sans-serif ;
+  color: red;
 }
 
 h4{
