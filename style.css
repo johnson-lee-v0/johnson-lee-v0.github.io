@@ -68,7 +68,7 @@ h2,h3,p{
 }
 
 button{
-  font-size: 20px;
+  font-size: 1.5vw;
   font-family: Helvetica;
   font-weight: 700;
 }
@@ -95,7 +95,7 @@ button:hover{
 }
 
 .prt-card{
-  border-radius: 15px;
+  border-radius: 0.5vw;
   overflow: hidden;
   background-color: #aecbeb;
   display: grid;
@@ -113,7 +113,7 @@ button:hover{
 }
 
 .prt-desc{
-  padding: 0.5em;
+  padding: 0.5vw;
   display: flex;
   justify-content: space-between;
 }
@@ -121,16 +121,20 @@ button:hover{
 .prt-desc a{
   font-family: Helvetica, sans-serif ;
   color: blue;
+  font-size: 1vw;
 }
 
 .prt-desc a:hover{
   font-family: Helvetica, sans-serif ;
   color: red;
+  font-size: 1vw;
 }
 
 h4{
+  font-size: 1vw;
   font-family:Helvetica;
   margin: 0%;
+  padding: 0%;
 }
 
 /*Projects*/
@@ -150,7 +154,7 @@ h1{
 box-sizing: border-box;
 margin-top: 2em;
 width: 100%;
-height: 30em;
+height: 20vw;
 position: relative;
 }
 .carousel ul{
