@@ -1,16 +1,26 @@
 html{
-  margin-left: 3em;
-  margin-right: 3em;
+  margin-left: 5em;
+  margin-right: 5em;
 }
 body{
   background-color: #EDF2FB;
 }
 
 #Johnson{
+  align-self: center;
+  justify-self: center;
   padding: 0;
   border-radius: 50%;
-  width: 15em;
+  width: 20em;
   height: auto;
+}
+
+@media (min-width: 600px) {
+  #about { grid-template-columns: repeat(2, 1fr); 
+}}
+
+#about{
+  display: grid;
 }
 
 img{
@@ -20,7 +30,6 @@ img{
 
 h2,h3,p{
     font-family:Helvetica;
-    margin-bottom: -10px;
     font-size: 1.5em;
     color: rgb(153, 153, 153);
 }
