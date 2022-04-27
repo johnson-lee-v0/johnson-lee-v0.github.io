@@ -187,7 +187,7 @@ opacity: 1;
   z-index: 2;
   background: none;
   border: none;
-  font-size: 4em;
+  font-size: 2vw;
   top: 50%;
   transform: translate(-50%);
   color: rgba(255, 255, 255, .5);
