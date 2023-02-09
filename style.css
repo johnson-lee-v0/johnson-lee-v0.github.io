@@ -37,7 +37,7 @@ h1{
   padding: 20px;
   display: inline-block;
   margin-right: 20px;
-  border-radius: 5px;
+  border-radius: 40px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -45,6 +45,7 @@ h1{
   background-color: rgb(216, 229, 243);
   box-shadow: 0px 0px 10px 2px lightgray;
   border-bottom: 3px solid rgba(0, 0, 0, .6);
+  border-radius: 40px;
 }
 
 
@@ -81,6 +82,15 @@ h2, h3, p {
 
 .header h2 {
   font-size: 3vw;
+}
+
+#name p{
+  font-size: 2vw;
+  font-weight: 700;
+}
+
+#name h1{
+  color: black;
 }
 
 .container {
@@ -248,5 +258,3 @@ opacity: 1;
 .carousel-button.next{
   right: 0rem;
 }
-
-
