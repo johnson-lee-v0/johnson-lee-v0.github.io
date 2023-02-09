@@ -1,97 +1,139 @@
-html{
-  margin-left: 10%;
-  margin-right: 10%;
+html {
+  margin: 0 10%;
 }
-body{
+
+body {
   background-color: #EDF2FB;
 }
 
-#Johnson{
+h1{
+  font-family: system-ui; 
+  font-size: 5vw;
+  color: rgb(153, 153, 153);
+}
+
+#Johnson {
   align-self: center;
   justify-self: center;
-  padding: 0;
   border-radius: 50%;
   width: 25vw;
-  height: auto;
+  height: 25vw;
+  object-fit: cover;
 }
 
 @media (min-width: 600px) {
-  #about { grid-template-columns: repeat(2, 1fr); 
-}}
-
-#about{
-  display: grid;
+  #about {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+  }
 }
 
-img{
-    width: 50%;
-    padding-right: 2%;
+.timeline-event {
+  width: 100%;
+  display: flex;
+  background-color: rgb(228, 236, 247);
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  display: inline-block;
+  margin-right: 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
 }
 
-h2,h3,p{
-    font-family:Helvetica;
-    font-size: 1.5vw;
-    color: rgb(153, 153, 153);
+.timeline-event:hover {
+  background-color: rgb(216, 229, 243);
+  box-shadow: 0px 0px 10px 2px lightgray;
+  border-bottom: 3px solid rgba(0, 0, 0, .6);
 }
 
-.date span{
-    background-color: white;
-    color: rgb(153, 153, 153);
-    font-size: 1vw;
-    font-weight: 700;
+
+img {
+  width: 50%;
+  padding-right: 2%;
+  object-fit: contain;
 }
 
-.header{
-    white-space: nowrap;
-    position: relative;  
-    transform: rotate( 90deg ); /* rotate title element into position */
-    transform-origin: left bottom 0;
-    opacity: 0.7;
+h2, h3, p {
+  font-family: Helvetica;
+  font-size: 1.5vw;
+  color: rgb(153, 153, 153);
 }
-.header h2{
+
+.date span {
+  background-color: rgb(214, 225, 242);
+  color: rgb(54, 69, 79);
+  font-size: 1vw;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(68, 68, 68, 0.75);
+  transform: translateZ(1px);
+}
+
+.header {
+  white-space: nowrap;
+  position: relative;
+  transform: rotate(90deg);
+  transform-origin: left bottom 0;
+  opacity: 0.7;
+}
+
+.header h2 {
   font-size: 3vw;
 }
-.container{
-    padding-left: 10vw;
+
+.container {
+  padding-left: 10vw;
 }
 
-.container h2{
+.container h2, .container p {
+  font-size: 1.25vw;
+}
+
+.container h2 {
   color: rgb(119, 119, 119);
 }
 
-.timeline-event-content h2{
+.timeline-event-content h2, .about h2 {
   font-size: 3vw;
 }
 
-.about h2{
-  font-size: 3vw;
+.about p {
+  font-size: 1.75vw;
 }
 
-button{
+button {
   font-size: 1.5vw;
   font-family: Helvetica;
   font-weight: 700;
+  cursor: pointer;
+  border: 1px solid currentColor;
+  border-radius: 5px;
+  padding: 5px 10px;
+  transition: all 0.2s ease-in-out;
 }
 
-button:hover{
+button:hover {
   color: blue;
-  text-decoration: underline;
+  background-color: rgba(0, 0, 255, 0.1);
 }
 
-/*Portfolio Gallery*/
-.filter-btn{
+/* Portfolio Gallery */
+.filter-btn {
   display: inline-block;
   background: none;
   outline: none;
   border: none;
-  text-transform:uppercase ;
+  text-transform: uppercase;
   margin-bottom: 1.5vw;
+  cursor: pointer;
 }
 
-.portfolio-gallery{
+.portfolio-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
-  gap:2vw ;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2vw;
 }
 
 .prt-card{
@@ -137,14 +179,8 @@ h4{
   padding: 0%;
 }
 
-/*Projects*/
-h1{
-  font-size: 6vw;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-weight:900;
-  margin: 0;
-  padding: 0;
-}
+
+
 
 #project{
   color: blue;
