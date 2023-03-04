@@ -190,9 +190,7 @@ h4{
   padding: 0%;
 }
 
-
-
-
+/* Project Pages */
 #project{
   color: blue;
 }
@@ -258,4 +256,21 @@ opacity: 1;
 
 .carousel-button.next{
   right: 0rem;
+}
+
+/* Sneaker Portfolio */
+.sneaker-port{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+     
+input {
+  width: 50%;
+}
+
+.highlight{
+  background-color: yellow;
+  font-weight: bold;
 }
