@@ -57,7 +57,7 @@ containers.forEach(container => {
             container.addEventListener("mouseout", function() {
                 timeoutId = setTimeout(() => {
                     paragraph.textContent = originalText;
-                }, 7000);
+                }, 5000);
             });
         }
     });

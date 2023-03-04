@@ -18,7 +18,7 @@ window.onload = function() {
           if (opacity >= 1) {
             clearInterval(animationInterval);
           }
-        }, 200);
+        }, 250);
       } else {
         clearInterval(animationInterval);
         text.style.opacity = 0;
