@@ -1,0 +1,90 @@
+
+<head>
+    <title>Sneaker Portfolio - Johnson Lee</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        input {
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Johnson's Sneaker Portfolio</h1>
+    <canvas id="canvas" width="768" height="512"></canvas>
+    <input type="range" min="1" max="36" step="1" value="1" id="slider">
+    <p>Select a link from the table below to see what the sneaker looks like</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Sneaker Name</th>
+                <th>Model</th>
+                <th>Date Accquired</th>
+                <th>Date Released</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-index="0">
+                <td><a href="#" onclick="loadSneaker('AJ1-Cement')">Air Jordan 1 High White Cement</a></td>
+                <td>Air Jordan 1</td>
+                <td>02-25-2023</td>
+                <td>02-25-2023</td>
+            </tr>
+            <tr data-index="1">
+                <td><a href="#" onclick="loadSneaker('AJ1-Denim-W')">Air Jordan 1 High OG Denim</a></td>
+                <td>Air Jordan 1</td>
+                <td>08-12-2022</td>
+                <td>08-12-2022</td>
+            </tr>
+            <tr data-index="2">
+                <td><a href="#" onclick="loadSneaker('AJ1-Visionaire')">Air Jordan 1 Retro High OG Visionaire</a></td>
+                <td>Air Jordan 1</td>
+                <td>06-11-2022</td>
+                <td>06-11-2022</td>
+            </tr>
+            <tr data-index="3">
+                <td><a href="#" onclick="loadSneaker('AJ1-GoreTex-Berry')">Air Jordan 1 High Element Gore-Tex Berry</a></td>
+                <td>Air Jordan 1</td>
+                <td>03-28-2022</td>
+                <td>03-28-2022</td>
+            </tr>
+            <tr data-index="4">
+                <td><a href="#" onclick="loadSneaker('AF1-Oreo')">Nike Air Force 1 Flyknit 2 Black Pure Platinum</a></td>
+                <td>Air Force 1</td>
+                <td>10-01-2020</td>
+                <td>05-01-2019</td>
+            </tr>
+            <tr data-index="5">
+                <td><a href="#" onclick="loadSneaker('Jordan-33-Uni-Red')">Jordan XXXIII University Red</a></td>
+                <td>Air Jordan 33</td>
+                <td>08-01-2019</td>
+                <td>10-18-2018</td>
+            </tr>
+            <tr data-index="6">
+                <td><a href="#" onclick="loadSneaker('Air-Max-270-Orange-Blue')">Nike Air Max 270 Flyknit Laser Orange Blue Orbit</a></td>
+                <td>Nike Air Max 270</td>
+                <td>08-01-2019</td>
+                <td>04-12-2018</td>
+            </tr>
+            <tr data-index="7">
+                <td><a href="#" onclick="loadSneaker('Air-Max-270-Bred')">Nike Air Max 270 Flyknit Bred</a></td>
+                <td>Nike Air Max 270</td>
+                <td>08-01-2019</td>
+                <td>08-15-2018</td>
+            </tr>
+            <tr data-index="8">
+                <td><a href="#" onclick="loadSneaker('Epic-React-Flyknit-2-Blue-Void')">Nike Epic React Flyknit 2 Blue Void</a></td>
+                <td>Nike Epic React Flyknit 2</td>
+                <td>05-01-2019</td>
+                <td>01-31-2019</td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="js/sneaker.js"></script>
+</body>
