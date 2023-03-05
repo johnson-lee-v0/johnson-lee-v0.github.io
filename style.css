@@ -260,6 +260,7 @@ opacity: 1;
 
 /* Sneaker Portfolio */
 .sneaker-port{
+  background-color: white;
   align-items: center;
   justify-content: center;
   display: flex;
