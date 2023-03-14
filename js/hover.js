@@ -47,7 +47,7 @@ containers.forEach(container => {
                     paragraph.innerHTML = `
                     <ul>
                     <li>Worked with the Digital Experience team to launch the front-end of the Digital Bank for US Cash Management</li>
-                    <li>Collaborated with Release Train Engineer and Scrum Master to oversee the progress of squads during sprints, leading to a notable 15% improvement in efficiency.</li>
+                    <li>Collaborated with Release Train Engineer and Scrum Master to oversee the progress of squads during sprints</li>
                     <li>Partnered with the QA team to establish a comprehensive QA process to ensure features are built correctly and design matches those in Figma. More than 100+ manual and automated test cases were generated, resulting in the successful launch of the digital bank within the target timeline</li>
                     </ul>
                     `;
