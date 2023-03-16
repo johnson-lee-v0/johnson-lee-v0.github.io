@@ -66,7 +66,9 @@ containers.forEach(container => {
             },100));
             
             container.addEventListener("mouseout", debounce(() => {
+                timeoutId = setTimeout(() => {
                     paragraph.textContent = originalText;
+                }, 5000);
             },100));
         }
     });
