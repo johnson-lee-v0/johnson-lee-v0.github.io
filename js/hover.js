@@ -1,3 +1,13 @@
+function debounce(func, delay) {
+    let timer;
+    return function() {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        func.apply(this, arguments);
+      }, delay);
+    };
+  }
+
 const containers = document.querySelectorAll(".timeline-event");
 
 containers.forEach(container => {
@@ -8,7 +18,7 @@ containers.forEach(container => {
         let timeoutId;
         
         if (paragraph.id) {
-            container.addEventListener("mouseover", function() {
+            container.addEventListener("mouseover", debounce(() => {
                 if (paragraph.id === "event1") {
                     paragraph.innerHTML = `
                     <ul>
@@ -53,17 +63,11 @@ containers.forEach(container => {
                     `;
                 }
                 // add more else-if statements for each ID as needed
-            });
+            },100));
             
-            container.addEventListener("mouseout", function() {
-                timeoutId = setTimeout(() => {
+            container.addEventListener("mouseout", debounce(() => {
                     paragraph.textContent = originalText;
-                }, 5000);
-            });
+            },100));
         }
     });
 });
-
-
-
-//Part of the US Cash Management Team that is launching a digital bank to target a $100 billion market
