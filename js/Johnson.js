@@ -1,5 +1,6 @@
 var images = [
-    "image/PFP-Johnson Lee.png"
+  "image/DALL·E 1.png",  
+  "image/PFP-Johnson Lee.png"
   ];
   
   var currentImage = 0;
