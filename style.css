@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-color: #F4F9FE;
+  background-color: #F6F6F7;
 }
 
 h1{
@@ -15,7 +15,7 @@ h1{
 #Johnson {
   align-self: center;
   justify-self: center;
-  border-radius: 30%;
+  border-radius: 50%;
   width: 25vw;
   height: 25vw;
   object-fit: cover;
@@ -30,7 +30,7 @@ h1{
 
 .timeline-event {
   width: 100%;
-  background-color: #EDF2FB;
+  background-color: #f3f6f7;
   border: 1px solid rgba(0, 0, 0, .2);
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   margin-bottom: 1vw;
@@ -68,7 +68,7 @@ h2, h3, p {
 }
 
 .date span {
-  background-color: #EFF4FC;
+  background-color: #F4F9FE;
   color: rgb(54, 69, 79);
   font-size: 1vw;
   font-weight: 700;
@@ -155,7 +155,7 @@ button:hover {
 .prt-card{
   border-radius: 0.5vw;
   overflow: hidden;
-  background-color: #aecbeb;
+  background-color: #C3E2FA;
   display: grid;
   grid-template-rows: 1fr auto;
 }
