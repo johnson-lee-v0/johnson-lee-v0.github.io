@@ -100,3 +100,36 @@ function handleTouchMove(event) {
 function handleInputSlider() {
   loadImage(this.value)
 }
+
+function handleRowClick(row){
+  const index = row.getAttribute('data-index');
+  if (index==0){
+    loadSneaker('Epic-React-Flyknit-2-Blue-Void')
+    row.style.backgroundColor='#E6E6FA'
+  }else if (index==1){
+    loadSneaker('Air-Max-270-Bred')
+    row.style.backgroundColor='#E6E6FA'
+  }else if (index==2){
+    loadSneaker('Air-Max-270-Orange-Blue')
+    row.style.backgroundColor='#E6E6FA'
+  }else if (index==3){
+    loadSneaker('Jordan-33-Uni-Red')
+    row.style.backgroundColor='#E6E6FA'
+  }else if (index==4){
+    loadSneaker('AF1-Oreo')
+    row.style.backgroundColor='#E6E6FA'
+  }else if (index==5){
+    loadSneaker('AJ1-GoreTex-Berry')
+    row.style.backgroundColor='#E6E6FA'
+  }else if (index==6){
+    loadSneaker('AJ1-Visionaire')
+    row.style.backgroundColor='#E6E6FA'
+  }else if (index==7){
+    loadSneaker('AJ1-Denim-W')
+    row.style.backgroundColor='#E6E6FA'
+  }else if (index==8){
+    loadSneaker('AJ1-Cement')
+    row.style.backgroundColor='#E6E6FA'
+  }
+
+}

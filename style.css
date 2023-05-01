@@ -326,11 +326,6 @@ th {
   color: #333;
 }
 
-tr:hover {
-  background-color: #ddd;
-  cursor: pointer;
-}
-
 /* Loading Page */
 #spinner {
   position: fixed;
