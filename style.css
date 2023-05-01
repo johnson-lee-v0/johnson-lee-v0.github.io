@@ -281,6 +281,31 @@ input {
   font-weight: bold;
 }
 
+/*Sneaker Box*/
+#loading-animation {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  height: 100%;
+  /*https://www.bing.com/images/search?view=detailV2&ccid=yThWLZK5&id=B1548A719C2F80B335B7222729F020C03E84A180&thid=OIP.yThWLZK5ZL8oc6ZF6xynPgHaFj&mediaurl=https%3a%2f%2fmedia.giphy.com%2fmedia%2fntZQLjhMbzge4%2fgiphy.gif&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.c938562d92b964bf2873a645eb1ca73e%3frik%3dgKGEPsAg8CknIg%26pid%3dImgRaw%26r%3d0&exph=384&expw=512&q=gif+closest+door+opening&simid=608023586963657173&FORM=IRPRST&ck=B6235E7376158EDB079B125A377C5628&selectedIndex=0&idpp=overlayview&ajaxhist=0&ajaxserp=0*/
+  background-image: url('image/closest.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@keyframes open-box {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 0.75;
+  }
+}
+
 /* Sneaker Portfolio Table */
 table {
   border-collapse: collapse;

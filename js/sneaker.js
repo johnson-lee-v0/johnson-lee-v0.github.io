@@ -1,3 +1,16 @@
+/*Loading Box*/ 
+window.addEventListener('load', function() {
+  var loadingAnimation = document.getElementById('loading-animation');
+  var sneakerCollection = document.getElementById('sneaker-collection');
+  
+  loadingAnimation.style.animation = 'open-box 2s ease-out';
+  
+  loadingAnimation.addEventListener('animationend', function() {
+    loadingAnimation.style.display = 'none';
+    sneakerCollection.style.visibility = 'visible';
+  });
+});
+
 const slider = document.querySelector('#slider');
 const canvas = document.querySelector('#canvas');
 slider.addEventListener('input', handleInputSlider);
@@ -7,8 +20,7 @@ let startX, startY, moveX, moveY;
 canvas.addEventListener('touchstart', handleTouchStart);
 canvas.addEventListener('touchmove', handleTouchMove);
 
-window.addEventListener('load', () => loadSneaker(''));
-
+window.addEventListener('load', () => loadSneaker('AJ1-Cement'));
 function loadSneaker(sneaker) {
   let urlPrefix = ''
   let numImages = 0
