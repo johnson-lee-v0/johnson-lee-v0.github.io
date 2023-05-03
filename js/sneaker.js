@@ -11,6 +11,29 @@ window.addEventListener('load', function() {
   });
 });
 
+// Testing Below
+fetch('sneaker-data.json')
+  .then(response => response.json())
+  .then(data => {
+    const tableBody = document.querySelector('#data-table tbody');
+    data.sneakers.forEach(sneaker => {
+      const row = tableBody.insertRow();
+      row.dataset.index = sneaker.id;
+      row.onclick = () => {
+        handleRowClick(row)
+      }
+      const nameCell = row.insertCell();
+      nameCell.innerHTML = `<a href="#" onclick="loadSneaker('${sneaker['sneaker-name']}')">${sneaker['sneaker-name']}</a>`;
+      const brandCell = row.insertCell();
+      brandCell.innerText = sneaker.brand;
+      const dateCell = row.insertCell();
+      dateCell.innerText = sneaker['release-date'];
+    });
+  })
+  .catch(error => console.error(error));
+// Testing Above
+
+/* Canvas */
 const slider = document.querySelector('#slider');
 const canvas = document.querySelector('#canvas');
 slider.addEventListener('input', handleInputSlider);
@@ -19,37 +42,37 @@ const images = {};
 let startX, startY, moveX, moveY;
 canvas.addEventListener('touchstart', handleTouchStart);
 canvas.addEventListener('touchmove', handleTouchMove);
+window.addEventListener('load', () => loadSneaker('Air Jordan 1 High White Cement'));
 
-window.addEventListener('load', () => loadSneaker('AJ1-Cement'));
 function loadSneaker(sneaker) {
   let urlPrefix = ''
   let numImages = 0
   
-  if (sneaker === 'AJ1-Cement') {
+  if (sneaker === 'Air Jordan 1 High White Cement') {
     urlPrefix = 'https://images.stockx.com/360/Air-Jordan-1-Retro-High-OG-White-Cement/Images/Air-Jordan-1-Retro-High-OG-White-Cement/Lv2/img'
     numImages = 36
-  } else if (sneaker === 'AJ1-Denim-W') {
+  } else if (sneaker === 'Air Jordan 1 High OG Denim') {
     urlPrefix = 'https://images.stockx.com/360/Air-Jordan-1-High-OG-Denim-W/Images/Air-Jordan-1-High-OG-Denim-W/Lv2/img'
     numImages = 36
-  } else if (sneaker === 'AJ1-Visionaire') {
+  } else if (sneaker === 'Air Jordan 1 Retro High OG Visionaire') {
     urlPrefix = 'https://images.stockx.com/360/Air-Jordan-1-Retro-High-OG-Visionaire/Images/Air-Jordan-1-Retro-High-OG-Visionaire/Lv2/img'
     numImages = 36
-  }else if (sneaker === 'AJ1-GoreTex-Berry') {
+  }else if (sneaker === 'Air Jordan 1 High Element Gore-Tex Berry') {
     urlPrefix = 'https://images.stockx.com/360/Air-Jordan-1-High-Element-Gore-Tex-Berry/Images/Air-Jordan-1-High-Element-Gore-Tex-Berry/Lv2/img'
     numImages = 36
-  }else if (sneaker === 'AF1-Oreo') {
+  }else if (sneaker === 'Nike Air Force 1 Flyknit 2 Black Pure Platinum') {
     urlPrefix = 'https://images.stockx.com/360/Nike-Air-Force-1-Flyknit-2-Black-Pure-Platinum/Images/Nike-Air-Force-1-Flyknit-2-Black-Pure-Platinum/Lv2/img'
     numImages = 36
-  }else if (sneaker === 'Jordan-33-Uni-Red') {
+  }else if (sneaker === 'Jordan XXXIII University Red') {
     urlPrefix = 'https://images.stockx.com/360/Air-Jordan-XXXIII-University-Red/Images/Air-Jordan-XXXIII-University-Red/Lv2/img'
     numImages = 36
-  }else if (sneaker === 'Air-Max-270-Orange-Blue') {
+  }else if (sneaker === 'Nike Air Max 270 Flyknit Laser Orange Blue Orbit') {
     urlPrefix = 'https://images.stockx.com/360/Nike-Air-Max-270-Flyknit-Laser-Orange-Blue-Orbit/Images/Nike-Air-Max-270-Flyknit-Laser-Orange-Blue-Orbit/Lv2/img'
     numImages = 36
-  }else if (sneaker === 'Air-Max-270-Bred') {
+  }else if (sneaker === 'Nike Air Max 270 Flyknit Bred') {
     urlPrefix = 'https://images.stockx.com/360/Nike-Air-Max-270-Flyknit-Bred/Images/Nike-Air-Max-270-Flyknit-Bred/Lv2/img'
     numImages = 36
-  }else if (sneaker === 'Epic-React-Flyknit-2-Blue-Void') {
+  }else if (sneaker === 'Nike Epic React Flyknit 2 Blue Void') {
     urlPrefix = 'https://images.stockx.com/360/Nike-Epic-React-Flyknit-2-Blue-Void/Images/Nike-Epic-React-Flyknit-2-Blue-Void/Lv2/img'
     numImages = 36
   }else {
@@ -101,34 +124,35 @@ function handleInputSlider() {
   loadImage(this.value)
 }
 
+/* Table */
 function handleRowClick(row){
-  const index = row.getAttribute('data-index');
+  const index = parseInt(row.dataset.index);
   if (index==0){
-    loadSneaker('Epic-React-Flyknit-2-Blue-Void')
+    loadSneaker('Nike Epic React Flyknit 2 Blue Void')
     row.style.backgroundColor='#E6E6FA'
   }else if (index==1){
-    loadSneaker('Air-Max-270-Bred')
+    loadSneaker('Nike Air Max 270 Flyknit Bred')
     row.style.backgroundColor='#E6E6FA'
   }else if (index==2){
-    loadSneaker('Air-Max-270-Orange-Blue')
+    loadSneaker('Nike Air Max 270 Flyknit Laser Orange Blue Orbit')
     row.style.backgroundColor='#E6E6FA'
   }else if (index==3){
-    loadSneaker('Jordan-33-Uni-Red')
+    loadSneaker('Jordan XXXIII University Red')
     row.style.backgroundColor='#E6E6FA'
   }else if (index==4){
-    loadSneaker('AF1-Oreo')
+    loadSneaker('Nike Air Force 1 Flyknit 2 Black Pure Platinum')
     row.style.backgroundColor='#E6E6FA'
   }else if (index==5){
-    loadSneaker('AJ1-GoreTex-Berry')
+    loadSneaker('Air Jordan 1 High Element Gore-Tex Berry')
     row.style.backgroundColor='#E6E6FA'
   }else if (index==6){
-    loadSneaker('AJ1-Visionaire')
+    loadSneaker('Air Jordan 1 Retro High OG Visionaire')
     row.style.backgroundColor='#E6E6FA'
   }else if (index==7){
-    loadSneaker('AJ1-Denim-W')
+    loadSneaker('Air Jordan 1 High OG Denim')
     row.style.backgroundColor='#E6E6FA'
   }else if (index==8){
-    loadSneaker('AJ1-Cement')
+    loadSneaker('Air Jordan 1 High White Cement')
     row.style.backgroundColor='#E6E6FA'
   }
 
