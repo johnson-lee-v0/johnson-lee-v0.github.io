@@ -35,7 +35,15 @@ h1{
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   margin-bottom: 1vw;
   border-radius: 20px;
-  transition: all 0.3s ease-in-out;
+  perspective: 1000px;
+  opacity: 0;
+  transform: rotateY(-90deg);
+  transition: opacity 0.5s, transform 1s;
+}
+
+.timeline-event.animate {
+  opacity: 1;
+  transform: rotateY(0deg);
 }
 
 .timeline-event:hover {
