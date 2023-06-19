@@ -1,17 +1,4 @@
-/*Loading Box*/ 
-window.addEventListener('load', function() {
-  var loadingAnimation = document.getElementById('loading-animation');
-  var sneakerCollection = document.getElementById('sneaker-collection');
-  
-  loadingAnimation.style.animation = 'open-box 2s ease-out';
-  
-  loadingAnimation.addEventListener('animationend', function() {
-    loadingAnimation.style.display = 'none';
-    sneakerCollection.style.visibility = 'visible';
-  });
-});
-
-// Testing Below
+/* Sneaker Data from JSON */
 fetch('sneaker-data.json')
   .then(response => response.json())
   .then(data => {
@@ -31,7 +18,6 @@ fetch('sneaker-data.json')
     });
   })
   .catch(error => console.error(error));
-// Testing Above
 
 /* Canvas */
 const slider = document.querySelector('#slider');

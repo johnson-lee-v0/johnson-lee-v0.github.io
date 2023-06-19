@@ -1,3 +1,12 @@
+/* Shoe Portfolio*/
+function showLoadingAnimation(event) {
+  event.preventDefault();
+
+  // Open the loading animation in a new tab or window
+  window.open(event.target.href, '_blank');
+}
+
+/* Homepage Animation */
 window.onload = function() {
     var text = document.getElementById("animate-name");
     text.style.opacity = 0;
