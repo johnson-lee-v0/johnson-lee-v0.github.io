@@ -28,16 +28,19 @@ const images = {};
 let startX, startY, moveX, moveY;
 canvas.addEventListener('touchstart', handleTouchStart);
 canvas.addEventListener('touchmove', handleTouchMove);
-window.addEventListener('load', () => loadSneaker('Air Jordan 1 High White Cement'));
+window.addEventListener('load', () => loadSneaker('Air Jordan 1 High Skyline'));
 
 function loadSneaker(sneaker) {
   let urlPrefix = ''
   let numImages = 0
   
-  if (sneaker === 'Air Jordan 1 High White Cement') {
+  if (sneaker === 'Air Jordan 1 High Skyline') {
+    urlPrefix = 'https://images.stockx.com/360/Air-Jordan-1-Retro-High-OG-Skyline/Images/Air-Jordan-1-Retro-High-OG-Skyline/Lv2/img'
+    numImages = 36
+  } else if (sneaker === 'Air Jordan 1 Retro High White Cement') {
     urlPrefix = 'https://images.stockx.com/360/Air-Jordan-1-Retro-High-OG-White-Cement/Images/Air-Jordan-1-Retro-High-OG-White-Cement/Lv2/img'
     numImages = 36
-  } else if (sneaker === 'Air Jordan 1 High OG Denim') {
+  }else if (sneaker === 'Air Jordan 1 High OG Denim') {
     urlPrefix = 'https://images.stockx.com/360/Air-Jordan-1-High-OG-Denim-W/Images/Air-Jordan-1-High-OG-Denim-W/Lv2/img'
     numImages = 36
   } else if (sneaker === 'Air Jordan 1 Retro High OG Visionaire') {

@@ -1,10 +1,16 @@
 {
     "sneakers": [
       {
-        "id": 8,
-        "sneaker-name": "Air Jordan 1 High White Cement",
+        "id": 9,
+        "sneaker-name": "Air Jordan 1 High Skyline",
         "brand": "Jordan",
-        "release-date": "02-25-2023"
+        "release-date": "04-08-2023"
+      },
+      {
+        "id": 8,
+        "sneaker-name": "Air Jordan 1 Retro High White Cement",
+        "brand": "Jordan",
+        "release-date": "05-06-2023"
       },
       {
         "id": 7,
