@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Title</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/project.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Portfolio</a>
+            <h1>Blackjack</h1>
+            <p>Blackjack simulator with reinforcement learning reccomendations</p>
+        </div>
+    </header>
+
+    <!-- Carousel Section -->
+    <section class="carousel">
+        <button class="carousel-button prev" onclick="moveSlide(-1)">&#8249;</button>
+        <div class="carousel-container">
+            <div class="carousel-slide active">
+                <img src="../image/Project_Carousel/Blackjack/Blackjack-1.png" alt="Slide 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="../image/Project_Carousel/Blackjack/Blackjack-2.png" alt="Slide 2">
+            </div>
+        </div>
+        <button class="carousel-button next" onclick="moveSlide(1)">&#8250;</button>
+        <div class="carousel-dots"></div> <!-- Dots will be added here dynamically -->
+    </section>
+    <!-- Installation & Usage Section -->
+    <section class="installation">
+        <div class="container">
+            <h1>Installation & Usage</h1>
+            <h2><a href=https://github.com/johnson-lee-v0/BlackJackSim>Github Repo</a></h2>
+            <p># You will need to have Python 3 installed on your system</p>
+        </div>
+    </section>
+    <script src="../js/carousel.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Title</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/project.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Portfolio</a>
+            <h1>Tetris</h1>
+            <p>Replica of the 1985 Game</p>
+        </div>
+    </header>
+
+    <!-- Carousel Section -->
+    <section class="carousel">
+        <button class="carousel-button prev" onclick="moveSlide(-1)">&#8249;</button>
+        <div class="carousel-container">
+            <div class="carousel-slide active">
+                <img src="../image/Project_Carousel/Tetris/Tetris1.jpg" alt="Slide 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="../image/Project_Carousel/Tetris/Tetris2.jpg" alt="Slide 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="../image/Project_Carousel/Tetris/Tetris3.jpg" alt="Slide 3">
+            </div>
+        </div>
+        <button class="carousel-button next" onclick="moveSlide(1)">&#8250;</button>
+        <div class="carousel-dots"></div> <!-- Dots will be added here dynamically -->
+    </section>
+    <!-- Installation & Usage Section -->
+    <section class="installation">
+        <div class="container">
+            <h1>Installation & Usage</h1>
+            <h2><a href=https://github.com/johnson-lee-v0/Tetris>Github Repo</a></h2>
+            <p># You will need to have Python installed on your system</p>
+            <pre>
+$ git clone https://github.com/johnson-lee-v0/Tetris.git
+$ cd Tetris
+$ python3 Tetris-1.py
+            </pre>
+        </div>
+    </section>
+    <!-- Project Overview Section -->
+    <section class="project-overview">
+        <div class="container">
+            <h1>Inspiration</h1>
+            <p>I have always enjoyed playing retro style games and decided I wanted to create my own to test the limits of stacking.</p>
+            <h1>Technologies</h1>
+            <p>This game is made in python and the starting menu uses easygui</p>
+            <h1>Future Ideas And Whats Next</h1>
+            <p>Features that were considered but not built into the game 
+            <br>1) Storing Pieces so player would have more flexibilty
+            <br>2) Tetris animation when four lines are cleared at the same time</p>
+        </div>
+    </section>
+    <script src="../js/carousel.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <!-- About Section -->
+    <div id="about" class="section-container">
+        <div class="section-title">About</div>
+        <div class="section-content">
+            <div class="hero-container">
+                <div class="portrait">
+                    <img src="image/PFP-Johnson Lee.png" alt="Portrait">
+                </div>
+                <div class="hero-text">
+                    <h1>JOHNSON LEE</h1>
+                    <ul>
+                        <li><span>📍</span>Senior Analyst @ RBC</li>
+                        <li><span>🏫</span>Graduated @ University of Waterloo</li>
+                        <li><span>🏎️</span>Avid F1 Fan</li>
+                        <li><span>👟</span>Nike Sneaker Collector<a href="loading.html">(Portfolio)</a></li>
+                    </ul>
+                    <div class="links">
+                        <a href="https://github.com/johnson-lee-v0">GitHub</a>
+                        <a href="https://www.linkedin.com/in/-johnson-lee-/">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Section -->
+    <div id="portfolio" class="section-container">
+        <div class="section-title">Portfolio</div>
+        <div class="section-content">
+            <div class="filter-buttons">
+                <button data-filter="all">All</button>
+                <button data-filter=".D">Data</button>
+                <button data-filter=".G">Other Projects</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item D">
+                    <img src="image/Project_Cover/LoL.jpg" alt="League of Legends">
+                    <h3>League of Legends Win Condition</h3>
+                    <p>---</p>
+                    <a href="" class="explore-button">Explore</a>
+                </div>
+                <div class="portfolio-item D G">
+                    <img src="image/Project_Cover/Blackjack.jpg" alt="BlackJack">
+                    <h3>Blackjack Simulator</h3>
+                    <p>Blackjack simulator with reinforcement learning reccomendations</p>
+                    <a href="projects/Blackjack.html" class="explore-button">Explore</a>
+                </div>
+                <div class="portfolio-item D">
+                    <img src="image/Project_Cover/Boston.png" alt="Boston Celtics Player Evolution">
+                    <h3>Boston Celtics Player Evolution</h3>
+                    <p>Understanding the development and rise of Boston Celtics two star players</p>
+                    <a href="projects/Boston_Star.html" class="explore-button">Explore</a>
+                </div>
+                <div class="portfolio-item D">
+                    <img src="image/Project_Cover/Twitter.png" alt="University Twitter X NLP">
+                    <h3>University Twitter x NLP</h3>
+                    <p>Using NLP to understand Universities' Twitter posts</p>
+                    <a href="/projects/University_Twitter.html" class="explore-button">Explore</a>
+                </div>
+                <div class="portfolio-item G">
+                    <img src="image/Project_Cover/Tetris.jpg" alt="Tetris">
+                    <h3>Tetris</h3>
+                    <p>Replica of the 1985 Game</p>
+                    <a href="/projects/Tetris.html" class="explore-button">Explore</a>
+                </div>
+                <div class="portfolio-item G">
+                    <img src="image/Project_Cover/SpaceInvaders.png" alt="Space Invaders">
+                    <h3>Space Invaders</h3>
+                    <p>Can you fend off the Invaders before they take over your planet?</p>
+                    <a href="/projects/Space_Invaders.html" class="explore-button">Explore</a>
+                </div>
+                <div class="portfolio-item G">
+                    <img src="image/Project_Cover/Asteroids.jpg" alt="Asteroids">
+                    <h3>Asteroids</h3>
+                    <p>Prevent the asteroids from hitting your ship as you navigate through the Galaxy</p>
+                    <a href="/projects/Asteroids.html" class="explore-button">Explore</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <footer id="contact" class="section-container">
+        <h2>See More Things Like This From Me</h2>
+        <div class="contact-row">
+            <p>To see all my work and experiences, check out my:</p>
+            <div class="contact-links">
+                <a href="https://github.com/johnson-lee-v0" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/-johnson-lee-/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/mixitup/dist/mixitup.min.js"></script>
+    <script>
+        // Initialize MixItUp for filtering and sorting
+        var mixer = mixitup('.portfolio-grid', {
+            selectors: {
+                target: '.portfolio-item'
+            },
+            animation: {
+                duration: 300
+            }
+        });
+    </script>
+</body>
+</html>

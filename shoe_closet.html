@@ -1,0 +1,29 @@
+<!-- Referenced https://github.com/LeonidasEsteban/360-javascript-->
+<head>
+  <title>Sneaker Portfolio - Johnson Lee</title>
+  <link rel="stylesheet" href="css/shoe_closet.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <!-- <div id="loading-animation"></div> -->
+  <div class="sneaker-port" id="sneaker-collection">
+  <h1>Johnson's Sneaker Portfolio</h1>
+  <canvas id="canvas" width="768" height="512"></canvas>
+  <br>
+  <input type="range" min="1" max="36" step="1" value="1" id="slider">
+  <p class="highlight">Click a row from the table to select a sneaker within my collection and get a 360 view</p>
+  <table id="data-table">
+      <thead>
+        <tr>
+          <th>Sneaker</th>
+          <th>Brand</th>
+          <th>Release Data</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  <script src="js/shoe.js"></script>
+</div>
+</body>

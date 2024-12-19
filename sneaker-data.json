@@ -1,0 +1,64 @@
+{
+    "sneakers": [
+      {
+        "id": 9,
+        "sneaker-name": "Air Jordan 1 High Skyline",
+        "brand": "Jordan",
+        "release-date": "04-08-2023"
+      },
+      {
+        "id": 8,
+        "sneaker-name": "Air Jordan 1 Retro High White Cement",
+        "brand": "Jordan",
+        "release-date": "05-06-2023"
+      },
+      {
+        "id": 7,
+        "sneaker-name": "Air Jordan 1 High OG Denim",
+        "brand": "Jordan",
+        "release-date": "08-12-2022"
+      },
+      {
+        "id": 6,
+        "sneaker-name": "Air Jordan 1 Retro High OG Visionaire",
+        "brand": "Jordan",
+        "release-date": "06-11-2022"
+      },
+      {
+        "id": 5,
+        "sneaker-name": "Air Jordan 1 High Element Gore-Tex Berry",
+        "brand": "Jordan",
+        "release-date": "03-28-2022"
+      },
+      {
+        "id": 4,
+        "sneaker-name": "Nike Air Force 1 Flyknit 2 Black Pure Platinum",
+        "brand": "Nike",
+        "release-date": "05-01-2019"
+      },
+      {
+        "id": 3,
+        "sneaker-name": "Jordan XXXIII University Red",
+        "brand": "Jordan",
+        "release-date": "10-18-2018"
+      },
+      {
+        "id": 2,
+        "sneaker-name": "Nike Air Max 270 Flyknit Laser Orange Blue Orbit",
+        "brand": "Nike",
+        "release-date": "10-18-2018"
+      },
+      {
+        "id": 1,
+        "sneaker-name": "Nike Air Max 270 Flyknit Bred",
+        "brand": "Nike",
+        "release-date": "10-18-2018"
+      },
+      {
+        "id": 0,
+        "sneaker-name": "Nike Epic React Flyknit 2 Blue Void",
+        "brand": "Nike",
+        "release-date": "10-18-2018"
+      }
+    ]
+  }

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Title</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/project.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Portfolio</a>
+            <h1>Asteroids</h1>
+            <p>Prevent the asteroids from hitting your ship as you navigate through the Galaxy</p>
+        </div>
+    </header>
+
+    <!-- Carousel Section -->
+    <section class="carousel">
+        <button class="carousel-button prev" onclick="moveSlide(-1)">&#8249;</button>
+        <div class="carousel-container">
+            <div class="carousel-slide active">
+                <img src="../image/Project_Carousel/Asteroids/Asteroids1.jpg" alt="Slide 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="../image/Project_Carousel/Asteroids/Asteroids2.jpg" alt="Slide 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="../image/Project_Carousel/Asteroids/Asteroids3.jpg" alt="Slide 3">
+            </div>
+        </div>
+        <button class="carousel-button next" onclick="moveSlide(1)">&#8250;</button>
+        <div class="carousel-dots"></div> <!-- Dots will be added here dynamically -->
+    </section>
+    <!-- Installation & Usage Section -->
+    <section class="installation">
+        <div class="container">
+            <h1>Installation & Usage</h1>
+            <h2><a href=https://github.com/johnson-lee-v0/Asteroids>Github Repo</a></h2>
+            <p># You will need to have Python installed on your system</p>
+            <pre>
+$ git clone https://github.com/johnson-lee-v0/Asteroids.git
+$ cd Asteroids
+$ python3 Asteroid.py
+            </pre>
+        </div>
+    </section>
+    <!-- Project Overview Section -->
+    <section class="project-overview">
+        <div class="container">
+            <h1>Inspiration</h1>
+            <p>I have always enjoyed playing retro style games and decided I wanted to create my own version of the famous asteroids.</p>
+            <h1>Technologies</h1>
+            <p>This game is made in python and the starting menu uses easygui</p>
+            <h1>Future Ideas And Whats Next</h1>
+            <p>Features that were considered but not built into the game includes adding adjustable diffuculty through 
+            <br>1) Adding time limit to each level 
+            <br>2) Limiting amount of ammunition that can be fired and add in a reload time</p>
+        </div>
+    </section>
+    <script src="../js/carousel.js"></script>
+</body>
+</html>

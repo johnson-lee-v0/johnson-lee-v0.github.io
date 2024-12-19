@@ -1,0 +1,114 @@
+/* General Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  line-height: 1.6;
+}
+
+/* Sneaker Portfolio Section */
+.sneaker-port {
+  background: linear-gradient(to right, #bddbfb, #edceee);  /* Light gradient */
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* Heading */
+.sneaker-port h1 {
+  font-size: 2rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Canvas */
+canvas {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  margin-bottom: 15px;
+}
+
+/* Slider */
+input[type="range"] {
+  width: 100%;
+  max-width: 500px;
+  margin: 10px 0;
+}
+
+/* Highlighted Text */
+.sneaker-port .highlight {
+  font-size: 1rem;
+  text-align: center;
+  color: #555;
+  margin-bottom: 15px;
+  padding: 0 10px;
+}
+
+/* Table */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+th, td {
+  text-align: left;
+  padding: 12px 8px;
+  border-bottom: 1px solid #ddd;
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: #333;
+  text-transform: uppercase;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+@media (max-width: 768px) {
+  /* Reduce heading size */
+  .sneaker-port h1 {
+    font-size: 1.5rem;
+  }
+
+  /* Canvas should remain responsive */
+  canvas {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Adjust table cell padding for smaller screens */
+  th, td {
+    padding: 8px 5px;
+    font-size: 0.8rem;
+  }
+
+  /* Center-align content for smaller screens */
+  .sneaker-port .highlight {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Smaller screen adjustments */
+  .sneaker-port h1 {
+    font-size: 1.2rem;
+  }
+
+  th, td {
+    padding: 5px 3px;
+    font-size: 0.7rem;
+  }
+}

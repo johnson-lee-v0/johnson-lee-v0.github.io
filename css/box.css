@@ -1,0 +1,310 @@
+/* Took From https://github.com/EminQasimov/3d-box-css*/
+html,body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: stretch;
+  margin: 0;
+  font: 1em sans-serif;
+}
+
+.scene {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F6F6F7;
+  overflow: hidden;
+}
+
+.box-bounced {
+    --width: 280px;
+    --height: 280px;
+    --length: 280px;
+  
+    --color1: #f1e767;
+    --color2: #feb645;
+    --color3: #7c5620;
+    --color4: #8e6425;
+    --color5: #020201;
+    --duration: 0.3s;
+    --rotateX: -23deg;
+    --rotateY: 45deg;
+    --bounce-down-distance: -400px;
+  
+    perspective: 2000px;
+    transform-style: preserve-3d;
+  }
+  
+  .box-jello {
+    position: relative;
+    width: var(--width);
+    height: var(--height);
+    left: calc(var(--width) / 2);
+    top: calc(var(--height) / 2);
+    transform: translate(-50%, -50%) scale(0.999, 0.999);
+    transform-style: preserve-3d;
+  }
+  
+  .box-cube {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    --halfX: calc(var(--width) / 2);
+    --halfY: calc(var(--height) / 2);
+    --halfZ: calc(var(--length) / 2);
+    transform-style: preserve-3d;
+    transform: rotateX(var(--rotateX)) rotateY(var(--rotateY));
+  }
+  
+  .box-side {
+    position: absolute;
+    background: linear-gradient(to left, var(--color1) 0%, var(--color2) 100%);
+  }
+  
+  .box-front {
+    width: 100%;
+    height: 100%;
+    transform: translateZ(var(--halfZ));
+    overflow: hidden;
+  }
+  
+  .box-back {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      var(--color5) 0%,
+      var(--color3) 50%,
+      var(--color4) 51%,
+      var(--color1) 100%
+    );
+    transform: rotateY(180deg) translateZ(var(--halfZ));
+  }
+  
+  .box-left {
+    width: var(--length);
+    height: 100%;
+    left: 50%;
+    transform: rotateY(-90deg) translate3d(-50%, 0, var(--halfX));
+    transform-origin: left center;
+  }
+  
+  .box-right {
+    width: var(--length);
+    height: 100%;
+    left: 50%;
+    transform: rotateY(90deg) translate3d(-50%, 0, var(--halfX));
+    transform-origin: left center;
+  
+    background: linear-gradient(
+      to left,
+      var(--color5) 0%,
+      var(--color3) 1%,
+      var(--color2) 100%
+    );
+  }
+  
+  .box-bottom {
+    width: 100%;
+    height: var(--length);
+    transform: rotateX(-90deg) translate3d(0, -50%, var(--halfY));
+    transform-origin: top right;
+    top: 50%;
+  }
+  
+  /* cover is top side of box */
+  .box-cover {
+    transform-style: preserve-3d;
+    background: transparent;
+    width: 100%;
+    height: var(--length);
+    transform: rotateX(90deg) translate3d(0, -50%, var(--halfY));
+    transform-origin: top right;
+    top: 50%;
+  }
+  
+  .box-cover-side {
+    position: absolute;
+    background: linear-gradient(to bottom, var(--color1) 0%, var(--color2) 100%);
+  
+    animation-duration: calc(var(--duration) * 3);
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-delay: calc(var(--duration) * 1.5);
+  }
+  
+  .box-cover-front {
+    bottom: 0;
+    width: 100%;
+    height: var(--halfZ);
+    max-height: var(--halfX);
+    transform-origin: center bottom;
+    z-index: 9;
+    border-radius: 4px 4px 0 0;
+  }
+  
+  .box-cover-back {
+    width: 100%;
+    height: var(--halfZ);
+    max-height: var(--halfX);
+    transform-origin: center top;
+    z-index: 9;
+    border-radius: 0 0 4px 4px;
+  }
+  
+  .box-cover-left {
+    width: var(--halfZ);
+    max-width: var(--halfX);
+    height: 100%;
+    transform-origin: left center;
+    border-radius: 0 4px 4px 0;
+  }
+  
+  .box-cover-right {
+    right: 0;
+    width: var(--halfZ);
+    max-width: var(--halfX);
+    height: 100%;
+    transform-origin: right center;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  /* label image over front side of box */
+  .box-label {
+    position: absolute;
+    z-index: 9;
+    width: 20%;
+    height: 20%;
+    min-width: 30px;
+    min-height: 30px;
+    bottom: 10px;
+    left: 10px;
+    background: url("image/Nike.png") center / contain no-repeat;
+  }
+
+   /* label image over front side of box */
+   .box-label-1 {
+    position: absolute;
+    z-index: 9;
+    width: 20%;
+    height: 20%;
+    min-width: 30px;
+    min-height: 30px;
+    bottom: 10px;
+    left: 10px;
+    background: url('/image/Jordan.png') center / contain no-repeat;
+  }
+  
+  /* animations */
+  
+  .animated.box-bounced {
+    animation: box-bounce-down var(--duration) ease-in forwards;
+  }
+  
+  .animated .box-jello {
+    animation: box-jello calc(var(--duration) * 2.5) ease var(--duration);
+  }
+  
+  .animated .box-cover-front {
+    animation-name: box-cover-front;
+  }
+  
+  .animated .box-cover-back {
+    animation-name: box-cover-back;
+  }
+  
+  .animated .box-cover-right {
+    animation-name: box-cover-right;
+  }
+  
+  .animated .box-cover-left {
+    animation-name: box-cover-left;
+  }
+  
+  @keyframes box-bounce-down {
+    0% {
+      transform: translateY(var(--bounce-down-distance));
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes box-jello {
+    0%,
+    100% {
+      transform: translate(-50%, -50%) scale(0.999, 0.999);
+    }
+    30% {
+      transform: translate(-50%, -50%) scale(1.25, 0.7);
+    }
+    40% {
+      transform: translate(-50%, -50%) scale(0.75, 1.35);
+    }
+    75% {
+      transform: translate(-50%, -50%) scale(1.05, 0.95);
+    }
+  }
+  
+  @keyframes box-cover-left {
+    0% {
+      transform: rotateY(0deg);
+    }
+    50% {
+      transform: rotateY(-190deg);
+    }
+    70% {
+      transform: rotateY(-150deg);
+    }
+    100% {
+      transform: rotateY(-190deg);
+    }
+  }
+  
+  @keyframes box-cover-right {
+    0% {
+      transform: rotateY(0deg);
+    }
+    50% {
+      transform: rotateY(170deg);
+    }
+    70% {
+      transform: rotateY(100deg);
+    }
+    100% {
+      transform: rotateY(140deg);
+    }
+  }
+  
+  @keyframes box-cover-back {
+    0% {
+      transform: rotateX(0deg);
+    }
+    50% {
+      transform: rotateX(190deg);
+    }
+    70% {
+      transform: rotateX(130deg);
+    }
+    100% {
+      transform: rotateX(140deg);
+    }
+  }
+  
+  @keyframes box-cover-front {
+    0% {
+      transform: rotateX(0deg);
+    }
+    50% {
+      transform: rotateX(-190deg);
+    }
+    70% {
+      transform: rotateX(-150deg);
+    }
+    100% {
+      transform: rotateX(-190deg);
+    }
+  }

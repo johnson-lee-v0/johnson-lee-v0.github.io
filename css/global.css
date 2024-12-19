@@ -1,0 +1,15 @@
+html, body {
+    height: 100%;  /* Make sure the body takes up the full height of the viewport */
+    background: linear-gradient(to right, #bddbfb, #edceee);  /* Light gradient */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
