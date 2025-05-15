@@ -8,10 +8,19 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+   <div class="scroll-container"> 
+   <!-- Container for Three.js -->
+   <section class="section" id="hero-section">
+    <div id="threejs-container"style="height: 100vh;"></div>
+    <div id="scroll-prompt">
+        <span>↓ Scroll Down to Meet Johnson ↓</span>
+      </div>
+  </section>
 
+    <section class="section" id="next-section">  
     <!-- About Section -->
     <div id="about" class="section-container">
-        <div class="section-title">About</div>
+        <div class="section-title fade-in">About</div>
         <div class="section-content">
             <div class="hero-container">
                 <div class="portrait">
@@ -20,10 +29,23 @@
                 <div class="hero-text">
                     <h1>JOHNSON LEE</h1>
                     <ul>
-                        <li><span>📍</span>Senior Analyst @ RBC</li>
-                        <li><span>🏫</span>Graduated @ University of Waterloo</li>
-                        <li><span>🏎️</span>Avid F1 Fan</li>
-                        <li><span>👟</span>Nike Sneaker Collector<a href="loading.html">(Portfolio)</a></li>
+                        <li>
+                            <span>📍</span>
+                            <a>Senior Analyst @ RBC</a>
+                        </li>
+                        <li>
+                            <span>🏫</span>
+                            <a>Graduate of University of Waterloo</a>
+                        </li>
+                        <li>
+                            <span>🏎️</span>
+                            <a>Avid F1 Fan</a>
+                        </li>
+                        <li>
+                            <span>👟</span> 
+                            <a>Nike Sneaker Collector ⬇️</a> 
+                        </li> 
+                        <li><a href="loading.html">View Portfolio</a></li>
                     </ul>
                     <div class="links">
                         <a href="https://github.com/johnson-lee-v0">GitHub</a>
@@ -32,6 +54,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    </section>
     </div>
 
     <!-- Portfolio Section -->
@@ -59,7 +83,7 @@
                 <div class="portfolio-item D">
                     <img src="image/Project_Cover/Boston.png" alt="Boston Celtics Player Evolution">
                     <h3>Boston Celtics Player Evolution</h3>
-                    <p>Understanding the development and rise of Boston Celtics two star players</p>
+                    <p>Understanding the development and rise of Boston Celtics' two star players</p>
                     <a href="projects/Boston_Star.html" class="explore-button">Explore</a>
                 </div>
                 <div class="portfolio-item D">
@@ -102,7 +126,16 @@
         </div>
     </footer>
     
-    
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "../js/builds/three.module.js",
+            "three/addons/": "./jsm/"
+          }
+        }
+      </script>
+
+    <script type="module" src="js/hero.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/mixitup/dist/mixitup.min.js"></script>
     <script>
@@ -114,7 +147,7 @@
             animation: {
                 duration: 300
             }
-        });
-    </script>
+        })
+    </script>   
 </body>
 </html>

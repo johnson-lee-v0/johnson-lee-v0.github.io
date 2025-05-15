@@ -1,4 +1,97 @@
-/* Global Section Styling */
+html {
+    scroll-behavior: smooth;
+  }
+   
+  * {
+    box-sizing: border-box;
+  }
+
+  .scroll-container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE/Edge */
+  }
+
+  .scroll-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+ }
+
+  .section {
+    scroll-snap-align: start;
+    height: 100vh;
+  }
+  .normal-content {
+    height: auto;
+    scroll-snap-align: none;
+  }
+  
+  #hero-section {
+    height: 100vh; /* or 120vh if you want some scroll */
+    position: relative;
+    overflow: hidden; /* clip contents */
+  }
+  
+  #threejs-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+    
+  #next-section.visible {
+    opacity: 1;
+  }  
+
+  #three-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    transition: opacity 1s ease-in-out;
+    pointer-events: none; /* prevent blocking mouse clicks */
+  }
+  
+  #three-canvas.hidden {
+    opacity: 0;
+  }  
+  
+  #scroll-prompt {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    text-align: center;
+    z-index: 10; /* Ensure it's above the 3D canvas */
+    font-size: 1.2rem;
+    color: #333;
+    animation: bounce 2s infinite;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+  
+  #scroll-prompt.hidden {
+    opacity: 0;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(10px);
+    }
+  }  
+  
+  /* Global Section Styling */
 .section-container {
     display: flex;
     align-items: center;
@@ -26,7 +119,8 @@
 
 /* About Section */
 #about {
-    background: linear-gradient(to right, rgba(244, 244, 244, 0.3), rgba(255, 255, 255, 0.6));  /* Light gradient */
+    height: 100vh;
+    background: linear-gradient(to right, rgba(244, 244, 244, 0.9), rgba(255, 255, 255, 0.9));  /* Light gradient */
 }
 
 .hero-container {
@@ -253,3 +347,31 @@
         margin-bottom: 1rem;
     }
 }
+
+@media (min-width: 769px) {
+    .section-container {
+      justify-content: center; /* Centers the inner content block */
+      gap: 60px; /* Adjust spacing between title and content */
+    }
+  
+    .hero-container {
+      max-width: 900px; /* Limit the width of the content block */
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+  
+    .hero-text {
+      max-width: none;
+      flex: 1;
+    }
+  
+    .section-title {
+      flex-shrink: 0;
+      font-size: 1.2rem;
+      margin-right: 20px;
+    }
+  }
+  
