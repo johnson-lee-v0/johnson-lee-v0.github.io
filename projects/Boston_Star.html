@@ -1,65 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Title</title>
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/project.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A modeling side project exploring historical signals associated with Boston Celtics wins.">
+  <title>Celtics Win-Signal Analysis — Johnson Lee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;family=Syne:wght@600;700;800&amp;family=DM+Sans:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/project.css?v=20260823-117">
 </head>
-<body>
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="container">
-            <a href="../index.html" class="back-link">← Back to Portfolio</a>
-            <h1>Boston Celtics Star Player Analysis</h1>
-            <p>Understanding the development and rise of Boston Celtics two star players (Jayson Tatum & Jaylen Brown)</p>
-        </div>
-    </header>
+<body class="case-page">
+  <a class="case-skip-link" href="#case-content">Skip to project</a>
 
-    <!-- Carousel Section -->
-    <section class="carousel">
-        <button class="carousel-button prev" onclick="moveSlide(-1)">&#8249;</button>
-        <div class="carousel-container">
-            <div class="carousel-slide active">
-                <img src="../image/Project_Carousel/Boston-Analysis/Slide1.JPG" alt="Slide 1">
-            </div>
-            <div class="carousel-slide">
-                <img src="../image/Project_Carousel/Boston-Analysis/Slide2.JPG" alt="Slide 2">
-            </div>
-            <div class="carousel-slide">
-                <img src="../image/Project_Carousel/Boston-Analysis/Slide3.JPG" alt="Slide 3">
-            </div>
-            <div class="carousel-slide">
-                <img src="../image/Project_Carousel/Boston-Analysis/Slide4.JPG" alt="Slide 4">
-            </div>
-            <div class="carousel-slide">
-                <img src="../image/Project_Carousel/Boston-Analysis/Slide5.JPG" alt="Slide 5">
-            </div>
-            <div class="carousel-slide">
-                <img src="../image/Project_Carousel/Boston-Analysis/Slide6.JPG" alt="Slide 6">
-            </div>
-            <div class="carousel-slide">
-                <img src="../image/Project_Carousel/Boston-Analysis/Slide7.JPG" alt="Slide 7">
-            </div>
-            <div class="carousel-slide">
-                <img src="../image/Project_Carousel/Boston-Analysis/Slide8.JPG" alt="Slide 8">
-            </div>
-            <div class="carousel-slide">
-                <img src="../image/Project_Carousel/Boston-Analysis/Slide9.JPG" alt="Slide 9">
-            </div>
-        </div>
-        <button class="carousel-button next" onclick="moveSlide(1)">&#8250;</button>
-        <div class="carousel-dots"></div> <!-- Dots will be added here dynamically -->
+  <header class="case-hero">
+    <div class="container">
+      <a href="../index.html#projects" class="back-link">← Back to side projects</a>
+      <p class="case-kicker">Sports analytics</p>
+      <h1>Celtics Win-Signal Analysis</h1>
+      <p class="case-summary">A model-comparison study exploring which historical Celtics metrics separate wins from losses across three classification approaches.</p>
+      <ul class="case-tags" role="list">
+        <li>Python</li>
+        <li>Web scraping</li>
+        <li>EDA</li>
+        <li>Classification</li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="case-content">
+    <section class="case-overview" aria-label="Project overview">
+      <div class="container case-overview-grid">
+        <article>
+          <p class="case-label">Question</p>
+          <h2>What historical signals separate a win?</h2>
+          <p>Explore team and player metrics, then test how well different feature sets classify the historical outcomes.</p>
+        </article>
+        <article>
+          <p class="case-label">Approach</p>
+          <h2>Compare multiple model families</h2>
+          <p>Scrape and transform game data, explore feature relationships, then compare Naive Bayes, KNN, and SVM approaches.</p>
+        </article>
+        <article>
+          <p class="case-label">Models compared</p>
+          <h2>Three classification approaches</h2>
+          <p>The project explores how different feature sets behave across Naive Bayes, KNN, and SVM models.</p>
+        </article>
+      </div>
     </section>
-    <!-- Installation & Usage Section -->
-    <section class="installation">
-        <div class="container">
-            <h1>Installation & Usage</h1>
-            <h2><a href=https://github.com/johnson-lee-v0/Boston-Celtics-Player-Analysis>Github Repo</a></h2>
-            <p># You will need to have Jupyter Notebook installed on your system</p>
+
+    <section class="case-visuals" aria-labelledby="visuals-title">
+      <div class="container">
+        <div class="case-section-head">
+          <div>
+            <p class="case-label">Visual analysis</p>
+            <h2 id="visuals-title">From exploration to model comparison</h2>
+          </div>
+          <p>Use the controls or arrow keys to move through the original analysis.</p>
         </div>
+
+        <div class="carousel" aria-label="Celtics win-signal analysis slides" tabindex="0">
+          <button class="carousel-button prev" type="button" onclick="moveSlide(-1)" aria-label="Previous slide">&#8249;</button>
+          <div class="carousel-viewport">
+            <div class="carousel-container">
+              <div class="carousel-slide active"><img src="../image/Project_Carousel/Boston-Analysis/Slide1.JPG" alt="Celtics analysis slide 1 of 10"></div>
+              <div class="carousel-slide"><img src="../image/Project_Carousel/Boston-Analysis/Slide2.JPG" alt="Celtics analysis slide 2 of 10"></div>
+              <div class="carousel-slide"><img src="../image/Project_Carousel/Boston-Analysis/Slide3.JPG" alt="Celtics analysis slide 3 of 10"></div>
+              <div class="carousel-slide"><img src="../image/Project_Carousel/Boston-Analysis/Slide4.JPG" alt="Celtics analysis slide 4 of 10"></div>
+              <div class="carousel-slide"><img src="../image/Project_Carousel/Boston-Analysis/Slide5.JPG" alt="Celtics analysis slide 5 of 10"></div>
+              <div class="carousel-slide"><img src="../image/Project_Carousel/Boston-Analysis/Slide6.JPG" alt="Celtics analysis slide 6 of 10"></div>
+              <div class="carousel-slide"><img src="../image/Project_Carousel/Boston-Analysis/Slide7.JPG" alt="Celtics analysis slide 7 of 10"></div>
+              <div class="carousel-slide"><img src="../image/Project_Carousel/Boston-Analysis/Slide8.JPG" alt="Celtics analysis slide 8 of 10"></div>
+              <div class="carousel-slide"><img src="../image/Project_Carousel/Boston-Analysis/Slide9.JPG" alt="Celtics analysis slide 9 of 10"></div>
+              <div class="carousel-slide"><img src="../image/Project_Carousel/Boston-Analysis/Slide10.JPG" alt="Celtics analysis slide 10 of 10"></div>
+            </div>
+          </div>
+          <button class="carousel-button next" type="button" onclick="moveSlide(1)" aria-label="Next slide">&#8250;</button>
+          <div class="carousel-dots" aria-label="Choose a slide"></div>
+        </div>
+        <div class="case-source-row">
+          <a class="case-button" href="https://github.com/johnson-lee-v0/Boston-Celtics-Player-Analysis" target="_blank" rel="noopener">View repository ↗</a>
+        </div>
+      </div>
     </section>
-    <script src="../js/carousel.js"></script>
+  </main>
+
+  <script src="../js/carousel.js?v=20260823-117"></script>
 </body>
 </html>

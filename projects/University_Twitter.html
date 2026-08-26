@@ -1,81 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Title</title>
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/project.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An exploratory NLP side project comparing the public content strategies of three Ontario universities.">
+  <title>University Content Strategy Benchmark — Johnson Lee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;family=Syne:wght@600;700;800&amp;family=DM+Sans:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/project.css?v=20260823-117">
 </head>
-<body>
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="container">
-            <a href="../index.html" class="back-link">← Back to Portfolio</a>
-            <h1>University Twitter Account Analysis</h1>
-            <p>Using NLP to understand Universities' Twitter posts</p>
-        </div>
-    </header>
+<body class="case-page">
+  <a class="case-skip-link" href="#case-content">Skip to project</a>
 
-    <!-- Carousel Section -->
-    <section class="carousel">
-        <button class="carousel-button prev" onclick="moveSlide(-1)">&#8249;</button>
-        <div class="carousel-container">
-            <div class="carousel-slide active">
-                <img src="../image/Project_Carousel/University Twitter Account Analysis/Slide1.JPG" alt="Slide 1">
-            </div>
-            <div class="carousel-slide">
-                <img src="../image/Project_Carousel/University Twitter Account Analysis/Slide2.JPG" alt="Slide 2">
-            </div>
-            <div class="carousel-slide">
-                <img src="../image/Project_Carousel/University Twitter Account Analysis/Slide3.JPG" alt="Slide 3">
-            </div>
-            <div class="carousel-slide">
-                <img src="../image/Project_Carousel/University Twitter Account Analysis/Slide4.JPG" alt="Slide 4">
-            </div>
-            <div class="carousel-slide">
-                <img src="../image/Project_Carousel/University Twitter Account Analysis/Slide5.JPG" alt="Slide 5">
-            </div>
-            <div class="carousel-slide">
-                <img src="../image/Project_Carousel/University Twitter Account Analysis/Slide6.JPG" alt="Slide 6">
-            </div>
-            <div class="carousel-slide">
-                <img src="../image/Project_Carousel/University Twitter Account Analysis/Slide7.JPG" alt="Slide 7">
-            </div>
-            <div class="carousel-slide">
-                <img src="../image/Project_Carousel/University Twitter Account Analysis/Slide8.JPG" alt="Slide 8">
-            </div>
-            <div class="carousel-slide">
-                <img src="../image/Project_Carousel/University Twitter Account Analysis/Slide9.JPG" alt="Slide 9">
-            </div>
-            <div class="carousel-slide">
-                <img src="../image/Project_Carousel/University Twitter Account Analysis/Slide10.JPG" alt="Slide 10">
-            </div>
-            <div class="carousel-slide">
-                <img src="../image/Project_Carousel/University Twitter Account Analysis/Slide11.JPG" alt="Slide 11">
-            </div>
-            <div class="carousel-slide">
-                <img src="../image/Project_Carousel/University Twitter Account Analysis/Slide12.JPG" alt="Slide 12">
-            </div>
-            <div class="carousel-slide">
-                <img src="../image/Project_Carousel/University Twitter Account Analysis/Slide13.JPG" alt="Slide 13">
-            </div>
-        </div>
-        <button class="carousel-button next" onclick="moveSlide(1)">&#8250;</button>
-        <div class="carousel-dots"></div> <!-- Dots will be added here dynamically -->
+  <header class="case-hero">
+    <div class="container">
+      <a href="../index.html#projects" class="back-link">← Back to side projects</a>
+      <p class="case-kicker">NLP exploration</p>
+      <h1>University Content Strategy Benchmark</h1>
+      <p class="case-summary">A comparative NLP analysis of how Waterloo, U of T, and Western communicate with their public audiences—and what content hypotheses emerge for prospective students.</p>
+      <ul class="case-tags" role="list">
+        <li>~9,600 posts</li>
+        <li>3 universities</li>
+        <li>R</li>
+        <li>NLP</li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="case-content">
+    <section class="case-overview" aria-label="Project overview">
+      <div class="container case-overview-grid">
+        <article>
+          <p class="case-label">Question</p>
+          <h2>Where does each university's public content differ?</h2>
+          <p>Compare themes, tone, and named entities across historical posts, then identify content gaps worth exploring.</p>
+        </article>
+        <article>
+          <p class="case-label">Approach</p>
+          <h2>Benchmark first, interpret second</h2>
+          <p>Historical posts were prepared and analyzed in R using sentiment and entity analysis, then compared across the three institutions.</p>
+        </article>
+        <article>
+          <p class="case-label">Output</p>
+          <h2>Patterns translated into hypotheses</h2>
+          <p>The analysis surfaced differences in student-life, alumni, and community content that could inform future content testing.</p>
+        </article>
+      </div>
     </section>
-    <!-- Installation & Usage Section -->
-    <section class="installation">
-        <div class="container">
-            <h1>Installation & Usage</h1>
-            <h2><a href=https://github.com/johnson-lee-v0/University-Twitter-Analysis>Github Repo</a></h2>
-            <p># You will need to have R installed on your system</p>
-            <pre>
-                $ git clone https://github.com/johnson-lee-v0/University-Twitter-Analysis.git
-                $ cd University-Twitter-Analysis
-                            </pre>
+
+    <section class="case-visuals" aria-labelledby="visuals-title">
+      <div class="container">
+        <div class="case-section-head">
+          <div>
+            <p class="case-label">Visual analysis</p>
+            <h2 id="visuals-title">From source content to recommendations</h2>
+          </div>
+          <p>Use the controls or arrow keys to move through the original analysis.</p>
         </div>
+
+        <div class="carousel" aria-label="University content analysis slides" tabindex="0">
+          <button class="carousel-button prev" type="button" onclick="moveSlide(-1)" aria-label="Previous slide">&#8249;</button>
+          <div class="carousel-viewport">
+            <div class="carousel-container">
+              <div class="carousel-slide active"><img src="../image/Project_Carousel/University Twitter Account Analysis/Slide1.JPG" alt="University content analysis slide 1 of 13"></div>
+              <div class="carousel-slide"><img src="../image/Project_Carousel/University Twitter Account Analysis/Slide2.JPG" alt="University content analysis slide 2 of 13"></div>
+              <div class="carousel-slide"><img src="../image/Project_Carousel/University Twitter Account Analysis/Slide3.JPG" alt="University content analysis slide 3 of 13"></div>
+              <div class="carousel-slide"><img src="../image/Project_Carousel/University Twitter Account Analysis/Slide4.JPG" alt="University content analysis slide 4 of 13"></div>
+              <div class="carousel-slide"><img src="../image/Project_Carousel/University Twitter Account Analysis/Slide5.JPG" alt="University content analysis slide 5 of 13"></div>
+              <div class="carousel-slide"><img src="../image/Project_Carousel/University Twitter Account Analysis/Slide6.JPG" alt="University content analysis slide 6 of 13"></div>
+              <div class="carousel-slide"><img src="../image/Project_Carousel/University Twitter Account Analysis/Slide7.JPG" alt="University content analysis slide 7 of 13"></div>
+              <div class="carousel-slide"><img src="../image/Project_Carousel/University Twitter Account Analysis/Slide8.JPG" alt="University content analysis slide 8 of 13"></div>
+              <div class="carousel-slide"><img src="../image/Project_Carousel/University Twitter Account Analysis/Slide9.JPG" alt="University content analysis slide 9 of 13"></div>
+              <div class="carousel-slide"><img src="../image/Project_Carousel/University Twitter Account Analysis/Slide10.JPG" alt="University content analysis slide 10 of 13"></div>
+              <div class="carousel-slide"><img src="../image/Project_Carousel/University Twitter Account Analysis/Slide11.JPG" alt="University content analysis slide 11 of 13"></div>
+              <div class="carousel-slide"><img src="../image/Project_Carousel/University Twitter Account Analysis/Slide12.JPG" alt="University content analysis slide 12 of 13"></div>
+              <div class="carousel-slide"><img src="../image/Project_Carousel/University Twitter Account Analysis/Slide13.JPG" alt="University content analysis slide 13 of 13"></div>
+            </div>
+          </div>
+          <button class="carousel-button next" type="button" onclick="moveSlide(1)" aria-label="Next slide">&#8250;</button>
+          <div class="carousel-dots" aria-label="Choose a slide"></div>
+        </div>
+        <div class="case-source-row">
+          <a class="case-button" href="https://github.com/johnson-lee-v0/University-Twitter-Analysis" target="_blank" rel="noopener">View repository ↗</a>
+        </div>
+      </div>
     </section>
-    <script src="../js/carousel.js"></script>
+  </main>
+
+  <script src="../js/carousel.js?v=20260823-117"></script>
 </body>
 </html>

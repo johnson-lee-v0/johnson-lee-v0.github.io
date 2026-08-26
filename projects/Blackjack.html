@@ -1,49 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Title</title>
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/project.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A Python engineering experiment combining a playable blackjack simulator with event logging and exploratory hand-state clustering.">
+  <title>Blackjack Decision Simulator — Johnson Lee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;family=Syne:wght@600;700;800&amp;family=DM+Sans:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/project.css?v=20260823-117">
 </head>
-<body>
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="container">
-            <a href="../index.html" class="back-link">← Back to Portfolio</a>
-            <h1>Blackjack</h1>
-            <p>Blackjack simulator with reinforcement learning reccomendations</p>
-        </div>
-    </header>
+<body class="case-page">
+  <a class="case-skip-link" href="#case-content">Skip to project</a>
 
-    <!-- Carousel Section -->
-    <section class="carousel">
-        <button class="carousel-button prev" onclick="moveSlide(-1)">&#8249;</button>
-        <div class="carousel-container">
-            <div class="carousel-slide active">
-                <img src="../image/Project_Carousel/Blackjack/Blackjack-1.png" alt="Slide 1">
-            </div>
-            <div class="carousel-slide">
-                <img src="../image/Project_Carousel/Blackjack/Blackjack-2.png" alt="Slide 2">
-            </div>
-        </div>
-        <button class="carousel-button next" onclick="moveSlide(1)">&#8250;</button>
-        <div class="carousel-dots"></div> <!-- Dots will be added here dynamically -->
+  <header class="case-hero">
+    <div class="container">
+      <a href="../index.html#projects" class="back-link">← Back to side projects</a>
+      <p class="case-kicker">Python build</p>
+      <h1>Blackjack Decision Simulator</h1>
+      <p class="case-summary">A six-deck Python desktop simulator combining playable blackjack, strategy tables, betting mechanics, event logging, a remaining-card tally, and exploratory hand-state analysis.</p>
+      <ul class="case-tags" role="list">
+        <li>Python</li>
+        <li>SQLite</li>
+        <li>Desktop UI</li>
+        <li>K-means</li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="case-content">
+    <section class="case-overview" aria-label="Project overview">
+      <div class="container case-overview-grid">
+        <article>
+          <p class="case-label">Question</p>
+          <h2>How can a game become an analyzable system?</h2>
+          <p>Capture decisions and outcomes inside a playable environment, then make the resulting behavior available for later analysis.</p>
+        </article>
+        <article>
+          <p class="case-label">Approach</p>
+          <h2>Build the loop and the data layer</h2>
+          <p>Combine game-state logic, a desktop interface, strategy tables, a remaining-card tally, betting mechanics, and SQLite event storage.</p>
+        </article>
+        <article>
+          <p class="case-label">Output</p>
+          <h2>Gameplay plus exploratory clustering</h2>
+          <p>Logged hand states and actions can be explored after play using an experimental K-means view.</p>
+        </article>
+      </div>
     </section>
-    <!-- Installation & Usage Section -->
-    <section class="installation">
-        <div class="container">
-            <h1>Installation & Usage</h1>
-            <h2><a href=https://github.com/johnson-lee-v0/BlackJackSim>Github Repo</a></h2>
-            <p># You will need to have Python 3 installed on your system</p>
-            <pre>
-                $ git clone https://github.com/johnson-lee-v0/BlackJackSim.git
-                $ cd BlackJackSim
-                $ python3 main.py
-                            </pre>
+
+    <section class="case-visuals" aria-labelledby="visuals-title">
+      <div class="container">
+        <div class="case-section-head">
+          <div>
+            <p class="case-label">Product views</p>
+            <h2 id="visuals-title">Playable interface and decision table</h2>
+          </div>
+          <p>Use the controls or arrow keys to move through the application views.</p>
         </div>
+
+        <div class="carousel" aria-label="Blackjack simulator views" tabindex="0">
+          <button class="carousel-button prev" type="button" onclick="moveSlide(-1)" aria-label="Previous slide">&#8249;</button>
+          <div class="carousel-viewport">
+            <div class="carousel-container">
+              <div class="carousel-slide active"><img src="../image/Project_Carousel/Blackjack/Blackjack-1.png" alt="Blackjack simulator view 1 of 2"></div>
+              <div class="carousel-slide"><img src="../image/Project_Carousel/Blackjack/Blackjack-2.png" alt="Blackjack simulator view 2 of 2"></div>
+            </div>
+          </div>
+          <button class="carousel-button next" type="button" onclick="moveSlide(1)" aria-label="Next slide">&#8250;</button>
+          <div class="carousel-dots" aria-label="Choose a slide"></div>
+        </div>
+        <div class="case-source-row">
+          <a class="case-button" href="https://github.com/johnson-lee-v0/BlackJackSim" target="_blank" rel="noopener">View repository ↗</a>
+        </div>
+      </div>
     </section>
-    <script src="../js/carousel.js"></script>
+  </main>
+
+  <script src="../js/carousel.js?v=20260823-117"></script>
 </body>
 </html>

@@ -1,153 +1,314 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Johnson Lee's portfolio across product solutions, commercial analytics, public launch work, and applied ML/NLP projects.">
+  <title>Johnson Lee — Product Solutions, Analytics &amp; Applied ML/NLP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;family=Syne:wght@400;600;700;800&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css?v=20260826-122">
+  <script src="./js/persona-particles.js?v=20260826-122" defer></script>
+  <script src="./js/script.js?v=20260826-122" defer></script>
 </head>
 <body>
-   <div class="scroll-container"> 
-   <!-- Container for Three.js -->
-   <section class="section" id="hero-section">
-    <div id="threejs-container"style="height: 100vh;"></div>
-    <div id="scroll-prompt">
-        <span>↓ Scroll Down to Meet Johnson ↓</span>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <nav aria-label="Primary navigation">
+    <a class="nav-logo" href="#about" aria-label="Johnson Lee — home">Johnson<span>.</span></a>
+    <div class="nav-right">
+      <a class="btn" href="#about">About</a>
+      <a class="btn" href="#work">Work</a>
+      <a class="btn" href="#projects">Projects</a>
+      <a class="btn" href="#hobbies">Hobbies</a>
+      <a class="btn btn-accent" href="#contact">Say hi</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section class="hero" id="about" aria-labelledby="about-title">
+      <div class="hero-sticky">
+        <div class="orb orb-1" aria-hidden="true"></div>
+        <div class="orb orb-2" aria-hidden="true"></div>
+        <div class="orb orb-3" aria-hidden="true"></div>
+        <div class="hero-grid" aria-hidden="true"></div>
+
+        <div class="persona-stage" aria-hidden="true">
+          <div class="persona-canvas-wrap" id="persona-canvas-wrap">
+            <canvas id="persona-canvas"></canvas>
+            <pre class="persona-fallback">                         •
+                     • ••• •
+                    • ▰───▰ •
+                     •••••       •
+                   •••••••••    •••
+                 •••••••••••  ••
+                ••••••••••••••
+                 •••••••••••
+                  •••••••••
+                   ••   ••
+                   ••   ••
+                  •••   •••
+                 •••     •••</pre>
+          </div>
+        </div>
+
+        <div class="hero-content">
+          <div class="hero-layout">
+            <div class="hero-copy">
+              <h1 class="hero-title" id="about-title">
+                Hello there.<br>
+                <span class="outline">I'm <span class="love">Johnson.</span></span>
+              </h1>
+
+              <p class="hero-lede">I find answers in complex data.</p>
+              <ul class="hero-bio" role="list">
+                <li><span class="hero-bio-emoji" aria-hidden="true">📍</span><span>Product Solutions at StackAdapt. Ex-RBC</span></li>
+                <li><span class="hero-bio-emoji" aria-hidden="true">🎓</span><span>BAFM graduate from University of Waterloo</span></li>
+              </ul>
+
+              <div class="hero-actions">
+                <a class="btn btn-accent" href="#work" data-hero-exit>View selected work ↓</a>
+                <a class="btn" href="https://www.linkedin.com/in/-johnson-lee-/" target="_blank" rel="noopener">Connect<span class="sr-only"> on LinkedIn (opens in a new tab)</span></a>
+              </div>
+
+              <div class="hero-utility">
+                <button class="scroll-cue" id="hero-sequence-trigger" type="button">
+                  <span data-scroll-cue-label aria-live="polite">Walking on stage…</span>
+                  <span class="scroll-cue-arrow" aria-hidden="true">↓</span>
+                </button>
+                <button class="persona-motion-toggle" id="persona-motion-toggle" type="button">Pause animation</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-  </section>
-
-    <section class="section" id="next-section">  
-    <!-- About Section -->
-    <div id="about" class="section-container">
-        <div class="section-title fade-in">About</div>
-        <div class="section-content">
-            <div class="hero-container">
-                <div class="portrait">
-                    <img src="image/PFP-Johnson Lee.png" alt="Portrait">
-                </div>
-                <div class="hero-text">
-                    <h1>JOHNSON LEE</h1>
-                    <ul>
-                        <li>
-                            <span>📍</span>
-                            <a>Senior Analyst @ RBC</a>
-                        </li>
-                        <li>
-                            <span>🏫</span>
-                            <a>Graduate of University of Waterloo</a>
-                        </li>
-                        <li>
-                            <span>🏎️</span>
-                            <a>Avid F1 Fan</a>
-                        </li>
-                        <li>
-                            <span>👟</span> 
-                            <a>Nike Sneaker Collector ⬇️</a> 
-                        </li> 
-                        <li><a href="loading.html">View Portfolio</a></li>
-                    </ul>
-                    <div class="links">
-                        <a href="https://github.com/johnson-lee-v0">GitHub</a>
-                        <a href="https://www.linkedin.com/in/-johnson-lee-/">LinkedIn</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     </section>
-    </div>
 
-    <!-- Portfolio Section -->
-    <div id="portfolio" class="section-container">
-        <div class="section-title">Portfolio</div>
-        <div class="section-content">
-            <div class="filter-buttons">
-                <button data-filter="all">All</button>
-                <button data-filter=".D">Data</button>
-                <button data-filter=".G">Other Projects</button>
+    <section class="section-wrap professional-section" id="work" aria-labelledby="work-title">
+      <p class="section-label">// professional work</p>
+      <div class="section-head work-section-head">
+        <h2 class="section-title" id="work-title">Selected launches &amp; partnerships</h2>
+        <p class="section-intro">Brief public context for work connected to my roles.</p>
+      </div>
+
+      <div class="work-grid">
+        <article class="work-card work-card-stackadapt reveal" aria-labelledby="stackadapt-title">
+          <div class="work-card-accent" aria-hidden="true"></div>
+          <header class="work-card-header">
+            <div class="company-mark company-mark-stackadapt" aria-hidden="true">
+              <img src="./image/stackadapt-mark.svg" alt="" width="30" height="30">
             </div>
-            <div class="portfolio-grid">
-                <!-- <div class="portfolio-item D">
-                    <img src="image/Project_Cover/LoL.jpg" alt="League of Legends">
-                    <h3>League of Legends Win Condition</h3>
-                    <p>---</p>
-                    <a href="" class="explore-button">Explore</a>
-                </div> -->
-                <div class="portfolio-item D G">
-                    <img src="image/Project_Cover/Blackjack.jpg" alt="BlackJack">
-                    <h3>Blackjack Simulator</h3>
-                    <p>Blackjack simulator with reinforcement learning reccomendations</p>
-                    <a href="projects/Blackjack.html" class="explore-button">Explore</a>
-                </div>
-                <div class="portfolio-item D">
-                    <img src="image/Project_Cover/Boston.png" alt="Boston Celtics Player Evolution">
-                    <h3>Boston Celtics Player Evolution</h3>
-                    <p>Understanding the development and rise of Boston Celtics' two star players</p>
-                    <a href="projects/Boston_Star.html" class="explore-button">Explore</a>
-                </div>
-                <div class="portfolio-item D">
-                    <img src="image/Project_Cover/Twitter.png" alt="University Twitter X NLP">
-                    <h3>University Twitter x NLP</h3>
-                    <p>Using NLP to understand Universities' Twitter posts</p>
-                    <a href="/projects/University_Twitter.html" class="explore-button">Explore</a>
-                </div>
-                <div class="portfolio-item G">
-                    <img src="image/Project_Cover/Tetris.jpg" alt="Tetris">
-                    <h3>Tetris</h3>
-                    <p>Replica of the 1985 Game</p>
-                    <a href="/projects/Tetris.html" class="explore-button">Explore</a>
-                </div>
-                <div class="portfolio-item G">
-                    <img src="image/Project_Cover/SpaceInvaders.png" alt="Space Invaders">
-                    <h3>Space Invaders</h3>
-                    <p>Can you fend off the Invaders before they take over your planet?</p>
-                    <a href="/projects/Space_Invaders.html" class="explore-button">Explore</a>
-                </div>
-                <div class="portfolio-item G">
-                    <img src="image/Project_Cover/Asteroids.jpg" alt="Asteroids">
-                    <h3>Asteroids</h3>
-                    <p>Prevent the asteroids from hitting your ship as you navigate through the Galaxy</p>
-                    <a href="/projects/Asteroids.html" class="explore-button">Explore</a>
-                </div>
+            <div class="company-heading">
+              <h3 id="stackadapt-title">StackAdapt</h3>
+              <p class="work-role">Product Solutions • Political</p>
             </div>
+            <span class="work-status work-status-current">Current</span>
+          </header>
+
+          <p class="work-card-label" id="stackadapt-work-label">Featured launch</p>
+          <ul class="work-link-list" role="list" aria-labelledby="stackadapt-work-label">
+            <li>
+              <a class="work-link work-link-feature" href="https://www.businesswire.com/news/home/20260715034088/en/StackAdapt-Launches-Political-Targeting-and-Measurement-Suite-to-Help-Campaigns-Optimize-Voter-Outreach-Ahead-of-the-2026-Midterms" target="_blank" rel="noopener">
+                <span class="work-link-copy">
+                  <strong>Political Targeting &amp; Measurement Suite</strong>
+                  <span>Launch team</span>
+                </span>
+                <span class="work-link-arrow" aria-hidden="true">↗</span>
+                <span class="sr-only"> (opens in a new tab)</span>
+              </a>
+            </li>
+          </ul>
+        </article>
+
+        <article class="work-card work-card-rbc reveal" aria-labelledby="rbc-title">
+          <div class="work-card-accent" aria-hidden="true"></div>
+          <header class="work-card-header">
+            <div class="company-mark company-mark-rbc" aria-hidden="true">
+              <img src="./image/rbc-shield.svg" alt="" width="26" height="31">
+            </div>
+            <div class="company-heading">
+              <h3 id="rbc-title">Royal Bank of Canada</h3>
+              <p class="work-role">Data Analyst • Partnership Analytics</p>
+            </div>
+            <span class="work-status">Previous</span>
+          </header>
+
+          <p class="work-card-label" id="rbc-work-label">Partnerships</p>
+          <ul class="work-link-list work-link-list-partners" role="list" aria-labelledby="rbc-work-label">
+            <li>
+              <a class="work-link" href="https://www.rbc.com/newsroom/news/article.html?article=122554" target="_blank" rel="noopener">
+                <span class="work-link-copy">
+                  <strong>Petro-Canada</strong>
+                </span>
+                <span class="work-link-arrow" aria-hidden="true">↗</span>
+                <span class="sr-only"> (opens in a new tab)</span>
+              </a>
+            </li>
+            <li>
+              <a class="work-link" href="https://www.rbc.com/newsroom/news/article.html?article=126062" target="_blank" rel="noopener">
+                <span class="work-link-copy">
+                  <strong>Canadian Tire</strong>
+                </span>
+                <span class="work-link-arrow" aria-hidden="true">↗</span>
+                <span class="sr-only"> (opens in a new tab)</span>
+              </a>
+            </li>
+            <li>
+              <a class="work-link" href="https://www.rbc.com/newsroom/news/article.html?article=125947" target="_blank" rel="noopener">
+                <span class="work-link-copy">
+                  <strong>Metro</strong>
+                </span>
+                <span class="work-link-arrow" aria-hidden="true">↗</span>
+                <span class="sr-only"> (opens in a new tab)</span>
+              </a>
+            </li>
+            <li>
+              <a class="work-link" href="https://www.rbc.com/newsroom/news/article.html?article=126051" target="_blank" rel="noopener">
+                <span class="work-link-copy">
+                  <strong>DoorDash</strong>
+                </span>
+                <span class="work-link-arrow" aria-hidden="true">↗</span>
+                <span class="sr-only"> (opens in a new tab)</span>
+              </a>
+            </li>
+            <li>
+              <a class="work-link" href="https://www.rbc.com/newsroom/news/article.html?article=125393" target="_blank" rel="noopener">
+                <span class="work-link-copy">
+                  <strong>Rexall</strong>
+                </span>
+                <span class="work-link-arrow" aria-hidden="true">↗</span>
+                <span class="sr-only"> (opens in a new tab)</span>
+              </a>
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-wrap projects-section" id="projects" aria-labelledby="projects-title">
+      <p class="section-label">// independent work</p>
+      <div class="section-head projects-section-head">
+        <h2 class="section-title" id="projects-title">Selected side projects</h2>
+        <p class="section-intro">Independent explorations across analytics, NLP, and software.</p>
+      </div>
+      <div id="projects-grid" class="projects-grid"></div>
+    </section>
+
+    <section class="section-wrap hobbies-section" id="hobbies" aria-labelledby="hobbies-title">
+      <p class="section-label">// outside work</p>
+      <h2 class="section-title" id="hobbies-title">Hobbies &amp; interests</h2>
+
+      <div class="hobbies-grid">
+        <article class="hobby-card hobby-action-card reveal">
+          <div class="hobby-emoji" aria-hidden="true">🌏</div>
+          <h3 class="hobby-title">Travelling</h3>
+          <p class="hobby-desc">Exploring new cities, documenting trips, and collecting memories.</p>
+          <span class="hobby-cta" aria-hidden="true">Open travel log ↗</span>
+          <a class="card-hit-area" id="hobby-travel" href="https://johnson-lee-v0.github.io/Travel-Log/" target="_blank" rel="noopener">
+            <span class="sr-only">Travelling — open Johnson Lee's Travel Log in a new tab</span>
+          </a>
+        </article>
+
+        <article class="hobby-card hobby-action-card reveal">
+          <div class="hobby-emoji" aria-hidden="true">👟</div>
+          <h3 class="hobby-title">Sneakers</h3>
+          <p class="hobby-desc">Jordan 1s and Nike favorites. Explore the collection.</p>
+          <span class="hobby-cta" aria-hidden="true">Open closet →</span>
+          <button class="card-hit-area" id="hobby-sneakers" type="button" aria-haspopup="dialog" aria-controls="closet-modal" aria-expanded="false">
+            <span class="sr-only">Sneakers — open sneaker closet</span>
+          </button>
+        </article>
+
+        <article class="hobby-card hobby-action-card reveal">
+          <div class="hobby-emoji" aria-hidden="true">🎮</div>
+          <h3 class="hobby-title">Gaming</h3>
+          <p class="hobby-desc">TFT S16 snapshot: Emerald IV, top 11.51% in NA. More profiles coming soon.</p>
+          <span class="hobby-cta" aria-hidden="true">View gaming profiles →</span>
+          <button class="card-hit-area" id="hobby-gaming" type="button" aria-haspopup="dialog" aria-controls="gaming-modal" aria-expanded="false">
+            <span class="sr-only">Gaming — open gaming profiles</span>
+          </button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" aria-labelledby="contact-title">
+    <h2 class="sr-only" id="contact-title">Contact Johnson Lee</h2>
+    <div class="f-logo">Johnson<span>.</span></div>
+    <address class="f-links" aria-label="Contact links">
+      <a href="https://github.com/johnson-lee-v0" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+      <a href="https://www.linkedin.com/in/-johnson-lee-/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+    </address>
+    <div class="f-copy">© 2026 Johnson Lee</div>
+  </footer>
+
+  <div id="gaming-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="gaming-title" aria-describedby="gaming-intro" hidden>
+    <div class="modal-inner gaming-modal-inner" tabindex="-1">
+      <div class="modal-head">
+        <div>
+          <p class="modal-kicker">Player profiles</p>
+          <h2 id="gaming-title">🎮 Gaming Profiles</h2>
         </div>
-    </div>
 
-    <!-- Contact Section -->
-    <footer id="contact" class="section-container">
-        <h2>See More Things Like This From Me</h2>
-        <div class="contact-row">
-            <p>To see all my work and experiences, check out my:</p>
-            <div class="contact-links">
-                <a href="https://github.com/johnson-lee-v0" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/-johnson-lee-/" target="_blank">LinkedIn</a>
+        <button class="btn modal-close-button" id="close-gaming" type="button">Close</button>
+      </div>
+
+      <p class="modal-intro" id="gaming-intro">TFT is the first profile in the collection. More games and in-game names will be added over time.</p>
+
+      <div class="gaming-profiles-grid" role="list">
+        <article class="gaming-profile-card" role="listitem">
+          <div class="gaming-profile-head">
+            <div>
+              <p class="game-label">Teamfight Tactics</p>
+              <h3>InvinciblePlayer <span>#001</span></h3>
             </div>
+            <span class="region-badge">NA</span>
+          </div>
+
+          <div class="rank-panel" role="group" aria-label="TFT S16 ranking">
+            <div>
+              <span class="rank-label">TFT S16 rank</span>
+              <strong>Emerald IV</strong>
+            </div>
+            <div>
+              <span class="rank-label">NA ladder</span>
+              <strong>Top 11.51%</strong>
+            </div>
+          </div>
+
+          <div class="gaming-stats" role="group" aria-label="TFT S16 profile statistics">
+            <span><strong>10</strong> LP</span>
+            <span><strong>54%</strong> Top 4 rate</span>
+            <span><strong>201</strong> matches</span>
+          </div>
+
+          <p class="rank-history"><strong>Rank history:</strong> S16 Emerald IV · S12 Platinum IV · S11 Platinum IV · S10 Emerald IV</p>
+          <a class="btn gaming-profile-link" href="https://op.gg/tft/summoners/na/InvinciblePlayer-001" target="_blank" rel="noopener" aria-label="View full OP.GG profile for InvinciblePlayer #001 in a new tab">View full OP.GG profile ↗</a>
+          <p class="profile-updated">OP.GG profile snapshot · captured August 17, 2026</p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <div id="closet-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="closet-title" hidden>
+    <div class="modal-inner" tabindex="-1">
+      <div class="modal-head">
+        <div>
+          <p class="modal-kicker">Personal collection</p>
+          <h2 id="closet-title">👟 Sneaker Closet</h2>
         </div>
-    </footer>
-    
-    <script type="importmap">
-        {
-          "imports": {
-            "three": "../js/builds/three.module.js",
-            "three/addons/": "./jsm/"
-          }
-        }
-      </script>
 
-    <script type="module" src="js/hero.js"></script>
+        <div class="modal-actions">
+          <label class="sr-only" for="sneaker-search">Search sneakers by name, brand, or year</label>
+          <input id="sneaker-search" type="search" placeholder="Search name, brand, or year…" autocomplete="off">
+          <button class="btn" id="close-closet" type="button">Close</button>
+        </div>
+      </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/mixitup/dist/mixitup.min.js"></script>
-    <script>
-        // Initialize MixItUp for filtering and sorting
-        var mixer = mixitup('.portfolio-grid', {
-            selectors: {
-                target: '.portfolio-item'
-            },
-            animation: {
-                duration: 300
-            }
-        })
-    </script>   
+      <p class="results-count" id="sneaker-results-count" aria-live="polite"></p>
+      <div id="closet-grid" class="closet-grid" role="list"></div>
+    </div>
+  </div>
 </body>
 </html>
