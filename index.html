@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;family=Syne:wght@400;600;700;800&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/style.css?v=20260826-122">
-  <script src="./js/persona-particles.js?v=20260826-122" defer></script>
-  <script src="./js/script.js?v=20260826-122" defer></script>
+  <link rel="stylesheet" href="./css/style.css?v=20260905-123">
+  <script src="./js/persona-particles.js?v=20260905-123" defer></script>
+  <script src="./js/script.js?v=20260905-123" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -18,10 +18,9 @@
   <nav aria-label="Primary navigation">
     <a class="nav-logo" href="#about" aria-label="Johnson Lee — home">Johnson<span>.</span></a>
     <div class="nav-right">
-      <a class="btn" href="#about">About</a>
-      <a class="btn" href="#work">Work</a>
-      <a class="btn" href="#projects">Projects</a>
-      <a class="btn" href="#hobbies">Hobbies</a>
+      <a class="nav-link" href="#work">Work</a>
+      <a class="nav-link" href="#projects">Projects</a>
+      <a class="nav-link" href="#hobbies">Hobbies</a>
       <a class="btn btn-accent" href="#contact">Say hi</a>
     </div>
   </nav>
@@ -57,8 +56,8 @@
           <div class="hero-layout">
             <div class="hero-copy">
               <h1 class="hero-title" id="about-title">
-                Hello there.<br>
-                <span class="outline">I'm <span class="love">Johnson.</span></span>
+                <span>Hello there.</span>
+                <span>I'm Johnson.</span>
               </h1>
 
               <p class="hero-lede">I find answers in complex data.</p>
@@ -86,10 +85,9 @@
     </section>
 
     <section class="section-wrap professional-section" id="work" aria-labelledby="work-title">
-      <p class="section-label">// professional work</p>
       <div class="section-head work-section-head">
-        <h2 class="section-title" id="work-title">Selected launches &amp; partnerships</h2>
-        <p class="section-intro">Brief public context for work connected to my roles.</p>
+        <h2 class="section-title" id="work-title">Selected work</h2>
+        <p class="section-intro">Public launches and partnerships connected to my roles.</p>
       </div>
 
       <div class="work-grid">
@@ -106,19 +104,21 @@
             <span class="work-status work-status-current">Current</span>
           </header>
 
-          <p class="work-card-label" id="stackadapt-work-label">Featured launch</p>
-          <ul class="work-link-list" role="list" aria-labelledby="stackadapt-work-label">
-            <li>
-              <a class="work-link work-link-feature" href="https://www.businesswire.com/news/home/20260715034088/en/StackAdapt-Launches-Political-Targeting-and-Measurement-Suite-to-Help-Campaigns-Optimize-Voter-Outreach-Ahead-of-the-2026-Midterms" target="_blank" rel="noopener">
-                <span class="work-link-copy">
-                  <strong>Political Targeting &amp; Measurement Suite</strong>
-                  <span>Launch team</span>
-                </span>
-                <span class="work-link-arrow" aria-hidden="true">↗</span>
-                <span class="sr-only"> (opens in a new tab)</span>
-              </a>
-            </li>
-          </ul>
+          <div class="work-details">
+            <p class="work-card-label" id="stackadapt-work-label">Featured launch</p>
+            <ul class="work-link-list" role="list" aria-labelledby="stackadapt-work-label">
+              <li>
+                <a class="work-link work-link-feature" href="https://www.businesswire.com/news/home/20260715034088/en/StackAdapt-Launches-Political-Targeting-and-Measurement-Suite-to-Help-Campaigns-Optimize-Voter-Outreach-Ahead-of-the-2026-Midterms" target="_blank" rel="noopener">
+                  <span class="work-link-copy">
+                    <strong>Political Targeting &amp; Measurement Suite</strong>
+                    <span>Launch team</span>
+                  </span>
+                  <span class="work-link-arrow" aria-hidden="true">↗</span>
+                  <span class="sr-only"> (opens in a new tab)</span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </article>
 
         <article class="work-card work-card-rbc reveal" aria-labelledby="rbc-title">
@@ -134,8 +134,9 @@
             <span class="work-status">Previous</span>
           </header>
 
-          <p class="work-card-label" id="rbc-work-label">Partnerships</p>
-          <ul class="work-link-list work-link-list-partners" role="list" aria-labelledby="rbc-work-label">
+          <div class="work-details">
+            <p class="work-card-label" id="rbc-work-label">Partnerships</p>
+            <ul class="work-link-list work-link-list-partners" role="list" aria-labelledby="rbc-work-label">
             <li>
               <a class="work-link" href="https://www.rbc.com/newsroom/news/article.html?article=122554" target="_blank" rel="noopener">
                 <span class="work-link-copy">
@@ -181,23 +182,22 @@
                 <span class="sr-only"> (opens in a new tab)</span>
               </a>
             </li>
-          </ul>
+            </ul>
+          </div>
         </article>
       </div>
     </section>
 
     <section class="section-wrap projects-section" id="projects" aria-labelledby="projects-title">
-      <p class="section-label">// independent work</p>
       <div class="section-head projects-section-head">
-        <h2 class="section-title" id="projects-title">Selected side projects</h2>
+        <h2 class="section-title" id="projects-title">Side projects</h2>
         <p class="section-intro">Independent explorations across analytics, NLP, and software.</p>
       </div>
       <div id="projects-grid" class="projects-grid"></div>
     </section>
 
     <section class="section-wrap hobbies-section" id="hobbies" aria-labelledby="hobbies-title">
-      <p class="section-label">// outside work</p>
-      <h2 class="section-title" id="hobbies-title">Hobbies &amp; interests</h2>
+      <h2 class="section-title" id="hobbies-title">Outside work</h2>
 
       <div class="hobbies-grid">
         <article class="hobby-card hobby-action-card reveal">

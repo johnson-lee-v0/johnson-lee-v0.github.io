@@ -213,12 +213,12 @@ body.case-page {
 
 .case-hero {
   border-bottom: 1px solid var(--case-border);
-  padding: 48px 0 64px;
+  padding: 42px 0 54px;
 }
 
 .case-page .back-link {
   display: inline-flex;
-  margin-bottom: 62px;
+  margin-bottom: 44px;
   color: var(--case-muted);
   font-family: "Space Mono", monospace;
   font-size: 0.7rem;
@@ -237,7 +237,7 @@ body.case-page {
 .case-label {
   color: var(--case-green);
   font-family: "Space Mono", monospace;
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
@@ -247,10 +247,10 @@ body.case-page {
 }
 
 .case-hero h1 {
-  max-width: 900px;
+  max-width: 820px;
   margin-bottom: 20px;
   font-family: "Syne", sans-serif;
-  font-size: clamp(2.7rem, 7vw, 6.2rem);
+  font-size: clamp(2.7rem, 5.4vw, 4.7rem);
   font-weight: 800;
   line-height: 0.98;
   letter-spacing: -0.045em;
@@ -278,7 +278,7 @@ body.case-page {
   background: rgba(255, 255, 255, 0.025);
   color: var(--case-muted);
   font-family: "Space Mono", monospace;
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   padding: 7px 10px;
 }
 
@@ -289,14 +289,12 @@ body.case-page {
 .case-overview-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  gap: 32px;
 }
 
 .case-overview article {
-  border: 1px solid var(--case-border);
-  border-radius: 16px;
-  background: linear-gradient(145deg, rgba(17, 26, 42, 0.94), rgba(12, 19, 32, 0.92));
-  padding: 24px;
+  border-top: 1px solid var(--case-border);
+  padding: 24px 0 0;
 }
 
 .case-overview .case-label {
@@ -316,7 +314,7 @@ body.case-page {
 
 .case-overview article > p:last-child {
   color: var(--case-muted);
-  font-size: 0.88rem;
+  font-size: 1rem;
   line-height: 1.65;
 }
 
@@ -342,7 +340,7 @@ body.case-page {
 .case-section-head > p {
   max-width: 390px;
   color: var(--case-muted);
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   text-align: right;
 }
 
@@ -515,7 +513,7 @@ body.case-page {
   }
 
   .case-overview article {
-    padding: 20px;
+    padding: 20px 0 0;
   }
 
   .case-page .carousel-button {

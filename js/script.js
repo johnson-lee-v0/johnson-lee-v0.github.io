@@ -5,16 +5,19 @@ const PROJECTS = [
     eyebrow: "NLP exploration",
     title: "University Content Strategy Benchmark",
     description: "Compared public posts from Waterloo, U of T, and Western using sentiment and entity analysis to explore how each university communicates online.",
-    image: "./image/Project_Cover/Twitter.png",
+    image: "./image/Project_Cover/University-analysis.jpg",
+    imageAlt: "Three bar charts comparing common terms across Waterloo, U of T, and Western posts",
     link: "./projects/University_Twitter.html",
     source: "https://github.com/johnson-lee-v0/University-Twitter-Analysis",
-    tags: ["R", "NLP", "Sentiment analysis", "Entity analysis"]
+    tags: ["R", "NLP", "Sentiment analysis", "Entity analysis"],
+    featured: true
   },
   {
     eyebrow: "Sports analytics",
     title: "Celtics Win-Signal Analysis",
     description: "Scraped and explored historical Celtics game data, then compared Naive Bayes, KNN, and SVM classification approaches.",
-    image: "./image/Project_Cover/Boston.png",
+    image: "./image/Project_Cover/Celtics-analysis.jpg",
+    imageAlt: "Shot-distance distributions from the historical Celtics analysis",
     link: "./projects/Boston_Star.html",
     source: "https://github.com/johnson-lee-v0/Boston-Celtics-Player-Analysis",
     tags: ["Python", "Web scraping", "EDA", "Classification"]
@@ -23,7 +26,8 @@ const PROJECTS = [
     eyebrow: "Python build",
     title: "Blackjack Decision Simulator",
     description: "Built a six-deck blackjack simulator with a desktop interface, strategy tables, betting mechanics, SQLite event logging, and exploratory clustering.",
-    image: "./image/Project_Cover/Blackjack.jpg",
+    image: "./image/Project_Cover/Blackjack-interface.png",
+    imageAlt: "Playable blackjack interface showing cards, deck tally, controls, and strategy advice",
     link: "./projects/Blackjack.html",
     source: "https://github.com/johnson-lee-v0/BlackJackSim",
     tags: ["Python", "SQLite", "Desktop UI", "K-means"]
@@ -173,13 +177,9 @@ function initializeHeroScrollWorld() {
   let scrollWorldElapsed = 0;
   let wheelIntent = 0;
   let wheelIntentTimer = 0;
-  let returnWheelIntent = 0;
-  let returnWheelLocked = false;
-  let returnWheelIntentTimer = 0;
   let touchStartX = 0;
   let touchStartY = 0;
   let touchTracking = false;
-  let exitScrollTimer = 0;
   let workHandoffActive = false;
   let boundaryReturnModifier = "";
   const latchedHeroNavigationKeys = new Set();
@@ -518,11 +518,6 @@ function initializeHeroScrollWorld() {
   }
 
   function resetScrollWorld() {
-    if (exitScrollTimer) {
-      window.clearTimeout(exitScrollTimer);
-      exitScrollTimer = 0;
-    }
-
     workHandoffActive = false;
     scrollWorldState = "idle";
     hasExitedHeroAfterComplete = false;
@@ -540,11 +535,6 @@ function initializeHeroScrollWorld() {
   }
 
   function cancelScrollWorld() {
-    if (exitScrollTimer) {
-      window.clearTimeout(exitScrollTimer);
-      exitScrollTimer = 0;
-    }
-
     workHandoffActive = false;
     scrollWorldState = "idle";
     hasExitedHeroAfterComplete = false;
@@ -619,11 +609,6 @@ function initializeHeroScrollWorld() {
       exitRequestedByHeroTrigger = false;
       scrollToWork(reducedMotion.matches ? "auto" : "smooth");
       return;
-    }
-
-    if (exitScrollTimer) {
-      window.clearTimeout(exitScrollTimer);
-      exitScrollTimer = 0;
     }
 
     workHandoffActive = false;
@@ -703,8 +688,7 @@ function initializeHeroScrollWorld() {
       if (
         scrollWorldState === "complete"
         && hasExitedHeroAfterComplete
-        && window.scrollY <= 2
-        && hero.getBoundingClientRect().top >= -2
+        && heroSticky.getBoundingClientRect().top >= -2
       ) {
         resetScrollWorld();
         return;
@@ -755,21 +739,7 @@ function initializeHeroScrollWorld() {
     }
   });
 
-  function armReturnWheelRelease() {
-    window.clearTimeout(returnWheelIntentTimer);
-    returnWheelIntentTimer = window.setTimeout(() => {
-      returnWheelIntent = 0;
-      returnWheelLocked = false;
-    }, 280);
-  }
-
   function handleScrollWorldWheel(event) {
-    if (returnWheelLocked) {
-      event.preventDefault();
-      armReturnWheelRelease();
-      return;
-    }
-
     if (scrollWorldState === "running") {
       event.preventDefault();
       return;
@@ -921,11 +891,6 @@ function initializeHeroScrollWorld() {
   }
 
   function stopWorkHandoff() {
-    if (exitScrollTimer) {
-      window.clearTimeout(exitScrollTimer);
-      exitScrollTimer = 0;
-    }
-
     workHandoffActive = false;
     jumpToScrollPosition(window.scrollY);
   }
@@ -950,86 +915,6 @@ function initializeHeroScrollWorld() {
       }
     });
   }
-
-  function scrollPortfolioWithKeyboard(event, direction) {
-    const pageStep = event.key === "PageUp"
-      || event.key === "PageDown"
-      || event.key === " ";
-    const distance = pageStep
-      ? window.innerHeight * 0.82
-      : Math.max(56, window.innerHeight * 0.12);
-    const maximumScroll = Math.max(
-      0,
-      document.documentElement.scrollHeight - window.innerHeight
-    );
-    const targetScroll = event.key === "Home"
-      ? 0
-      : clamp(window.scrollY + direction * distance, 0, maximumScroll);
-    const workScrollMargin = workSection
-      ? (Number.parseFloat(window.getComputedStyle(workSection).scrollMarginTop) || 0)
-      : 0;
-    const workLandingScroll = workSection
-      ? window.scrollY + workSection.getBoundingClientRect().top - workScrollMargin
-      : -Infinity;
-
-    if (direction < 0 && targetScroll <= workLandingScroll + 8) {
-      latchedHeroNavigationKeys.add(event.key);
-      returnToHeroFromNavigation();
-      return;
-    }
-
-    window.scrollTo({
-      top: targetScroll,
-      left: window.scrollX,
-      behavior: "instant"
-    });
-  }
-
-  function handleCompletedHeroReturnWheel(event) {
-    if (returnWheelLocked) {
-      event.preventDefault();
-      armReturnWheelRelease();
-      return;
-    }
-
-    if (
-      scrollWorldState !== "complete"
-      || activeModal
-      || !workSection
-      || event.ctrlKey
-      || event.deltaY >= 0
-    ) {
-      return;
-    }
-
-    const unit = event.deltaMode === 1
-      ? 16
-      : (event.deltaMode === 2 ? window.innerHeight : 1);
-    const workScrollMargin = Number.parseFloat(
-      window.getComputedStyle(workSection).scrollMarginTop
-    ) || 0;
-    const workLandingScroll = window.scrollY
-      + workSection.getBoundingClientRect().top
-      - workScrollMargin;
-
-    if (window.scrollY > workLandingScroll + 8) {
-      return;
-    }
-
-    event.preventDefault();
-    returnWheelIntent += Math.abs(event.deltaY * unit);
-    armReturnWheelRelease();
-
-    if (returnWheelIntent < 22) {
-      return;
-    }
-
-    returnWheelIntent = 0;
-    returnWheelLocked = true;
-    returnToHeroFromNavigation();
-  }
-
-  document.addEventListener("wheel", handleCompletedHeroReturnWheel, { passive: false });
 
   document.addEventListener("keydown", (event) => {
     const target = event.target;
@@ -1081,7 +966,6 @@ function initializeHeroScrollWorld() {
       && (
         scrollWorldState === "running"
         || workHandoffActive
-        || (isDocumentStartShortcut && scrollWorldState === "complete")
         || (isDocumentEndShortcut && ownsHeroViewport())
       )
     ) {
@@ -1137,19 +1021,6 @@ function initializeHeroScrollWorld() {
       } else if (isDownNavigation && !preservesSpaceActivation) {
         event.preventDefault();
         latchedHeroNavigationKeys.add(event.key);
-      }
-      return;
-    }
-
-    if (scrollWorldState === "complete" && !activeModal) {
-      if (event.key === "End") {
-        return;
-      } else if (isUpNavigation && !preservesSpaceActivation) {
-        event.preventDefault();
-        scrollPortfolioWithKeyboard(event, -1);
-      } else if (isDownNavigation && !preservesSpaceActivation) {
-        event.preventDefault();
-        scrollPortfolioWithKeyboard(event, 1);
       }
       return;
     }
@@ -1386,11 +1257,13 @@ function renderProjects() {
   const fragment = document.createDocumentFragment();
 
   PROJECTS.forEach((project) => {
-    const card = createElement("article", { className: "project-card reveal" });
+    const card = createElement("article", {
+      className: `project-card${project.featured ? " project-card-featured" : ""} reveal`
+    });
     const image = createElement("img", {
       attributes: {
         src: project.image,
-        alt: `${project.title} project cover`,
+        alt: project.imageAlt || `${project.title} project cover`,
         loading: "lazy",
         decoding: "async"
       }
@@ -1454,7 +1327,7 @@ function renderProjects() {
 }
 
 function initializeSurfaceInteractions() {
-  const surfaces = document.querySelectorAll(".work-card, .project-card, .hobby-action-card");
+  const surfaces = document.querySelectorAll(".project-card");
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
 
   surfaces.forEach((surface) => {
@@ -1521,7 +1394,7 @@ function initializeSectionNavigation() {
     const readingLine = window.innerHeight * 0.38;
     const reachedBottom = window.scrollY + window.innerHeight
       >= document.documentElement.scrollHeight - 2;
-    let current = destinations[0];
+    let current = null;
 
     destinations.forEach((destination) => {
       if (destination.target.getBoundingClientRect().top <= readingLine) {
