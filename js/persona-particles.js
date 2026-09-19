@@ -10,9 +10,11 @@
     CORE: 3,
     WAIST: 3.25,
     LEFT_UPPER_ARM: 4,
+    LEFT_SHOULDER_YOKE: 4.25,
     LEFT_FOREARM: 5,
     LEFT_HAND: 6,
     RIGHT_UPPER_ARM: 7,
+    RIGHT_SHOULDER_YOKE: 6.75,
     RIGHT_ELBOW: 7.5,
     RIGHT_FOREARM: 8,
     RIGHT_HAND: 9,
@@ -448,6 +450,41 @@
           size * (0.8 + sizeVariation * 0.36)
             * (isContour ? 1 + 0.04 * shoulderFade : 1),
           isContour && position > 0.12
+        );
+      }
+    }
+
+    function addShoulderYoke(side) {
+      // A curved cloth bridge closes the notch above the sleeve's flat root.
+      // Its medial edge overlaps the chest; the outer edge overlaps the sleeve.
+      // Nothing extends into the open space below the armpit.
+      const upper = side < 0
+        ? [[0.112, 0.6], [0.268, 0.595], [0.306, 0.482]]
+        : [[0.112, 0.6], [0.221, 0.605], [0.292, 0.567]];
+      const lower = side < 0
+        ? [[0.112, 0.554], [0.225, 0.503], [0.285, 0.449]]
+        : [[0.112, 0.527], [0.225, 0.487], [0.292, 0.466]];
+      const curvePoint = (curve, t) => {
+        const s = 1 - t;
+        return [0, 1].map((axis) => s * s * curve[0][axis]
+          + 2 * s * t * curve[1][axis] + t * t * curve[2][axis]);
+      };
+      const count = side < 0 ? 144 : 168;
+      for (let index = 0; index < count; index += 1) {
+        const t = (0.5 + index * 0.7548776662466927
+          + (random() - 0.5) * 0.06) % 1;
+        const edge = index % 8 === 0;
+        const across = edge ? 0 : (0.5 + index * 0.5698402909980532
+          + (random() - 0.5) * 0.06) % 1;
+        const top = curvePoint(upper, t);
+        const bottom = curvePoint(lower, t);
+        addParticle(
+          side * (top[0] + (bottom[0] - top[0]) * across),
+          top[1] + (bottom[1] - top[1]) * across,
+          side < 0 ? PART.LEFT_SHOULDER_YOKE : PART.RIGHT_SHOULDER_YOKE,
+          mixColor(palette.shirtLight, palette.shirt, across),
+          2.04,
+          edge
         );
       }
     }
@@ -1414,6 +1451,9 @@
       addParticle(x, y, PART.FIELD, color.map((channel) => channel * brightness), 0.7 + random() * 1.25);
     }
 
+    // Append after the original fields to preserve all existing seeded dots.
+    addShoulderYoke(-1);
+    addShoulderYoke(1);
     return new Float32Array(particles);
   }
 
@@ -1937,6 +1977,8 @@
         bool rightForeOnly = a_part > 7.5 && a_part < 8.5;
         bool rightFore = (a_part > 7.5 && a_part < 9.5) || rightFinger;
         bool rightHand = (a_part > 8.5 && a_part < 9.5) || rightFinger;
+        bool shoulderYoke = abs(a_part - 4.25) < 0.01
+          || abs(a_part - 6.75) < 0.01;
         bool leftLeg = a_part > 9.5 && a_part < 12.5;
         bool leftThigh = a_part > 9.5 && a_part < 10.5;
         bool leftShin = a_part > 10.5 && a_part < 11.5;
@@ -2467,7 +2509,18 @@
           depthScale *= armProjection;
         }
 
-        bool corePart = a_part > 2.5 && a_part < 3.5;
+        // Keep both attachment candidates in the same space. The arm candidate
+        // has completed its bone and depth transforms; the torso candidate below
+        // receives the exact same cloth and chest transforms as adjacent dots.
+        vec2 yokeArmPoint = point;
+        float yokeArmScale = depthScale;
+        float yokeArmAlpha = depthAlpha;
+        if (shoulderYoke) {
+          point = a_position;
+          depthScale = 1.0;
+          depthAlpha = 1.0;
+        }
+        bool corePart = (a_part > 2.5 && a_part < 3.5) || shoulderYoke;
         bool faceParts = a_part < 2.5;
         bool upperBody = a_part < 9.5 || rightFinger;
         float pelvisInfluence = corePart
@@ -2582,6 +2635,14 @@
           point = rotateAround(point, vec2(0.0, 0.06), torsoAngle);
         }
 
+        if (shoulderYoke) {
+          float sleeveAttachment = smoothstep(0.17, 0.27, abs(a_position.x));
+          yokeArmPoint = rotateAround(yokeArmPoint, vec2(0.0, 0.06), torsoAngle);
+          point = mix(point, yokeArmPoint, sleeveAttachment);
+          depthScale = mix(depthScale, yokeArmScale, sleeveAttachment);
+          depthAlpha = mix(depthAlpha, yokeArmAlpha, sleeveAttachment);
+        }
+
         // Opposed shoulder and pelvis depth gives the torso a transverse twist
         // instead of reading as a rigid card above the moving legs.
         if (corePart) {
@@ -2672,7 +2733,9 @@
 
       float twinkle = 0.92 + sin(u_time * 1.35 + a_twinkle * 18.0) * 0.08 * u_motion;
       float effectiveTint = u_force_tint;
-      bool shirtCore = abs(a_part - 3.0) < 0.1;
+      bool shoulderCloth = abs(a_part - 4.25) < 0.01
+        || abs(a_part - 6.75) < 0.01;
+      bool shirtCore = abs(a_part - 3.0) < 0.1 || shoulderCloth;
       bool denimThigh = (a_part > 9.5 && a_part < 10.5)
         || (a_part > 12.5 && a_part < 13.5);
       bool denimShin = (a_part > 10.5 && a_part < 11.5)
@@ -2705,7 +2768,7 @@
         float shoeEchoPass = step(0.5, u_force_tint);
         v_alpha *= mix(1.0, 0.65, shoeEchoPass);
       }
-      if (a_part > 6.5 && a_part < 7.5) {
+      if (a_part > 6.5 && a_part < 7.5 && !shoulderCloth) {
         float sourceChroma = max(
           abs(a_color.r - a_color.g),
           max(
