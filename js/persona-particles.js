@@ -71,7 +71,7 @@
       offsetY: shortNarrowPortrait
         ? -0.64
         : (narrowPortrait ? -0.54 : (mobile ? -0.02 : -0.03)),
-      approachX: mobile ? 0.16 : 0.42
+      approachX: mobile ? 0.10 : 0.16
     };
   }
 
@@ -689,7 +689,8 @@
 
         addParticle(
           across * halfWidth,
-          y,
+          y - 0.01 * (1 - across * across)
+            * Math.max(0, Math.min(1, (0.055 - y) / 0.094)),
           part,
           mixColor(baseColor, contourColor, edgeLight * 0.18),
           size * (0.86 + sizeNoise * 0.28)
@@ -1122,13 +1123,13 @@
     // slopes into the shoulders, the ribs taper toward the waist, and the hem
     // opens slightly where it meets the jeans.
     const shirtHem = mixColor(palette.shirt, palette.shirtFold, 0.35);
-    addFittedShirt(1090, PART.CORE, palette.shirtLight, palette.shirt, shirtHem, 2.14);
+    addFittedShirt(2650, PART.CORE, palette.shirtLight, palette.shirt, shirtHem, 2.14);
     addEllipseRing(60, 0, 0.61, 0.108, 0.036, PART.CORE, palette.shirtFold, 1.85);
     addQuadraticSegment(50, [-0.185, 0.45], [-0.16, 0.22], [-0.09, 0.02], 0.007, PART.CORE, palette.shirt, palette.shirtFold, 1.68);
     addQuadraticSegment(26, [0.185, 0.45], [0.16, 0.22], [0.09, 0.02], 0.007, PART.CORE, palette.shirt, palette.shirtFold, 1.68, true);
     const underarmShade = mixColor(palette.shirt, palette.shirtFold, 0.45);
     addStratifiedQuad(
-      24,
+      64,
       [0.145, 0.58], [0.232, 0.548],
       [0.238, 0.447], [0.19, 0.42],
       PART.CORE,
@@ -1136,7 +1137,7 @@
       1.82,
       173
     );
-    addSegment(60, [-0.198, -0.039], [0.198, -0.039], 0.003, PART.CORE, shirtHem, shirtHem, 1.55, 0.94);
+    addQuadraticSegment(60, [-0.198, -0.039], [0, -0.059], [0.198, -0.039], 0.0025, PART.CORE, shirtHem, shirtHem, 1.55, true);
     // Give the compact waistband fewer, smaller particles and move its former
     // density into the continuous thigh fields. The early thigh samples keep
     // every later authored body part on the same deterministic random stream.
@@ -1145,7 +1146,7 @@
     const denimJoint = mixColor(palette.pants, palette.pantsRim, 0.1);
     const crotchDenim = mixColor(palette.waist, denimJoint, 0.7);
     addCrotchedWaist(
-      250,
+      420,
       -0.041,
       -0.16,
       -0.118,
@@ -1173,7 +1174,7 @@
     addDenimSegment(
       160,
       [-legX, -0.045],
-      [-legX, -0.46],
+      [-legX, -0.43],
       0.086,
       0.074,
       0.007,
@@ -1186,7 +1187,7 @@
     addDenimSegment(
       160,
       [legX, -0.045],
-      [legX, -0.46],
+      [legX, -0.43],
       0.086,
       0.074,
       0.007,
@@ -1197,8 +1198,12 @@
       0
     );
 
-    addSegment(230, [-0.238, 0.5], [-0.34, 0.18], 0.073, PART.LEFT_UPPER_ARM, palette.shirtLight, palette.skinLight, 2.02, 0.74, 0.76, false, 0, true);
-    addSegment(205, [-0.34, 0.18], [-0.32, -0.14], 0.052, PART.LEFT_FOREARM, palette.skinLight, palette.skin, 2.02, 0.74, 0.76, false, 0, true);
+    // A real sleeve edge separates the garment from the exposed upper arm.
+    // The original full-arm colour gradient made the left sleeve look longer
+    // than the right and obscured where the shoulder ended.
+    addLooseSleeve(260, [-0.238, 0.5], [-0.29, 0.338], 0.058, 0.061, 0.062, 0.006, 0.008, PART.LEFT_UPPER_ARM, palette.shirt, shirtHem, 2.04);
+    addMuscleSegment(180, [-0.29, 0.338], [-0.34, 0.18], 0.048, 0.045, 0.006, PART.LEFT_UPPER_ARM, palette.skinLight, palette.skin, 2.02);
+    addSegment(360, [-0.34, 0.18], [-0.32, -0.14], 0.052, PART.LEFT_FOREARM, palette.skinLight, palette.skin, 2.02, 0.74, 0.76, true, 0, true);
     addEllipse(104, -0.316, -0.195, 0.046, 0.06, PART.LEFT_HAND, palette.skinLight, palette.skin, 2.08, false, 0, true);
     addEllipse(34, -0.338, -0.202, 0.018, 0.044, PART.LEFT_HAND, palette.skin, palette.skinShadow, 1.92);
     addEllipse(24, -0.313, -0.241, 0.041, 0.017, PART.LEFT_HAND, palette.skinLight, palette.skin, 1.96);
@@ -1227,7 +1232,7 @@
     // A flared, softly sagging sleeve keeps the raised side loose while the
     // fitted torso supplies a stable armhole. Its cuff moves with the arm.
     addLooseSleeve(
-      104,
+      260,
       [0.238, 0.5], [0.405, 0.511],
       0.058, 0.057, 0.064, 0.006, 0.02,
       PART.RIGHT_UPPER_ARM,
@@ -1247,7 +1252,7 @@
       37
     );
     addMuscleSegment(
-      100,
+      180,
       [0.409, 0.511], [0.576, 0.501],
       0.052, 0.055, 0.018,
       PART.RIGHT_UPPER_ARM,
@@ -1263,7 +1268,7 @@
       2.08
     );
     addMuscleSegment(
-      192,
+      340,
       [0.576, 0.501], [0.483, 0.811],
       0.055, 0.04, 0.01,
       PART.RIGHT_FOREARM,
@@ -1311,14 +1316,14 @@
 
     // The articulated walk maps these evenly sampled thigh and shin fields to
     // shared hip, knee and ankle joints; the standing pose remains parallel.
-    addDenimSegment(45, [-legX, -0.045], [-legX, -0.46], 0.086, 0.074, 0.007, PART.LEFT_THIGH, denimMid, denimJoint, 2.25, 160);
-    addDenimSegment(385, [-legX, -0.045], [-legX, -0.46], 0.086, 0.074, 0.007, PART.LEFT_THIGH, denimMid, denimJoint, 2.25, 205);
-    addDenimSegment(50, [-legX, -0.46], [-legX, -0.84], 0.074, 0.062, 0.009, PART.LEFT_SHIN, denimJoint, palette.pants, 2.25, 0);
-    addDenimSegment(420, [-legX, -0.46], [-legX, -0.84], 0.074, 0.062, 0.009, PART.LEFT_SHIN, denimJoint, palette.pants, 2.25, 50);
-    addDenimSegment(45, [legX, -0.045], [legX, -0.46], 0.086, 0.074, 0.007, PART.RIGHT_THIGH, denimMid, denimJoint, 2.25, 160);
-    addDenimSegment(385, [legX, -0.045], [legX, -0.46], 0.086, 0.074, 0.007, PART.RIGHT_THIGH, denimMid, denimJoint, 2.25, 205);
-    addDenimSegment(50, [legX, -0.46], [legX, -0.84], 0.074, 0.062, 0.009, PART.RIGHT_SHIN, denimJoint, palette.pants, 2.25, 0);
-    addDenimSegment(420, [legX, -0.46], [legX, -0.84], 0.074, 0.062, 0.009, PART.RIGHT_SHIN, denimJoint, palette.pants, 2.25, 50);
+    addDenimSegment(45, [-legX, -0.045], [-legX, -0.43], 0.086, 0.074, 0.007, PART.LEFT_THIGH, denimMid, denimJoint, 2.25, 160);
+    addDenimSegment(850, [-legX, -0.045], [-legX, -0.43], 0.086, 0.074, 0.007, PART.LEFT_THIGH, denimMid, denimJoint, 2.25, 205);
+    addDenimSegment(50, [-legX, -0.43], [-legX, -0.84], 0.074, 0.062, 0.009, PART.LEFT_SHIN, denimJoint, palette.pants, 2.25, 0);
+    addDenimSegment(790, [-legX, -0.43], [-legX, -0.84], 0.074, 0.062, 0.009, PART.LEFT_SHIN, denimJoint, palette.pants, 2.25, 50);
+    addDenimSegment(45, [legX, -0.045], [legX, -0.43], 0.086, 0.074, 0.007, PART.RIGHT_THIGH, denimMid, denimJoint, 2.25, 160);
+    addDenimSegment(850, [legX, -0.045], [legX, -0.43], 0.086, 0.074, 0.007, PART.RIGHT_THIGH, denimMid, denimJoint, 2.25, 205);
+    addDenimSegment(50, [legX, -0.43], [legX, -0.84], 0.074, 0.062, 0.009, PART.RIGHT_SHIN, denimJoint, palette.pants, 2.25, 0);
+    addDenimSegment(790, [legX, -0.43], [legX, -0.84], 0.074, 0.062, 0.009, PART.RIGHT_SHIN, denimJoint, palette.pants, 2.25, 50);
 
     // The viewer-left shoe is the canonical near-front camera view; the
     // opposite shoe mirrors it. Centered panels and horizontal soles avoid
@@ -1624,10 +1629,6 @@
       return mix(midSwing, nextContact, smoother01((p - 0.85) / 0.15));
     }
 
-    float gaitHip(float phase) {
-      return gaitCurve(phase, 24.0, 18.0, 3.0, -9.0, -1.0, 17.0, 27.0, 24.0);
-    }
-
     float gaitKnee(float phase) {
       return gaitCurve(phase, 6.0, 18.0, 3.0, 8.0, 38.0, 58.0, 26.0, 6.0);
     }
@@ -1645,12 +1646,12 @@
     }
 
     float denimHalfWidthAt(float sourceY) {
-      if (sourceY >= -0.46) {
-        float thighProgress = clamp((-0.045 - sourceY) / 0.415, 0.0, 1.0);
+      if (sourceY >= -0.43) {
+        float thighProgress = clamp((-0.045 - sourceY) / 0.385, 0.0, 1.0);
         return mix(0.086, 0.074, thighProgress)
           + sin(thighProgress * PI) * 0.007;
       }
-      float shinProgress = clamp((-0.46 - sourceY) / 0.38, 0.0, 1.0);
+      float shinProgress = clamp((-0.43 - sourceY) / 0.41, 0.0, 1.0);
       return mix(0.074, 0.062, shinProgress)
         + sin(shinProgress * PI) * 0.009;
     }
@@ -1736,6 +1737,57 @@
       shoePoint.y += 0.014 * heelStrike * toeBody * amount;
     }
 
+    const float CONTACT_CYCLES = 2.6041667;
+    const float CONTACT_STOP = 0.96;
+    const float CONTACT_FLOOR = -0.969;
+    const float CONTACT_CAMERA = 3.25;
+    const float CONTACT_THIGH = 0.45;
+    const float CONTACT_SHIN = 0.41;
+
+    float personaApproach(float entry) {
+      float p = clamp(entry / CONTACT_STOP, 0.0, 1.0);
+      return p * p * (3.0 - 2.0 * p);
+    }
+
+    float personaApproachScale(float entry) {
+      return mix(0.62, 1.0, personaApproach(entry));
+    }
+
+    float personaApproachTravelX() {
+      // Bound lateral travel on wide, short screens so planted contacts remain
+      // within reach of the fixed-length leg rig and the knees stay separated.
+      return min(u_approach_x / max(u_scale.x, 0.0001), 0.32);
+    }
+
+    vec2 personaStagePoint(vec2 point, float entry) {
+      float approach = personaApproach(entry);
+      float scale = personaApproachScale(entry);
+      return vec2(
+        point.x * scale + (1.0 - approach) * personaApproachTravelX(),
+        CONTACT_FLOOR + (point.y - CONTACT_FLOOR) * scale
+          + (1.0 - approach) * 0.20
+      );
+    }
+
+    vec2 personaLocalPoint(vec2 stagePoint, float entry) {
+      float approach = personaApproach(entry);
+      float scale = personaApproachScale(entry);
+      return vec2(
+        (stagePoint.x - (1.0 - approach) * personaApproachTravelX()) / scale,
+        CONTACT_FLOOR + (
+          stagePoint.y - CONTACT_FLOOR - (1.0 - approach) * 0.20
+        ) / scale
+      );
+    }
+
+    vec2 plantedContact(float side, float stepIndex, float phaseOffset) {
+      float finalStep = floor(CONTACT_STOP * CONTACT_CYCLES + phaseOffset + 0.00001);
+      float contactEntry = stepIndex >= finalStep
+        ? CONTACT_STOP
+        : clamp((stepIndex + 0.3 - phaseOffset) / CONTACT_CYCLES, 0.0, CONTACT_STOP);
+      return personaStagePoint(vec2(side * LEG_X, CONTACT_FLOOR), contactEntry);
+    }
+
     void solveLeg(
       float side,
       float phase,
@@ -1748,61 +1800,97 @@
       out float kneePerspective,
       out float anklePerspective
     ) {
-      float hipAngle = gaitHip(phase) * PI / 180.0;
-      float kneeAngle = gaitKnee(phase) * PI / 180.0;
-      float swing = phasePulse(phase, 0.54, 0.63, 0.86, 0.985);
-      vec3 hip = vec3(
-        side * LEG_X + pelvisTravel.x,
-        0.02 + pelvisTravel.y,
-        0.024 * cos(TAU * phase)
-      );
-      vec3 knee = hip + vec3(
-        -side * 0.021 * swing,
-        -0.48 * cos(hipAngle),
-        0.48 * sin(hipAngle)
-      );
-      vec3 ankle = knee + vec3(
-        -side * 0.014 * swing,
-        -0.38 * cos(hipAngle - kneeAngle),
-        0.38 * sin(hipAngle - kneeAngle)
-      );
-      float stance = gaitStance(phase);
-      knee.x -= pelvisTravel.x * 0.35 * stance;
-      ankle.x -= pelvisTravel.x * stance;
+      float entry = clamp(u_sequence, 0.0, CONTACT_STOP);
+      float phaseOffset = side < 0.0 ? 0.0 : 0.5;
+      float cycles = entry * CONTACT_CYCLES + phaseOffset;
+      float stepIndex = floor(cycles);
+      float contactPhase = fract(cycles);
+      float swing = clamp((contactPhase - 0.6) / 0.4, 0.0, 1.0);
+      vec2 contact = plantedContact(side, stepIndex, phaseOffset);
+      vec2 nextContact = plantedContact(side, stepIndex + 1.0, phaseOffset);
+      vec2 soleStage = mix(contact, nextContact, smoother01(swing));
+      // A smooth zero-velocity lift. All stance samples preserve the exact same
+      // stage coordinate; the swing endpoint is exactly the next planted contact.
+      float liftArc = sin(PI * swing);
+      soleStage.y += 0.075 * liftArc * liftArc * amount;
+      vec2 soleLocal = personaLocalPoint(soleStage, entry);
 
-      vec2 projectedHip = projectLegJoint(hip);
-      vec2 projectedKnee = projectLegJoint(knee);
-      vec2 projectedAnkle = projectLegJoint(ankle);
+      vec3 hip = vec3(
+        side * LEG_X + pelvisTravel.x * amount,
+        0.02 + pelvisTravel.y * amount,
+        0.024 * cos(TAU * contactPhase) * amount
+      );
+
+      // Match the existing deformShoe's outsole equations exactly. Do not add a
+      // second ankle-height override after this solve. The positive offset from
+      // sole to ankle includes the existing heel rocker while its toe stays put.
+      float pitch = gaitFootPitch(phase) * PI / 180.0 * amount;
+      float stance = gaitStance(phase);
+      float pitchFactor = cos(pitch) + (1.0 - cos(pitch)) * stance;
+      float plantedLift = (
+        gaitHeelLift(phase) + gaitClearance(phase) * stance
+      ) * amount;
+
+      // Inverse projection of the desired ankle pixel defines a 3D ray parameterized
+      // by ankle depth. Its intersection with the hip's reachable sphere preserves
+      // the contact pixel while supplying sagittal motion instead of inward folding.
+      vec3 rayBase = vec3(
+        soleLocal.x,
+        soleLocal.y + plantedLift + 0.129 * pitchFactor,
+        0.0
+      );
+      vec3 ray = vec3(
+        -soleLocal.x / CONTACT_CAMERA - 0.025,
+        -(soleLocal.y - 0.02 + plantedLift) / CONTACT_CAMERA,
+        1.0
+      );
+      vec3 relative = rayBase - hip;
+      float aa = dot(ray, ray);
+      float bb = 2.0 * dot(relative, ray);
+      float minimumDistanceSquared = max(
+        0.0,
+        dot(relative, relative) - bb * bb / (4.0 * aa)
+      );
+      float kneeAngle = gaitKnee(phase) * PI / 180.0 * amount;
+      float desiredDistanceSquared = CONTACT_THIGH * CONTACT_THIGH
+        + CONTACT_SHIN * CONTACT_SHIN
+        + 2.0 * CONTACT_THIGH * CONTACT_SHIN * cos(kneeAngle);
+      // At steep viewing angles, reduce nominal flexion only as much as necessary
+      // to keep the same foot contact reachable. The bounded approach keeps this
+      // distance <= .86 throughout the animation.
+      float distanceSquared = max(
+        desiredDistanceSquared,
+        minimumDistanceSquared + 0.00000001
+      );
+      float discriminant = max(
+        0.0,
+        bb * bb - 4.0 * aa * (dot(relative, relative) - distanceSquared)
+      );
+      float ankleDepth = (-bb - sqrt(discriminant)) / (2.0 * aa);
+      vec3 ankle = rayBase + ray * ankleDepth;
+
+      vec3 hipToAnkle = ankle - hip;
+      float distance = max(length(hipToAnkle), 0.00001);
+      vec3 axis = hipToAnkle / distance;
+      float along = (
+        CONTACT_THIGH * CONTACT_THIGH - CONTACT_SHIN * CONTACT_SHIN
+          + distance * distance
+      ) / (2.0 * distance);
+      float bendHeight = sqrt(max(
+        0.0,
+        CONTACT_THIGH * CONTACT_THIGH - along * along
+      ));
+      // Positive depth faces the camera. A sagittal pole produces forward knee
+      // flexion without explicitly steering the knee toward the body's center.
+      vec3 pole = normalize(vec3(0.0, 0.0, 1.0) - axis * axis.z);
+      vec3 knee = hip + axis * along + pole * bendHeight;
+
+      hipTarget = projectLegJoint(hip);
+      kneeTarget = projectLegJoint(knee);
+      ankleTarget = projectLegJoint(ankle);
       hipPerspective = legPerspective(hip.z);
       kneePerspective = legPerspective(knee.z);
       anklePerspective = legPerspective(ankle.z);
-
-      // A support foot stays planted in its lane while the pelvis and swing
-      // leg continue moving above it. The late-swing blend prepares the next
-      // heel contact without a lateral snap.
-      projectedAnkle.x = mix(
-        projectedAnkle.x,
-        side * LEG_X,
-        stance
-      );
-
-      float desiredAnkleY = -0.97
-        + 0.13 * anklePerspective
-        + gaitClearance(phase)
-        + gaitHeelLift(phase);
-      float ankleCorrection = desiredAnkleY - projectedAnkle.y;
-      projectedKnee.y += 0.18 * ankleCorrection;
-      projectedAnkle.y = desiredAnkleY;
-
-      vec2 sourceHip = vec2(side * LEG_X, 0.02);
-      vec2 sourceKnee = vec2(side * LEG_X, -0.46);
-      vec2 sourceAnkle = vec2(side * LEG_X, -0.84);
-      hipTarget = mix(sourceHip, projectedHip, amount);
-      kneeTarget = mix(sourceKnee, projectedKnee, amount);
-      ankleTarget = mix(sourceAnkle, projectedAnkle, amount);
-      hipPerspective = mix(1.0, hipPerspective, amount);
-      kneePerspective = mix(1.0, kneePerspective, amount);
-      anklePerspective = mix(1.0, anklePerspective, amount);
     }
 
     void main() {
@@ -1812,7 +1900,7 @@
       float particleSize = abs(a_size);
       v_silhouette = silhouette;
       float entry = clamp(u_sequence, 0.0, 1.0);
-      float approach = entry * entry * (3.0 - 2.0 * entry);
+      float approach = personaApproach(entry);
       float walkFade = smoothstep(0.74, 0.96, entry);
       float armBlend = smoothstep(0.7, 0.99, entry);
       float walkWeight = (1.0 - walkFade) * u_motion;
@@ -1866,9 +1954,8 @@
           depthScale *= 1.0 + 0.14 * smoothstep(0.76, 0.88, u_scale.x);
         }
 
-        // Each leg is a connected hip-knee-ankle chain. The support ankle is
-        // floor-locked while the swing chain advances in depth and slightly
-        // toward the body's centre line.
+        // Each leg is a fixed-length hip-knee-ankle chain. The support foot
+        // stays at its stage contact; the swing knee flexes forward in depth.
         if (leftLeg) {
           vec2 hipTarget;
           vec2 kneeTarget;
@@ -1889,7 +1976,7 @@
             ankleProjection
           );
           vec2 sourceHip = vec2(-LEG_X, 0.02);
-          vec2 sourceKnee = vec2(-LEG_X, -0.46);
+          vec2 sourceKnee = vec2(-LEG_X, -0.43);
           vec2 sourceAnkle = vec2(-LEG_X, -0.84);
           if (leftThigh || leftShin) {
             vec2 thighSource = sourceKnee - sourceHip;
@@ -1900,7 +1987,7 @@
               / max(dot(shinSource, shinSource), 0.0001);
             float thighProgress = boneAlong(a_position, sourceHip, sourceKnee);
             float shinProgress = boneAlong(a_position, sourceKnee, sourceAnkle);
-            float kneeBlend = smoother01((a_position.y + 0.51) / 0.1);
+            float kneeBlend = smoother01((a_position.y + 0.48) / 0.1);
             float thighPerspective = mix(
               hipProjection,
               kneeProjection,
@@ -1973,7 +2060,7 @@
             ankleProjection
           );
           vec2 sourceHip = vec2(LEG_X, 0.02);
-          vec2 sourceKnee = vec2(LEG_X, -0.46);
+          vec2 sourceKnee = vec2(LEG_X, -0.43);
           vec2 sourceAnkle = vec2(LEG_X, -0.84);
           if (rightThigh || rightShin) {
             vec2 thighSource = sourceKnee - sourceHip;
@@ -1984,7 +2071,7 @@
               / max(dot(shinSource, shinSource), 0.0001);
             float thighProgress = boneAlong(a_position, sourceHip, sourceKnee);
             float shinProgress = boneAlong(a_position, sourceKnee, sourceAnkle);
-            float kneeBlend = smoother01((a_position.y + 0.51) / 0.1);
+            float kneeBlend = smoother01((a_position.y + 0.48) / 0.1);
             float thighPerspective = mix(
               hipProjection,
               kneeProjection,
@@ -2058,10 +2145,9 @@
         // make the contralateral swing readable from the frontal viewpoint.
         float rightArmForward = leftForward;
         float leftArmForward = -leftForward;
-        // The shoulder girdle counter-rotates above the pelvis. A restrained
-        // screen-space sweep makes that lead/lag readable from the frontal
-        // camera without turning it into an up-and-down shrug.
-        float shoulderSweep = 0.0065 * leftForward * walkWeight;
+        // Shoulder and arm depth share one projection. Their silhouette now
+        // rotates with the rib cage instead of only changing dot brightness.
+        float shoulderYaw = 0.13 * leftForward * walkWeight;
         float rightShoulderSag = (
           0.36 * max(rightArmForward, 0.0)
             - 0.27 * max(-rightArmForward, 0.0)
@@ -2363,7 +2449,22 @@
         }
 
         if (leftArm || rightArm) {
-          point.x += shoulderSweep;
+          float armSide = leftArm ? -1.0 : 1.0;
+          float upperAlong = leftArm
+            ? clamp((0.5 - a_position.y) / 0.32, 0.0, 1.0)
+            : (rightUpper ? boneAlong(a_position, vec2(0.238, 0.5), vec2(0.576, 0.501)) : 1.0);
+          float foreAlong = leftArm
+            ? max(0.0, (0.18 - a_position.y) / 0.32)
+            : (rightForeOnly ? boneAlong(a_position, vec2(0.576, 0.501), vec2(0.483, 0.811)) : (rightHand ? 1.0 : 0.0));
+          float shoulderSag = leftArm ? leftShoulderSag : rightShoulderSag;
+          float foreSag = leftArm ? leftForeSag : rightForeSag;
+          float armDepth = armSide * 0.238 * sin(shoulderYaw)
+            + 0.32 * upperAlong * sin(shoulderSag)
+            + 0.32 * foreAlong * sin(foreSag);
+          float armProjection = armPerspective(armDepth);
+          point = vec2(0.0, 0.5) + (point - vec2(0.0, 0.5)) * armProjection;
+          point.x *= cos(shoulderYaw);
+          depthScale *= armProjection;
         }
 
         bool corePart = a_part > 2.5 && a_part < 3.5;
@@ -2457,12 +2558,15 @@
           depthScale *= 1.0 + 0.035 * clothFront;
           depthAlpha *= 1.0 + 0.018 * clothFront;
 
-          // Carry the authored shirt shoulder and both arm roots together.
-          // The collar and lower torso stay anchored so the motion reads as
-          // shoulder-girdle rotation rather than whole-body sliding.
-          float shoulderBand = smoothstep(0.30, 0.48, a_position.y)
-            * (1.0 - smoothstep(0.555, 0.625, a_position.y));
-          point.x += shoulderSweep * shoulderBand;
+          // At each sleeve root this matches the arm's depth projection;
+          // blend through the chest into the opposite rotation of the pelvis.
+          float shoulderBand = smoothstep(0.18, 0.48, a_position.y);
+          float torsoYaw = mix(-0.08 * leftForward * walkWeight, shoulderYaw, shoulderBand);
+          float torsoDepth = point.x * sin(torsoYaw);
+          float torsoProjection = armPerspective(torsoDepth);
+          point = vec2(0.0, 0.5) + (point - vec2(0.0, 0.5)) * torsoProjection;
+          point.x *= cos(torsoYaw);
+          depthScale *= torsoProjection;
 
           point = rotateAround(
             point,
@@ -2476,17 +2580,6 @@
           );
         } else if (upperBody) {
           point = rotateAround(point, vec2(0.0, 0.06), torsoAngle);
-        }
-
-        // Pelvis roll reaches the upper thighs but fades out before the knees,
-        // so the hips stay connected while both lower legs remain vertical.
-        if (leftLeg) {
-          float leftHipFollow = smoothstep(-0.46, 0.02, a_position.y);
-          point.y += -LEG_X * sin(pelvisRoll) * leftHipFollow;
-        }
-        if (rightLeg) {
-          float rightHipFollow = smoothstep(-0.46, 0.02, a_position.y);
-          point.y += LEG_X * sin(pelvisRoll) * rightHipFollow;
         }
 
         // Opposed shoulder and pelvis depth gives the torso a transverse twist
@@ -2514,18 +2607,14 @@
         if (leftLeg || rightLeg) {
           wavePartFollow = 0.08
             + 0.37 * smoothstep(-0.97, -0.84, a_position.y)
-            + 0.3 * smoothstep(-0.84, -0.46, a_position.y)
-            + 0.25 * smoothstep(-0.46, 0.02, a_position.y);
+            + 0.3 * smoothstep(-0.84, -0.43, a_position.y)
+            + 0.25 * smoothstep(-0.43, 0.02, a_position.y);
         }
         point.x += waveTranslation.x * wavePartFollow;
         point.y += waveTranslation.y * wavePartFollow;
-        float approachScale = mix(0.42, 1.0, approach);
-        vec2 floorAnchor = vec2(0.0, -0.96);
-        point = floorAnchor + (point - floorAnchor) * approachScale;
-        point.y += (1.0 - approach) * 0.42;
+        point = personaStagePoint(point, entry);
 
         vec2 figureClip = point * u_scale + u_figure_offset;
-        figureClip.x += (1.0 - approach) * u_approach_x;
         vec2 scatterRandom = hash21(a_seed * 8192.0 + a_twinkle * 101.0);
         vec2 scatterTarget = vec2(mix(-1.3, -0.68, scatterRandom.x), mix(-1.08, 1.08, scatterRandom.y));
         float scatterStart = 0.3 + a_seed * 0.12;
@@ -2552,7 +2641,7 @@
         point.x -= u_scroll * (0.18 + a_seed * 0.26);
         point.y -= u_scroll * (0.04 + a_seed * 0.08);
         vec2 fieldFigureCenter = u_figure_offset
-          + vec2((1.0 - approach) * u_approach_x, 0.0);
+          + vec2((1.0 - approach) * personaApproachTravelX() * u_scale.x, 0.0);
         vec2 fieldAroundFigure = vec2(
           (point.x - fieldFigureCenter.x) / max(u_scale.x * 0.72, 0.001),
           (point.y - fieldFigureCenter.y) / max(u_scale.y * 1.08, 0.001)
@@ -2766,14 +2855,15 @@
     }
 
     function getFigureAnchor(sequenceProgress = 1) {
-      const entry = Math.max(0, Math.min(1, sequenceProgress));
+      const entry = Math.max(0, Math.min(1, sequenceProgress / 0.96));
       const approach = entry * entry * (3 - 2 * entry);
       const figureScale = getFigureScale(cssWidth, cssHeight);
       const placement = getFigurePlacement(cssWidth, cssHeight);
+      const scaleX = figureScale * 2 / cssWidth;
       const scaleY = figureScale * 2 / cssHeight;
       const clipX = placement.offsetX
-        + (1 - approach) * placement.approachX;
-      const floorClipY = (-0.96 + (1 - approach) * 0.42)
+        + (1 - approach) * Math.min(placement.approachX, 0.32 * scaleX);
+      const floorClipY = (-0.969 + (1 - approach) * 0.20)
         * scaleY + placement.offsetY;
       return {
         x: (clipX + 1) * 0.5 * cssWidth,
@@ -2868,14 +2958,15 @@
     }
 
     function getFigureAnchor(sequenceProgress = 1) {
-      const entry = Math.max(0, Math.min(1, sequenceProgress));
+      const entry = Math.max(0, Math.min(1, sequenceProgress / 0.96));
       const approach = entry * entry * (3 - 2 * entry);
       const figureScale = getFigureScale(cssWidth, cssHeight);
       const placement = getFigurePlacement(cssWidth, cssHeight);
+      const scaleX = figureScale * 2 / cssWidth;
       const scaleY = figureScale * 2 / cssHeight;
       const clipX = placement.offsetX
-        + (1 - approach) * placement.approachX;
-      const floorClipY = (-0.96 + (1 - approach) * 0.42)
+        + (1 - approach) * Math.min(placement.approachX, 0.32 * scaleX);
+      const floorClipY = (-0.969 + (1 - approach) * 0.20)
         * scaleY + placement.offsetY;
 
       return {
