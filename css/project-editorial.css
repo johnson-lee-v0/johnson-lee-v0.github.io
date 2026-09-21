@@ -135,6 +135,19 @@ body.case-page {
   top: -24.93506%;
 }
 
+/* Show the original left-hand chart, including its title, axes, and legend. */
+.project-chart-crop--temperature {
+  aspect-ratio: 990 / 720;
+}
+
+.project-chart-crop--temperature img {
+  position: absolute;
+  width: 206.060606%;
+  max-width: none;
+  left: -4.040404%;
+  top: -25%;
+}
+
 .project-figure figcaption {
   max-width: 810px;
   margin: 20px 0 0;

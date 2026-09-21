@@ -8,13 +8,13 @@
   <meta name="theme-color" content="#172822">
   <link rel="stylesheet" href="./css/style.css?v=20260905-123">
   <link rel="stylesheet" href="./css/design-system.css?v=20260920">
-  <link rel="stylesheet" href="./css/editorial.css?v=20260920">
+  <link rel="stylesheet" href="./css/editorial.css?v=20260921-5">
   <link rel="stylesheet" href="./css/hobby-interactions.css?v=20260921">
   <link rel="stylesheet" href="./css/closet-controls.css?v=20260921">
   <script src="./js/persona-particles.js?v=20260919-125" defer></script>
   <script src="./js/sneaker-spins.js?v=20260920-2" defer></script>
   <script src="./js/hobby-interactions.js?v=20260921" defer></script>
-  <script src="./js/script.js?v=20260920-2" defer></script>
+  <script src="./js/script.js?v=20260921-5" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -195,7 +195,7 @@
     <section class="section-wrap projects-section" id="projects" aria-labelledby="projects-title">
       <div class="section-head projects-section-head">
         <h2 class="section-title" id="projects-title">Side projects</h2>
-        <p class="section-intro">A few things I've explored and built, from university Twitter feeds to a game of blackjack.</p>
+        <p class="section-intro">A few things I've explored and built, from language and weather data to a game of blackjack.</p>
       </div>
       <div id="projects-grid" class="projects-grid"></div>
     </section>
@@ -237,8 +237,12 @@
         <article class="hobby-card hobby-action-card hobby-gaming reveal">
           <h3 class="hobby-title">Gaming</h3>
           <p class="hobby-desc">Teamfight Tactics</p>
-          <p class="gaming-rank">Emerald IV <span>Season 16 · NA</span></p>
-          <p class="hobby-note">Profile snapshot · August 17, 2026</p>
+          <p class="gaming-rank">Emerald IV <span>(Top 11.51%)</span></p>
+          <p class="hobby-note">Season 16 · NA · Profile snapshot · August 17, 2026</p>
+          <div class="gaming-preview-trial">
+            <p class="hobby-desc">F1 23</p>
+            <p class="gaming-trial">Bahrain Time Trial <span>1:32.168</span></p>
+          </div>
           <span class="hobby-cta" aria-hidden="true">View gaming profiles →</span>
           <button class="card-hit-area" id="hobby-gaming" type="button" aria-haspopup="dialog" aria-controls="gaming-modal" aria-expanded="false">
             <span class="sr-only">Gaming — open gaming profiles</span>
@@ -267,7 +271,7 @@
         <button class="btn modal-close-button" id="close-gaming" type="button">Close</button>
       </div>
 
-      <p class="modal-intro" id="gaming-intro">Teamfight Tactics, with a saved snapshot of my Season 16 profile.</p>
+      <p class="modal-intro" id="gaming-intro">My Teamfight Tactics profile and an F1 23 time trial.</p>
 
       <div class="gaming-profiles-grid" role="list">
         <article class="gaming-profile-card" role="listitem">
@@ -299,6 +303,17 @@
           <p class="rank-history"><strong>Rank history:</strong> S16 Emerald IV · S12 Platinum IV · S11 Platinum IV · S10 Emerald IV</p>
           <a class="btn gaming-profile-link" href="https://op.gg/tft/summoners/na/InvinciblePlayer-001" target="_blank" rel="noopener" aria-label="View full OP.GG profile for InvinciblePlayer #001 in a new tab">View full OP.GG profile ↗</a>
           <p class="profile-updated">OP.GG profile snapshot · captured August 17, 2026</p>
+        </article>
+
+        <article class="gaming-profile-card gaming-racing-card" role="listitem">
+          <div class="gaming-profile-head">
+            <div>
+              <p class="game-label">F1 23</p>
+              <h3>Bahrain Time Trial</h3>
+            </div>
+          </div>
+          <p class="rank-label">Lap time</p>
+          <p class="racing-lap-time">1:32.168</p>
         </article>
       </div>
     </div>

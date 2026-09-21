@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A forecasting side project exploring next-day maximum temperatures through public weather data, feature engineering, and chronological model comparisons.">
+  <title>Max Temperature Modeling — Johnson Lee</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/project.css?v=20260905-118">
+  <link rel="stylesheet" href="../css/design-system.css?v=20260920-1">
+  <link rel="stylesheet" href="../css/project-editorial.css?v=20260921-4">
+</head>
+<body class="case-page">
+  <a class="case-skip-link" href="#case-content">Skip to project</a>
+
+  <header class="case-hero">
+    <div class="container">
+      <a href="../index.html#projects" class="back-link">← Back to side projects</a>
+      <h1>Max Temperature Modeling</h1>
+      <p class="case-summary">Exploring next-day temperature forecasts through weather feature engineering and comparisons across New York, Los Angeles, and Dallas.</p>
+      <p class="project-meta">Python · Feature engineering · Forecast modeling</p>
+    </div>
+  </header>
+
+  <main id="case-content">
+    <div class="container">
+      <figure class="project-figure">
+        <a class="project-image-link" href="../image/Project_Cover/Max-temperature-landscape.png" target="_blank" rel="noopener" aria-label="Open the original temperature data landscape figure in a new tab">
+          <div class="project-chart-crop project-chart-crop--temperature">
+            <img src="../image/Project_Cover/Max-temperature-landscape.png" width="2040" height="918" alt="Monthly mean daily maximum temperatures for New York, Los Angeles, and Dallas, showing different seasonal patterns across the three stations.">
+          </div>
+        </a>
+        <figcaption><span>Three stations, different temperature patterns.</span> Monthly averages from matched dates in 2024–2025 provide context for the regional modeling comparisons. <a href="../image/Project_Cover/Max-temperature-landscape.png" target="_blank" rel="noopener">View original figure ↗</a></figcaption>
+      </figure>
+
+      <section class="project-reading" aria-labelledby="reading-title">
+        <h2 id="reading-title">From weather records to forecasts</h2>
+        <div>
+          <p>The project explores whether statistical post-processing can improve a station's next-day maximum-temperature forecast. It combines archived forecasts from the Iowa Environmental Mesonet with daily observations from NOAA, aligning forecast issue times, station records, and the day being predicted.</p>
+          <p>Weather features capture temperature trajectories, wind, cloud cover, and differences between forecast sources. Chronological validation keeps model selection ordered in time, while regional experiments compare local, pooled, and simulated federated models across the three stations.</p>
+        </div>
+      </section>
+    </div>
+
+    <footer class="case-visuals" aria-label="Project links">
+      <div class="container">
+        <div class="case-source-row">
+          <a href="../index.html#projects">← All side projects</a>
+          <a href="https://github.com/johnson-lee-v0/Max-Temperature-Modeling/blob/main/docs/MODEL_DEVELOPMENT.md" target="_blank" rel="noopener">Model development guide ↗</a>
+          <a class="case-button" href="https://github.com/johnson-lee-v0/Max-Temperature-Modeling" target="_blank" rel="noopener">View repository ↗</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
