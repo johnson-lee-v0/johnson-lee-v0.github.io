@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A league-wide NBA side project exploring shot selection, pregame and in-game win probabilities, and historical game replay. Built from the original Boston Celtics Player Analysis.">
+  <title>NBA Game Outcomes — Johnson Lee</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/project.css?v=20260905-118">
+  <link rel="stylesheet" href="../css/design-system.css?v=20260920-1">
+  <link rel="stylesheet" href="../css/project-editorial.css?v=20260921-4">
+</head>
+<body class="case-page">
+  <a class="case-skip-link" href="#case-content">Skip to project</a>
+
+  <header class="case-hero">
+    <div class="container">
+      <a href="../index.html#projects" class="back-link">← Back to side projects</a>
+      <h1>NBA game outcomes</h1>
+      <p class="case-summary">A league-wide study of basketball playstyle and win probabilities, from pregame context to the events unfolding on court.</p>
+      <p class="project-meta">Python · Sports analytics · Predictive modeling</p>
+    </div>
+  </header>
+
+  <main id="case-content">
+    <div class="container">
+      <figure class="project-figure">
+        <a class="project-image-link" href="../image/Project_Cover/NBA-shot-locations.png" target="_blank" rel="noopener" aria-label="Open the original NBA shot-location figure in a new tab">
+          <img src="../image/Project_Cover/NBA-shot-locations.png" width="2577" height="888" alt="Three court heatmaps comparing recorded NBA shot locations in the 2017–18 and 2025–26 regular seasons and the change in each court area's share of attempts.">
+        </a>
+        <figcaption><span>Where the league takes its shots.</span> Recorded shot locations compare the 2017–18 and 2025–26 regular seasons, with the right-hand panel showing the change in attempt share. <a href="../image/Project_Cover/NBA-shot-locations.png" target="_blank" rel="noopener">View original figure ↗</a></figcaption>
+      </figure>
+
+      <section class="project-reading" aria-labelledby="reading-title">
+        <h2 id="reading-title">From shot selection to win probabilities</h2>
+        <div>
+          <p>The project combines public play-by-play archives with team, player, schedule, and travel context to explore league-wide patterns. It examines how shot selection changed across nine seasons, then models win probabilities before tip-off, after three quarters, and as a game's events unfold.</p>
+          <p>Training and validation follow the calendar, and historical features use information available before each prediction. The study compares simpler statistical models with AutoML, Bayesian, and sequence-model alternatives, with saved forecasts available in an interactive historical game replay.</p>
+        </div>
+      </section>
+
+      <section class="project-reading" aria-labelledby="origin-title">
+        <h2 id="origin-title">Built from the Celtics analysis</h2>
+        <div>
+          <p>I used my original <a href="https://github.com/johnson-lee-v0/Boston-Celtics-Player-Analysis" target="_blank" rel="noopener" aria-label="Boston Celtics Player Analysis repository (opens in a new tab)">Boston Celtics Player Analysis</a> as the starting point, expanding the study from one team to all 30 NBA teams. The new project revisits the original classifiers and develops a broader workflow for league-wide analysis and probability modeling.</p>
+        </div>
+      </section>
+    </div>
+
+    <footer class="case-visuals" aria-label="Project links">
+      <div class="container">
+        <div class="case-source-row">
+          <a href="../index.html#projects">← All side projects</a>
+          <a href="https://github.com/johnson-lee-v0/NBA-Games-Outcome/blob/main/reports/league-playstyle.md" target="_blank" rel="noopener">Read the league analysis ↗</a>
+          <a class="case-button" href="https://github.com/johnson-lee-v0/NBA-Games-Outcome" target="_blank" rel="noopener">View repository ↗</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>

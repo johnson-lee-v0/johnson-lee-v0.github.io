@@ -2,6 +2,22 @@ document.documentElement.classList.replace("no-js", "js");
 
 const PROJECTS = [
   {
+    title: "NBA game outcomes",
+    description: "Explored league-wide shot selection and modeled pregame and in-game win probabilities using historical context, chronological validation, and an interactive game replay.",
+    image: "./image/Project_Cover/NBA-shot-locations.png",
+    visualClass: "project-visual-nba",
+    imageAlt: "Court heatmap showing changes in NBA shot-attempt share between the 2017–18 and 2025–26 regular seasons",
+    caption: "How NBA shot locations shifted between 2017–18 and 2025–26.",
+    link: "./projects/NBA_Games_Outcome.html",
+    source: "https://github.com/johnson-lee-v0/NBA-Games-Outcome",
+    origin: {
+      title: "Boston Celtics Player Analysis",
+      url: "https://github.com/johnson-lee-v0/Boston-Celtics-Player-Analysis"
+    },
+    tags: ["Python", "Sports analytics", "Predictive modeling"],
+    featured: true
+  },
+  {
     title: "Max temperature modeling",
     description: "Compared next-day maximum-temperature forecasts using weather feature engineering, chronological validation, and regional models for New York, Los Angeles, and Dallas.",
     image: "./image/Project_Cover/Max-temperature-landscape.png",
@@ -10,8 +26,7 @@ const PROJECTS = [
     caption: "Three cities, different seasonal temperature patterns. Observations from 2024–2025.",
     link: "./projects/Max_Temperature.html",
     source: "https://github.com/johnson-lee-v0/Max-Temperature-Modeling",
-    tags: ["Python", "Feature engineering", "Forecast modeling"],
-    featured: true
+    tags: ["Python", "Feature engineering", "Forecast modeling"]
   },
   {
     title: "University Twitter analysis",
@@ -32,18 +47,7 @@ const PROJECTS = [
     caption: "The desktop interface, including cards and strategy advice.",
     link: "./projects/Blackjack.html",
     source: "https://github.com/johnson-lee-v0/BlackJackSim",
-    tags: ["Python", "SQLite", "Desktop UI", "K-means"]
-  },
-  {
-    title: "Celtics game analysis",
-    description: "Scraped and explored historical Celtics game data, then compared Naive Bayes, KNN, and SVM classification approaches.",
-    image: "./image/Project_Carousel/Boston-Analysis/Slide5.JPG",
-    visualClass: "project-visual-celtics",
-    imageAlt: "Shot-distance distributions from the historical Celtics analysis",
-    caption: "Exploring Jayson Tatum's shot distances across seasons.",
-    link: "./projects/Boston_Star.html",
-    source: "https://github.com/johnson-lee-v0/Boston-Celtics-Player-Analysis",
-    tags: ["Python", "Web scraping", "EDA", "Classification"],
+    tags: ["Python", "SQLite", "Desktop UI", "K-means"],
     compact: true
   }
 ];
@@ -1336,7 +1340,21 @@ function renderProjects() {
       text: ` — ${project.title} repository (opens in a new tab)`
     }));
     footer.append(link, sourceLink);
-    body.append(title, description, tags, footer);
+    body.append(title, description);
+    if (project.origin) {
+      const origin = createElement("p", { className: "project-origin" });
+      const originLink = createElement("a", {
+        text: project.origin.title,
+        attributes: { href: project.origin.url, target: "_blank", rel: "noopener" }
+      });
+      originLink.append(createElement("span", {
+        className: "sr-only",
+        text: " repository (opens in a new tab)"
+      }));
+      origin.append("Built from my original ", originLink, ".");
+      body.append(origin);
+    }
+    body.append(tags, footer);
     card.append(figure, body);
     fragment.append(card);
   });

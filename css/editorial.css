@@ -118,23 +118,30 @@ nav :focus-visible, .hero :focus-visible { outline-color: var(--accent); }
 .project-card img { height: auto; aspect-ratio: 1.8; object-fit: contain; background: #fff; border: 0; padding: 12px; }
 .project-visual { display: block; position: relative; background: #fff; }
 .project-visual-universities { aspect-ratio: 1170 / 440; overflow: hidden; }
-.project-visual-celtics { aspect-ratio: 830 / 385; overflow: hidden; }
+.project-visual-nba { aspect-ratio: 917 / 805; overflow: hidden; }
 .project-visual-temperature { aspect-ratio: 990 / 720; overflow: hidden; }
+/* Focus on the original change-in-shot-share panel, keeping its title and scale. */
+.project-card .project-visual-nba img {
+  position: absolute; max-width: none; width: 281.025082%; height: auto; aspect-ratio: auto;
+  left: -181.025082%; top: -8.074535%; padding: 0;
+}
 .project-card .project-visual-temperature img {
   position: absolute; max-width: none; width: 206.060606%; height: auto; aspect-ratio: auto;
   left: -4.040404%; top: -25%; padding: 0;
 }
-.project-card .project-visual-universities img, .project-card .project-visual-celtics img {
+.project-card .project-visual-universities img {
   position: absolute; max-width: none; height: auto; aspect-ratio: auto; padding: 0;
 }
 .project-card .project-visual-universities img { width: 109.40171%; left: -4.2735%; top: -47.72727%; }
-.project-card .project-visual-celtics img { width: 154.21687%; left: 0; top: -24.93506%; }
 .project-card:hover img, .project-card:focus-within img { transform: none; filter: none; }
 .project-figure figcaption { font-size: 0.8125rem; color: var(--ink-soft); line-height: 1.5; margin-top: 12px; max-width: 62ch; }
 .project-body, .project-card-featured .project-body { padding: 0; }
 .project-body h3, .project-card-featured .project-body h3 { font-family: var(--display); font-size: 2rem; font-weight: 400; line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 16px; }
 .project-card-featured .project-body h3 { font-size: 2.625rem; max-width: 14ch; }
 .project-body .project-description { font-size: 1rem; line-height: 1.7; margin-bottom: 18px; }
+.project-origin { margin: 0 0 20px; color: var(--ink-soft); font-size: 0.875rem; line-height: 1.6; }
+.project-origin a { color: var(--link); text-decoration: underline; text-underline-offset: 0.2em; }
+.project-origin a:hover { text-decoration-thickness: 2px; }
 .project-tags { gap: 6px 0; margin-bottom: 24px; }
 .project-tags li { font-family: var(--body); font-size: 0.8125rem; line-height: 1.5; }
 .project-tags li:not(:last-child)::after { content: "/"; padding-inline: 10px; color: var(--ink-soft); }
