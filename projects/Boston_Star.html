@@ -4,12 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A modeling side project exploring historical signals associated with Boston Celtics wins.">
-  <title>Celtics Win-Signal Analysis — Johnson Lee</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;family=Syne:wght@600;700;800&amp;family=DM+Sans:wght@400;500&amp;display=swap" rel="stylesheet">
+  <title>Celtics game analysis — Johnson Lee</title>
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/project.css?v=20260905-118">
+  <link rel="stylesheet" href="../css/design-system.css?v=20260920-1">
+  <link rel="stylesheet" href="../css/project-editorial.css?v=20260920-1">
 </head>
 <body class="case-page">
   <a class="case-skip-link" href="#case-content">Skip to project</a>
@@ -17,48 +16,37 @@
   <header class="case-hero">
     <div class="container">
       <a href="../index.html#projects" class="back-link">← Back to side projects</a>
-      <p class="case-kicker">Sports analytics</p>
-      <h1>Celtics Win-Signal Analysis</h1>
-      <p class="case-summary">A model-comparison study exploring which historical Celtics metrics separate wins from losses across three classification approaches.</p>
-      <ul class="case-tags" role="list">
-        <li>Python</li>
-        <li>Web scraping</li>
-        <li>EDA</li>
-        <li>Classification</li>
-      </ul>
+      <h1>Celtics game analysis</h1>
+      <p class="case-summary">From shot selection to game outcomes: exploring Celtics player data and the signals associated with a win.</p>
+      <p class="project-meta">Python · Exploratory analysis · Classification</p>
     </div>
   </header>
 
   <main id="case-content">
-    <section class="case-overview" aria-label="Project overview">
-      <div class="container case-overview-grid">
-        <article>
-          <p class="case-label">Question</p>
-          <h2>What historical signals separate a win?</h2>
-          <p>Explore team and player metrics, then test how well different feature sets classify the historical outcomes.</p>
-        </article>
-        <article>
-          <p class="case-label">Approach</p>
-          <h2>Compare multiple model families</h2>
-          <p>Scrape and transform game data, explore feature relationships, then compare Naive Bayes, KNN, and SVM approaches.</p>
-        </article>
-        <article>
-          <p class="case-label">Models compared</p>
-          <h2>Three classification approaches</h2>
-          <p>The project explores how different feature sets behave across Naive Bayes, KNN, and SVM models.</p>
-        </article>
-      </div>
-    </section>
+    <div class="container">
+      <figure class="project-figure">
+        <a class="project-image-link" href="../image/Project_Carousel/Boston-Analysis/Slide5.JPG" target="_blank" rel="noopener" aria-label="Open the original Jayson Tatum analysis figure in a new tab">
+          <div class="project-chart-crop project-chart-crop--celtics">
+            <img src="../image/Project_Carousel/Boston-Analysis/Slide5.JPG" width="1280" height="720" alt="Jayson Tatum's shot-distance distributions from 2018 through 2022, with attempts concentrated near the rim and beyond the three-point line.">
+          </div>
+        </a>
+        <figcaption><span>Jayson Tatum's shot distance, 2018–2022.</span> The distribution has two clear clusters: shots near the rim and shots beyond the three-point line. The later seasons show more attempts from long range. <a href="../image/Project_Carousel/Boston-Analysis/Slide5.JPG" target="_blank" rel="noopener">View original figure ↗</a></figcaption>
+      </figure>
+
+      <section class="project-reading" aria-labelledby="reading-title">
+        <h2 id="reading-title">Start with the shots</h2>
+        <div>
+          <p>Before comparing models, the analysis explored how Jayson Tatum and Jaylen Brown's shot profiles changed across seasons. The charts make changes in shot location and volume easier to see than a season-average table alone.</p>
+          <p>Game data was scraped from Basketball Reference, transformed into team and player features, and filtered to end-of-third-quarter statistics. Naive Bayes, KNN, and SVM models were then compared using 2018–2022 for training and 2023 for testing.</p>
+        </div>
+      </section>
+    </div>
 
     <section class="case-visuals" aria-labelledby="visuals-title">
       <div class="container">
-        <div class="case-section-head">
-          <div>
-            <p class="case-label">Visual analysis</p>
-            <h2 id="visuals-title">From exploration to model comparison</h2>
-          </div>
-          <p>Use the controls or arrow keys to move through the original analysis.</p>
-        </div>
+        <details class="project-deck">
+          <summary id="visuals-title">Explore the full analysis <span>10 slides</span></summary>
+          <p class="project-deck-help">Browse the original slides with the buttons, or focus the presentation and use the left and right arrow keys.</p>
 
         <div class="carousel" aria-label="Celtics win-signal analysis slides" tabindex="0">
           <button class="carousel-button prev" type="button" onclick="moveSlide(-1)" aria-label="Previous slide">&#8249;</button>
@@ -79,7 +67,9 @@
           <button class="carousel-button next" type="button" onclick="moveSlide(1)" aria-label="Next slide">&#8250;</button>
           <div class="carousel-dots" aria-label="Choose a slide"></div>
         </div>
+        </details>
         <div class="case-source-row">
+          <a href="../index.html#projects">← All side projects</a>
           <a class="case-button" href="https://github.com/johnson-lee-v0/Boston-Celtics-Player-Analysis" target="_blank" rel="noopener">View repository ↗</a>
         </div>
       </div>

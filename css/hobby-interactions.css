@@ -1,0 +1,116 @@
+/* Eight prints encircle one readable centre print; selection exchanges two slots. */
+.travel-carousel { container-type: inline-size; margin: 0 0 24px; }
+.travel-orbit-stage {
+  --radius: min(32cqw, 178px);
+  --diagonal: min(22.63cqw, 126px);
+  position: relative;
+  height: min(102cqw, 568px);
+  isolation: isolate;
+  overflow: clip;
+  overflow-clip-margin: 8px;
+  touch-action: pan-y;
+}
+.polaroid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(50cqw, 248px);
+  aspect-ratio: 3 / 4;
+  padding: clamp(6px, 2cqw, 12px);
+  border: 0;
+  border-radius: 1px;
+  background: #fffdf8;
+  color: var(--ink);
+  box-shadow: 0 7px 18px #26382b24;
+  text-align: left;
+  font-family: var(--body);
+  translate: -50% -50%;
+  transform-origin: 50% 50%;
+  transition: transform 550ms cubic-bezier(.2,.75,.2,1), box-shadow 250ms ease;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+.polaroid[data-slot="0"] { z-index: 10; transform: rotate(-3deg); box-shadow: 0 9px 22px #26382b30; }
+.polaroid[data-slot="1"] { z-index: 1; transform: translateY(calc(-1 * var(--radius))) rotate(-6deg) scale(.52); }
+.polaroid[data-slot="2"] { z-index: 2; transform: translate(var(--diagonal), calc(-1 * var(--diagonal))) rotate(42deg) scale(.52); }
+.polaroid[data-slot="3"] { z-index: 3; transform: translateX(var(--radius)) rotate(88deg) scale(.52); }
+.polaroid[data-slot="4"] { z-index: 4; transform: translate(var(--diagonal), var(--diagonal)) rotate(138deg) scale(.52); }
+.polaroid[data-slot="5"] { z-index: 5; transform: translateY(var(--radius)) rotate(183deg) scale(.52); }
+.polaroid[data-slot="6"] { z-index: 6; transform: translate(calc(-1 * var(--diagonal)), var(--diagonal)) rotate(221deg) scale(.52); }
+.polaroid[data-slot="7"] { z-index: 7; transform: translateX(calc(-1 * var(--radius))) rotate(274deg) scale(.52); }
+.polaroid[data-slot="8"] { z-index: 8; transform: translate(calc(-1 * var(--diagonal)), calc(-1 * var(--diagonal))) rotate(316deg) scale(.52); }
+.polaroid[data-slot="0"]:focus-visible { transform: rotate(0deg); }
+.hobby-travel .polaroid-image { display: block; width: 100%; height: 69%; aspect-ratio: auto; object-fit: cover; object-position: 50% 36%; pointer-events: none; }
+.polaroid[data-photo="tokyo-tower"] .polaroid-image { object-position: 50% 27%; }
+.polaroid[data-photo="saint-sauveur"] .polaroid-image { object-position: 50% 58%; }
+.polaroid[data-photo="odaiba-liberty"] .polaroid-image { object-position: 50% 100%; }
+.polaroid[data-photo="fukuoka-gundam"] .polaroid-image { object-position: 50% 15%; }
+.polaroid-caption { display: flex; flex-direction: column; justify-content: center; height: 31%; gap: 5px; padding: 6px 2px 0; pointer-events: none; }
+.polaroid-place { font-family: var(--display); font-size: clamp(.875rem, 4cqw, 1.3rem); line-height: 1.1; font-weight: 500; }
+.polaroid-trip { font-size: clamp(.625rem, 2.5cqw, .75rem); line-height: 1.25; color: var(--ink-soft); }
+.travel-controls { position: relative; z-index: 11; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 5px; margin-top: 16px; }
+.travel-step, .travel-dot { display: grid; place-items: center; width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink); }
+.travel-step svg { width: 22px; height: 22px; }
+.travel-step:hover { background: var(--bg2); border-radius: 50%; }
+.travel-pagination { display: flex; gap: 0; }
+.travel-dot { width: 26px; }
+.travel-dot::after { content: ""; width: 6px; height: 6px; border: 1px solid var(--ink-soft); border-radius: 50%; }
+.travel-dot[aria-pressed="true"]::after { background: var(--ink); border-color: var(--ink); outline: 1px solid var(--ink); outline-offset: 3px; }
+.travel-count { flex-basis: 100%; text-align: center; color: var(--ink-soft); font-size: 0.8125rem; font-variant-numeric: tabular-nums; }
+.travel-retry { padding: 10px 0; border: 0; background: transparent; color: var(--link); text-decoration: underline; }
+.hobby-travel .hobby-cta, .hobby-sneakers .hobby-cta { background: transparent; border: 0; border-bottom: 1px solid currentColor; border-radius: 0; padding: 8px 0; min-height: 44px; }
+.hobby-travel .hobby-cta:hover, .hobby-sneakers .hobby-cta:hover { color: var(--ink); text-decoration: underline; }
+
+/* StockX photographs stay intact. White studio backgrounds blend with the paper. */
+.sneaker-viewer { isolation: isolate; min-width: 0; background: var(--paper); }
+.sneaker-spin-stage { position: relative; display: block; width: 100%; aspect-ratio: 1.6; padding: 0; border: 0; border-radius: 0; background: transparent; touch-action: pan-y; -webkit-user-select: none; user-select: none; }
+button.sneaker-spin-stage { cursor: grab; }
+button.sneaker-spin-stage.is-dragging { cursor: grabbing; }
+.hobby-sneakers .sneaker-spin-image, .sneaker-spin-image, #featured-sneaker > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: contain;
+  background: transparent;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+.sneaker-spin-controls { display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; margin-top: 6px; align-items: center; }
+.sneaker-spin-help, .sneaker-spin-angle, .sneaker-static-note { color: var(--ink-soft); font-size: 0.8125rem; line-height: 1.4; }
+.sneaker-spin-angle { font-variant-numeric: tabular-nums; }
+.sneaker-spin-status { color: var(--ink-soft); font-size: 0.8125rem; line-height: 1.4; }
+.sneaker-spin-status:not(:empty) { margin-top: 8px; }
+.sneaker-static-note { padding-top: 8px; }
+.hobby-sneakers .hobby-figure figcaption { margin-top: 6px; }
+.closet-help { font-size: 0.9375rem; color: var(--ink-soft); margin-bottom: 16px; max-width: 60ch; }
+.closet-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+.closet-item .sneaker-spin-stage { aspect-ratio: 1.5; }
+.closet-item-content { padding-top: 8px; }
+.closet-image-wrap { background: var(--paper); isolation: isolate; }
+.closet-image-wrap img { mix-blend-mode: multiply; }
+
+@container (max-width: 350px) {
+  .hobby-travel .polaroid-image { height: 58%; }
+  .polaroid-caption { height: 42%; gap: 3px; padding-top: 4px; }
+  .travel-pagination { order: 4; flex-basis: 100%; justify-content: center; }
+  .travel-count { flex-basis: auto; order: 2; width: 60px; }
+  .travel-step:last-of-type { order: 3; }
+  .travel-dot { width: 27px; }
+}
+
+@media (max-width: 700px) {
+  .hobby-sneakers .hobby-figure { margin-bottom: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .polaroid { transition: none; }
+}
+
+@media (forced-colors: active) {
+  .polaroid, .sneaker-spin-stage { border: 1px solid ButtonBorder; }
+  .polaroid { background: Canvas; color: CanvasText; box-shadow: none; }
+  .polaroid-trip { color: CanvasText; }
+  .sneaker-spin-image { mix-blend-mode: normal; }
+}

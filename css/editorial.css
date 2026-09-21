@@ -1,0 +1,281 @@
+/* The portrait is the one animated signature; the rest reads like a personal folio. */
+nav {
+  background: var(--stage);
+  color: var(--paper);
+  border-color: #3c4d43;
+  backdrop-filter: none;
+  padding-inline: max(32px, calc((100vw - 1120px) / 2));
+}
+.nav-logo, .f-logo { font-family: var(--display); font-size: 1.5rem; font-weight: 500; }
+.nav-logo span { color: var(--accent); }
+.nav-logo .nav-surname { color: inherit; }
+.nav-right { gap: 28px; }
+.nav-link { color: #d4dace; font-size: 0.9rem; }
+.nav-link::after { height: 1px; background: var(--accent); }
+.nav-link:hover, .nav-link:focus-visible, .nav-link.is-current { color: #fff; }
+.nav-contact { font-size: 0.9rem; color: var(--accent); padding-block: 10px; }
+.nav-contact:hover { text-decoration: underline; }
+.skip-link { background: var(--accent); color: var(--ink); border-radius: 3px; }
+.skip-link:focus-visible { outline: 2px solid var(--paper); }
+nav :focus-visible, .hero :focus-visible { outline-color: var(--accent); }
+.btn {
+  border-radius: 3px;
+  min-height: 44px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  padding: 10px 18px;
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+.btn:hover { transform: none; color: var(--ink); border-color: var(--ink); }
+.btn-accent { color: var(--paper); background: var(--ink); border-color: var(--ink); }
+.btn-accent:hover { color: var(--paper); background: var(--link); border-color: var(--link); }
+.hero {
+  --text: var(--paper);
+  --muted: #d4dace;
+  --dim: #bac5b7;
+  --green: var(--accent);
+  color: var(--paper);
+  background: var(--stage);
+}
+.hero-sticky { background: var(--stage); padding-inline: 40px; }
+.hero-sticky::after, .hero-grid, .orb-1, .orb-2 { display: none; }
+.orb-3::before { opacity: 0.4; }
+.orb-3::after { opacity: 0.6; }
+.hero-content { max-width: 1120px; }
+.hero-copy { width: min(52vw, 610px); }
+.hero-title {
+  color: var(--paper);
+  font-family: var(--display);
+  font-size: clamp(3.6rem, 6.1vw, 5.25rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  margin-bottom: 26px;
+}
+.hero-title > span:first-child {
+  margin-bottom: 18px;
+  font-size: 0.46em;
+  letter-spacing: -0.02em;
+}
+.hero-lede { font-size: clamp(1.25rem, 1.7vw, 1.5rem); font-weight: 400; margin-bottom: 24px; }
+.hero-bio { font-size: 1rem; gap: 7px; margin-bottom: 32px; }
+.hero-actions { align-items: center; gap: 26px; margin-bottom: 28px; }
+.hero-actions .btn-accent { background: var(--accent); color: var(--ink); border-color: var(--accent); }
+.hero-actions .btn-accent:hover { background: #d5f0bc; }
+.hero-contact { color: var(--paper); text-decoration: underline; font-size: 0.95rem; padding-block: 10px; }
+.hero-contact:hover { color: var(--accent); }
+.hero-utility { gap: 10px 24px; }
+.scroll-cue, .persona-motion-toggle {
+  font-family: var(--body);
+  font-size: 0.8rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #bac5b7;
+}
+.scroll-cue-arrow { animation: none; }
+.persona-motion-toggle { border: 0; text-decoration: underline; text-underline-offset: 4px; }
+.section-wrap { max-width: 1200px; padding: 96px 40px; }
+.section-title { font-family: var(--display); font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 400; line-height: 1.08; letter-spacing: -0.025em; }
+.section-head { gap: 36px; align-items: flex-end; margin-bottom: 42px; }
+.section-intro { max-width: 380px; font-size: 1rem; }
+.professional-section { padding-bottom: 42px; }
+.work-card { grid-template-columns: minmax(280px, 0.92fr) minmax(0, 1.08fr); gap: 64px; padding: 34px 0; }
+.work-card-header { align-self: start; align-items: start; grid-template-columns: auto minmax(0, 1fr); gap: 12px 16px; }
+.work-status { grid-column: 2; font-family: var(--body); font-size: 0.8125rem; color: var(--ink-soft); }
+.work-status-current { color: var(--link); }
+.company-mark { border-radius: 3px; width: 46px; height: 46px; grid-row: span 2; }
+.company-mark-rbc { background: #fff; border-color: var(--line); }
+.company-heading h3 { font-family: var(--body); font-size: 1.2rem; font-weight: 600; margin-bottom: 5px; }
+.work-role { font-size: 0.95rem; line-height: 1.5; }
+.work-card-accent { width: 112px; height: 2px; }
+.work-card-label { font-family: var(--body); text-transform: none; letter-spacing: 0; font-size: 0.8125rem; margin-bottom: 10px; }
+.work-link-list { border-top: 0; }
+.work-link { border-bottom-color: var(--line); }
+.work-link-list li:last-child .work-link { border-bottom: 0; }
+.work-link-copy strong { font-size: 1rem; font-weight: 500; }
+.work-link-copy > span { font-family: var(--body); font-size: 0.8125rem; }
+.work-link-arrow { color: var(--ink-soft); font-size: 1rem; }
+.work-link:hover, .work-link:focus-visible { color: var(--link); }
+.work-link:hover strong { text-decoration: underline; text-underline-offset: 4px; }
+.work-link-list-partners { gap: 0 32px; }
+.projects-section { padding-top: 64px; }
+.projects-grid { gap: 60px 48px; align-items: start; }
+.project-card, .project-card:hover, .project-card:focus-within, .project-card:active {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  translate: none;
+  overflow: visible;
+}
+.project-card-featured { grid-template-columns: minmax(0, 1.36fr) minmax(0, 0.9fr); gap: 42px; align-items: center; padding-bottom: 42px; border-bottom: 1px solid var(--line); }
+.project-figure { min-width: 0; margin: 0 0 24px; }
+.project-card-featured .project-figure { margin-bottom: 0; }
+.project-card img { height: auto; aspect-ratio: 1.8; object-fit: contain; background: #fff; border: 0; padding: 12px; }
+.project-visual { display: block; position: relative; background: #fff; }
+.project-visual-universities { aspect-ratio: 1170 / 440; overflow: hidden; }
+.project-visual-celtics { aspect-ratio: 830 / 385; overflow: hidden; }
+.project-card .project-visual-universities img, .project-card .project-visual-celtics img {
+  position: absolute; max-width: none; height: auto; aspect-ratio: auto; padding: 0;
+}
+.project-card .project-visual-universities img { width: 109.40171%; left: -4.2735%; top: -47.72727%; }
+.project-card .project-visual-celtics img { width: 154.21687%; left: 0; top: -24.93506%; }
+.project-card:hover img, .project-card:focus-within img { transform: none; filter: none; }
+.project-figure figcaption { font-size: 0.8125rem; color: var(--ink-soft); line-height: 1.5; margin-top: 12px; max-width: 62ch; }
+.project-body, .project-card-featured .project-body { padding: 0; }
+.project-body h3, .project-card-featured .project-body h3 { font-family: var(--display); font-size: 2rem; font-weight: 400; line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 16px; }
+.project-card-featured .project-body h3 { font-size: 2.625rem; max-width: 14ch; }
+.project-body .project-description { font-size: 1rem; line-height: 1.7; margin-bottom: 18px; }
+.project-tags { gap: 6px 0; margin-bottom: 24px; }
+.project-tags li { font-family: var(--body); font-size: 0.8125rem; line-height: 1.5; }
+.project-tags li:not(:last-child)::after { content: "/"; padding-inline: 10px; color: var(--ink-soft); }
+.project-footer { justify-content: flex-start; gap: 26px; }
+.project-footer .btn { padding: 8px 0; min-height: 44px; color: var(--link); border: 0; border-radius: 0; background: transparent; font-size: 0.9375rem; text-decoration: underline; }
+.project-footer .btn:hover { color: var(--ink); text-decoration-thickness: 2px; }
+.project-source-link { font-family: var(--body); color: var(--ink-soft); font-size: 0.875rem; padding-block: 10px; }
+.hobbies-section { padding-top: 20px; padding-bottom: 88px; }
+.hobbies-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); grid-template-rows: auto auto; gap: 38px 72px; align-items: start; }
+.hobby-card { border: 0; padding: 0; min-height: 0; }
+.hobby-travel { grid-row: span 2; }
+.hobby-figure { margin: 0 0 22px; }
+.hobby-figure img { display: block; width: 100%; height: auto; }
+.hobby-travel img { aspect-ratio: 1; object-fit: cover; object-position: center 38%; }
+.hobby-sneakers img { aspect-ratio: 1.6; object-fit: contain; background: #fff; }
+.hobby-figure figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 5px 12px; margin-top: 10px; color: var(--ink-soft); font-size: 0.8125rem; }
+.hobby-title { font-family: var(--display); font-size: 2rem; font-weight: 400; line-height: 1.15; margin-bottom: 12px; }
+.hobby-desc { max-width: 42ch; font-size: 1rem; line-height: 1.65; }
+.hobby-cta { display: inline-block; font-family: var(--body); font-size: 0.9375rem; letter-spacing: 0; color: var(--link); padding-bottom: 5px; border-bottom: 1px solid currentColor; margin-top: 18px; }
+.hobby-action-card:hover .hobby-cta, .hobby-action-card:focus-within .hobby-cta { transform: none; border-bottom-width: 2px; }
+.hobby-gaming { padding: 26px 0 0; border-top: 1px solid var(--line); }
+.hobby-gaming .hobby-title { font-size: 1.75rem; margin-bottom: 10px; }
+.gaming-rank { font-size: 1.25rem; font-weight: 500; margin: 8px 0 10px; }
+.gaming-rank span { font-size: 0.8125rem; color: var(--ink-soft); font-weight: 400; margin-left: 10px; white-space: nowrap; }
+.hobby-note { font-size: 0.8125rem; color: var(--ink-soft); }
+.hobby-gaming .hobby-cta { margin-top: 12px; }
+footer { max-width: 1120px; padding: 38px 0; margin: 0 auto 24px; flex-wrap: wrap; gap: 26px 48px; }
+footer h2 { flex: 1; font-family: var(--display); font-size: 2.5rem; font-weight: 400; letter-spacing: -0.02em; line-height: 1.1; }
+.f-links a { display: inline-block; padding-block: 10px; color: var(--link); font-size: 1rem; text-decoration: underline; }
+.f-copy { width: 100%; font-family: var(--body); font-size: 0.8125rem; color: var(--ink-soft); }
+.reveal, .reveal.visible { opacity: 1; transform: none; animation: none; }
+.interactive-surface::after { content: none; }
+/* Keep the existing searchable collection and keyboard-safe dialogs. */
+.modal-overlay { background: #172822e8; backdrop-filter: none; }
+.modal-inner { background: var(--paper); border: 0; border-radius: 12px; padding: 32px; box-shadow: 0 18px 60px #06110b55; }
+.modal-head h2 { font-family: var(--display); font-size: 2.5rem; font-weight: 400; letter-spacing: -0.02em; }
+.modal-intro { font-size: 1rem; }
+.gaming-profile-card { background: transparent; border: 0; border-radius: 0; padding: 12px 0 0; }
+.gaming-profile-head h3, .rank-panel strong, .ci-name { font-family: var(--body); }
+.game-label, .region-badge, .rank-label, .profile-updated, .results-count { font-family: var(--body); font-size: 0.8125rem; letter-spacing: 0; text-transform: none; }
+.region-badge { background: transparent; color: var(--ink-soft); border-color: var(--line); border-radius: 3px; }
+.rank-panel > div { border: 0; border-top: 1px solid var(--line); border-radius: 0; background: transparent; padding: 18px 0; }
+.rank-label { margin-bottom: 10px; }
+.rank-panel strong { font-size: 1.25rem; font-weight: 500; }
+.gaming-stats { gap: 12px 24px; }
+.gaming-stats span { font-size: 0.9rem; border: 0; padding: 0; }
+.rank-history { font-size: 0.9rem; }
+#sneaker-search { font-size: 1rem; min-height: 44px; border-radius: 3px; background: var(--surface); }
+#sneaker-search::placeholder { color: var(--ink-soft); opacity: 1; }
+.closet-grid { gap: 24px; }
+.closet-item { border: 0; border-radius: 0; background: transparent; }
+.closet-image-wrap { margin: 0; border-radius: 0; }
+.closet-item-content { padding: 14px 0; }
+.ci-name { font-size: 1rem; font-weight: 500; }
+.ci-meta { font-size: 0.8125rem; gap: 12px; }
+.ci-meta span { border: 0; padding: 0; }
+
+@media (max-width: 1000px) {
+  .hero-title { font-size: clamp(3.1rem, 6.2vw, 4.4rem); }
+  .hero-bio { max-width: 390px; }
+  .work-card { gap: 36px; }
+  .project-card-featured { grid-template-columns: 1.15fr 1fr; gap: 28px; }
+  .project-card-featured .project-body h3 { font-size: 2.2rem; }
+  .hobbies-grid { gap: 36px; }
+  footer { margin-inline: 40px; }
+}
+
+@media (max-width: 700px) {
+  nav { padding: 10px 22px; gap: 12px; }
+  .nav-logo { font-size: 1.2rem; white-space: nowrap; }
+  .nav-right { gap: 16px; }
+  .nav-link, .nav-contact { font-size: 0.8125rem; }
+  .nav-contact { display: none; }
+  .hero-sticky { padding: 100px 24px 40px; }
+  .hero-copy { width: 100%; max-width: none; }
+  .hero-title { font-size: clamp(2.9rem, 9vw, 4rem); margin-bottom: 16px; }
+  .hero-title > span:first-child { font-size: 0.48em; margin-bottom: 8px; }
+  .hero-lede { font-size: 1.2rem; margin-bottom: 18px; }
+  .hero-bio { font-size: 0.9375rem; line-height: 1.5; margin-bottom: 20px; max-width: 390px; }
+  .hero-actions { flex-wrap: nowrap; gap: 22px; margin-bottom: 14px; }
+  .hero-actions .btn { width: auto; font-size: 0.875rem; padding: 8px 13px; }
+  .hero-contact { font-size: 0.875rem; }
+  .hero-utility { width: 46%; flex-direction: column; flex-wrap: nowrap; align-items: flex-start; gap: 0; }
+  .scroll-cue, .persona-motion-toggle { font-size: 0.75rem; }
+  .section-wrap { padding: 64px 24px; }
+  .section-head { align-items: flex-start; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+  .section-intro { max-width: 42ch; }
+  .section-title { font-size: 2.75rem; }
+  .professional-section { padding-bottom: 24px; }
+  .work-card { grid-template-columns: 1fr; gap: 26px; padding: 28px 0; }
+  .work-card-header { grid-template-columns: auto minmax(0, 1fr) auto; }
+  .work-status { grid-column: 3; grid-row: 1; padding-top: 4px; }
+  .company-heading h3 { font-size: 1.1rem; }
+  .work-role { font-size: 0.9rem; }
+  .work-link-list-partners { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .work-link-list-partners .work-link { min-height: 52px; }
+  .projects-section { padding-top: 40px; }
+  .projects-grid { grid-template-columns: 1fr; gap: 44px; }
+  .project-card-featured { grid-template-columns: 1fr; gap: 22px; padding-bottom: 34px; }
+  .project-card-featured .project-body h3 { max-width: none; font-size: 2rem; }
+  .project-card img { height: auto; padding: 6px; }
+  .project-card .project-body { padding: 0; }
+  .project-body h3 { font-size: 2rem; }
+  .project-footer { flex-direction: row; align-items: center; gap: 28px; }
+  .project-footer .btn { width: auto; }
+  .hobbies-section { padding-top: 0; }
+  .hobbies-grid { grid-template-columns: 1fr; gap: 44px; }
+  .hobby-travel { grid-row: auto; }
+  .hobby-travel img { aspect-ratio: 1.15; }
+  .hobby-sneakers img { aspect-ratio: 1.6; }
+  .hobby-figure { margin-bottom: 20px; }
+  .hobby-gaming { padding-top: 28px; }
+  footer { margin: 0 24px; padding: 32px 0; align-items: flex-start; text-align: left; gap: 18px; }
+  footer h2 { font-size: 2.2rem; }
+  .f-links { gap: 24px; justify-content: flex-start; }
+  .modal-inner { padding: 22px; }
+  .modal-head h2 { font-size: 2.2rem; }
+  .modal-close-button { width: auto; align-self: flex-start; }
+  #sneaker-search { width: 100%; }
+}
+
+@media (max-width: 380px) {
+  nav { padding-inline: 18px; }
+  .nav-logo { font-size: 1.15rem; }
+  .nav-logo .nav-surname { display: none; }
+  .nav-right { gap: 12px; }
+  .nav-link { font-size: 0.75rem; }
+  .hero-sticky { padding-inline: 20px; padding-top: 88px; }
+  .hero-title { font-size: 2.85rem; }
+  .hero-actions { gap: 18px; }
+  .hero-bio { font-size: 0.875rem; }
+  .hero-lede { font-size: 1.1rem; }
+  .work-card-header { grid-template-columns: auto minmax(0, 1fr); }
+  .work-status { grid-column: 2; grid-row: 2; padding-top: 0; }
+}
+
+@media (min-width: 701px) and (max-height: 760px) {
+  .hero-sticky { padding-top: 92px; padding-bottom: 36px; }
+  .hero-title { font-size: clamp(3.1rem, 6vw, 4.65rem); margin-bottom: 20px; }
+  .hero-bio { margin-bottom: 24px; }
+  .hero-actions { margin-bottom: 14px; }
+}
+
+@media (forced-colors: active) {
+  nav, .hero, .hero-sticky { background: Canvas; color: CanvasText; }
+  .hero { --text: CanvasText; --muted: CanvasText; --dim: CanvasText; }
+  .hero-title, .hero-contact, .nav-logo, .nav-link, .scroll-cue, .persona-motion-toggle { color: CanvasText; }
+  .hero-actions .btn-accent { background: ButtonFace; color: ButtonText; border: 1px solid ButtonBorder; }
+  nav :focus-visible, .hero :focus-visible { outline-color: Highlight; }
+}

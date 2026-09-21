@@ -1,0 +1,67 @@
+/* Keep collection controls visible within the existing modal scroll container. */
+#closet-modal .modal-inner {
+  padding: 0;
+  overscroll-behavior: contain;
+  scroll-padding-top: 170px;
+}
+
+#closet-modal .modal-head {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+  padding: 24px 32px 20px;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+
+#closet-modal .modal-head > div:first-child {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+}
+
+#closet-modal .modal-head h2 { margin: 0; }
+
+#closet-modal .modal-actions {
+  display: block;
+  grid-column: 1 / -1;
+  grid-row: 2;
+  width: 100%;
+}
+
+#closet-modal #sneaker-search { width: 100%; }
+
+.closet-close-button {
+  display: grid;
+  grid-column: 2;
+  grid-row: 1;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.closet-close-button:hover { background: var(--surface2); }
+.closet-close-button:active { background: var(--line); }
+.closet-body { padding: 20px 32px 32px; }
+
+@media (max-width: 680px) {
+  #closet-modal .modal-head { padding: 16px; gap: 12px; }
+  #closet-modal .modal-head h2 { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+  #closet-modal .modal-inner { scroll-padding-top: 160px; }
+  .closet-body { padding: 18px 16px 24px; }
+}
+
+@media (forced-colors: active) {
+  .closet-close-button { border-color: ButtonBorder; }
+}

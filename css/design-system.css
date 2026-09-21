@@ -1,0 +1,53 @@
+/* Shared editorial foundation. Fonts are self-hosted; licenses live in /fonts. */
+@font-face {
+  font-family: "Newsreader";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("../fonts/newsreader-latin-variable.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../fonts/dm-sans-latin-variable.woff2") format("woff2");
+}
+
+:root {
+  color-scheme: light;
+  --paper: #f3f0e8;
+  --ink: #202b28;
+  --ink-soft: #53605a;
+  --line: #c9cec3;
+  --accent: #c4e6a1;
+  --stage: #172822;
+  --link: #2f5948;
+  --bg: var(--paper);
+  --bg2: #e8e9df;
+  --surface: #faf8f2;
+  --surface2: #e8e9df;
+  --border: var(--line);
+  --text: var(--ink);
+  --muted: var(--ink-soft);
+  --dim: var(--ink-soft);
+  --green: var(--link);
+  --display: "Newsreader", Georgia, serif;
+  --body: "DM Sans", sans-serif;
+}
+
+body { font-family: var(--body); font-size: 1rem; line-height: 1.6; }
+body::before { content: none; }
+::selection { background: var(--accent); color: var(--ink); }
+:focus-visible { outline: 2px solid var(--link); outline-offset: 5px; }
+a { text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
+input { caret-color: var(--link); }
+html { scrollbar-color: #738278 var(--paper); }
+h1, h2, h3 { text-wrap: balance; font-optical-sizing: auto; }
+button, input, summary { -webkit-tap-highlight-color: transparent; }
+
+@media (forced-colors: active) {
+  :root { --paper: Canvas; --ink: CanvasText; --ink-soft: CanvasText; --line: ButtonBorder; --link: LinkText; --accent: Highlight; }
+  :focus-visible { outline-color: Highlight; }
+}

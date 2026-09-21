@@ -4,12 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A Python engineering experiment combining a playable blackjack simulator with event logging and exploratory hand-state clustering.">
-  <title>Blackjack Decision Simulator — Johnson Lee</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;family=Syne:wght@600;700;800&amp;family=DM+Sans:wght@400;500&amp;display=swap" rel="stylesheet">
+  <title>Blackjack simulator — Johnson Lee</title>
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/project.css?v=20260905-118">
+  <link rel="stylesheet" href="../css/design-system.css?v=20260920-1">
+  <link rel="stylesheet" href="../css/project-editorial.css?v=20260920-1">
 </head>
 <body class="case-page">
   <a class="case-skip-link" href="#case-content">Skip to project</a>
@@ -17,48 +16,35 @@
   <header class="case-hero">
     <div class="container">
       <a href="../index.html#projects" class="back-link">← Back to side projects</a>
-      <p class="case-kicker">Python build</p>
-      <h1>Blackjack Decision Simulator</h1>
-      <p class="case-summary">A six-deck Python desktop simulator combining playable blackjack, strategy tables, betting mechanics, event logging, a remaining-card tally, and exploratory hand-state analysis.</p>
-      <ul class="case-tags" role="list">
-        <li>Python</li>
-        <li>SQLite</li>
-        <li>Desktop UI</li>
-        <li>K-means</li>
-      </ul>
+      <h1>Blackjack simulator</h1>
+      <p class="case-summary">A playable Python desktop game that keeps track of the decisions behind each hand.</p>
+      <p class="project-meta">Python · SQLite · Desktop application</p>
     </div>
   </header>
 
   <main id="case-content">
-    <section class="case-overview" aria-label="Project overview">
-      <div class="container case-overview-grid">
-        <article>
-          <p class="case-label">Question</p>
-          <h2>How can a game become an analyzable system?</h2>
-          <p>Capture decisions and outcomes inside a playable environment, then make the resulting behavior available for later analysis.</p>
-        </article>
-        <article>
-          <p class="case-label">Approach</p>
-          <h2>Build the loop and the data layer</h2>
-          <p>Combine game-state logic, a desktop interface, strategy tables, a remaining-card tally, betting mechanics, and SQLite event storage.</p>
-        </article>
-        <article>
-          <p class="case-label">Output</p>
-          <h2>Gameplay plus exploratory clustering</h2>
-          <p>Logged hand states and actions can be explored after play using an experimental K-means view.</p>
-        </article>
-      </div>
-    </section>
+    <div class="container">
+      <figure class="project-figure project-figure--app">
+        <a class="project-image-link" href="../image/Project_Carousel/Blackjack/Blackjack-1.png" target="_blank" rel="noopener" aria-label="Open the original blackjack application screenshot in a new tab">
+          <img src="../image/Project_Carousel/Blackjack/Blackjack-1.png" width="998" height="787" alt="The Python blackjack application showing the dealer and player hands, Hit and Stand controls, strategy advice, and a tally of the remaining cards.">
+        </a>
+        <figcaption><span>A hand in progress.</span> The interface puts the player's cards, available actions, strategy advice, and remaining-card tally in one view. <a href="../image/Project_Carousel/Blackjack/Blackjack-1.png" target="_blank" rel="noopener">View full-size screenshot ↗</a></figcaption>
+      </figure>
+
+      <section class="project-reading" aria-labelledby="reading-title">
+        <h2 id="reading-title">Beyond hit or stand</h2>
+        <div>
+          <p>The simulator brings together a six-deck game, betting mechanics, strategy tables, and a running card tally. It is a desktop application built in Python, with SQLite storing events from play.</p>
+          <p>Logging hand states and actions makes the game available for analysis after a session. An experimental K-means view explores those recorded states alongside the playable interface.</p>
+        </div>
+      </section>
+    </div>
 
     <section class="case-visuals" aria-labelledby="visuals-title">
       <div class="container">
-        <div class="case-section-head">
-          <div>
-            <p class="case-label">Product views</p>
-            <h2 id="visuals-title">Playable interface and decision table</h2>
-          </div>
-          <p>Use the controls or arrow keys to move through the application views.</p>
-        </div>
+        <details class="project-deck">
+          <summary id="visuals-title">View the application screens <span>2 views</span></summary>
+          <p class="project-deck-help">A hand in progress and its completed result. Use the buttons or left and right arrow keys to switch views.</p>
 
         <div class="carousel" aria-label="Blackjack simulator views" tabindex="0">
           <button class="carousel-button prev" type="button" onclick="moveSlide(-1)" aria-label="Previous slide">&#8249;</button>
@@ -71,7 +57,9 @@
           <button class="carousel-button next" type="button" onclick="moveSlide(1)" aria-label="Next slide">&#8250;</button>
           <div class="carousel-dots" aria-label="Choose a slide"></div>
         </div>
+        </details>
         <div class="case-source-row">
+          <a href="../index.html#projects">← All side projects</a>
           <a class="case-button" href="https://github.com/johnson-lee-v0/BlackJackSim" target="_blank" rel="noopener">View repository ↗</a>
         </div>
       </div>

@@ -1,0 +1,83 @@
+[
+  {
+    "id": "kinkaku-ji",
+    "src": "./image/personal/travel/kinkaku-ji.webp",
+    "place": "Kinkaku-ji, Kyoto",
+    "trip": "Japan 2026",
+    "alt": "Kinkaku-ji's golden pavilion reflected in the pond, framed by pine trees under a blue sky.",
+    "width": 960,
+    "height": 1280
+  },
+  {
+    "id": "tokyo-tower",
+    "src": "./image/personal/travel/tokyo-tower.webp",
+    "place": "Tokyo Tower, Azabudai",
+    "trip": "Japan 2026",
+    "alt": "Tokyo Tower illuminated in orange and gold against the night sky, seen from Azabudai.",
+    "width": 960,
+    "height": 1280
+  },
+  {
+    "id": "matsushima-bay",
+    "src": "./image/personal/travel/matsushima-bay.webp",
+    "place": "Matsushima Bay",
+    "trip": "Japan 2026",
+    "alt": "A layered rock formation rises from Matsushima Bay, with pine-covered islands behind it.",
+    "width": 960,
+    "height": 1280
+  },
+  {
+    "id": "quebec-city",
+    "src": "./image/personal/travel/quebec-city.webp",
+    "place": "Rue du Petit-Champlain",
+    "trip": "Québec City 2025",
+    "alt": "Rue du Petit-Champlain in Québec City, with illuminated snowflake decorations, storefronts, and the funicular ahead.",
+    "width": 960,
+    "height": 1707
+  },
+  {
+    "id": "saint-sauveur",
+    "src": "./image/personal/travel/saint-sauveur.webp",
+    "place": "Sommet Saint-Sauveur",
+    "trip": "Saint-Sauveur 2026",
+    "alt": "Skis hang above a snowy slope from a chairlift at Sommet Saint-Sauveur, with trees beside the run.",
+    "width": 960,
+    "height": 1280
+  },
+  {
+    "id": "frontenac-night",
+    "src": "./image/personal/travel/frontenac-night.webp",
+    "place": "Fairmont Château Frontenac",
+    "trip": "Québec City 2025",
+    "alt": "Fairmont Le Château Frontenac illuminated in red and warm white at night, above a snowy street in Old Québec.",
+    "width": 960,
+    "height": 1707
+  },
+  {
+    "id": "osaka-castle",
+    "src": "./image/personal/travel/osaka-castle.webp",
+    "place": "Osaka Castle",
+    "trip": "Japan 2026",
+    "alt": "Osaka Castle's white walls, green roofs, and gold details above its stone ramparts under a blue sky.",
+    "width": 960,
+    "height": 1280
+  },
+  {
+    "id": "odaiba-liberty",
+    "src": "./image/personal/travel/odaiba-liberty.webp",
+    "place": "Statue of Liberty, Odaiba",
+    "trip": "Japan 2026",
+    "alt": "Odaiba's Statue of Liberty replica in the foreground with Rainbow Bridge crossing Tokyo Bay behind it.",
+    "width": 960,
+    "height": 1280
+  },
+  {
+    "id": "fukuoka-gundam",
+    "src": "./image/personal/travel/fukuoka-gundam.webp",
+    "place": "Gundam, Fukuoka",
+    "trip": "Japan 2026",
+    "alt": "The life-size RX-93ff nu Gundam at LaLaport Fukuoka, illuminated at night with one hand raised.",
+    "width": 960,
+    "height": 1280
+  }
+]

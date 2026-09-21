@@ -2,32 +2,34 @@ document.documentElement.classList.replace("no-js", "js");
 
 const PROJECTS = [
   {
-    eyebrow: "NLP exploration",
-    title: "University Content Strategy Benchmark",
+    title: "University Twitter analysis",
     description: "Compared public posts from Waterloo, U of T, and Western using sentiment and entity analysis to explore how each university communicates online.",
-    image: "./image/Project_Cover/University-analysis.jpg",
+    image: "./image/Project_Carousel/University Twitter Account Analysis/Slide3.JPG",
+    visualClass: "project-visual-universities",
     imageAlt: "Three bar charts comparing common terms across Waterloo, U of T, and Western posts",
+    caption: "Common terms across Waterloo, U of T, and Western posts.",
     link: "./projects/University_Twitter.html",
     source: "https://github.com/johnson-lee-v0/University-Twitter-Analysis",
     tags: ["R", "NLP", "Sentiment analysis", "Entity analysis"],
     featured: true
   },
   {
-    eyebrow: "Sports analytics",
-    title: "Celtics Win-Signal Analysis",
+    title: "Celtics game analysis",
     description: "Scraped and explored historical Celtics game data, then compared Naive Bayes, KNN, and SVM classification approaches.",
-    image: "./image/Project_Cover/Celtics-analysis.jpg",
+    image: "./image/Project_Carousel/Boston-Analysis/Slide5.JPG",
+    visualClass: "project-visual-celtics",
     imageAlt: "Shot-distance distributions from the historical Celtics analysis",
+    caption: "Exploring Jayson Tatum's shot distances across seasons.",
     link: "./projects/Boston_Star.html",
     source: "https://github.com/johnson-lee-v0/Boston-Celtics-Player-Analysis",
     tags: ["Python", "Web scraping", "EDA", "Classification"]
   },
   {
-    eyebrow: "Python build",
-    title: "Blackjack Decision Simulator",
+    title: "Blackjack simulator",
     description: "Built a six-deck blackjack simulator with a desktop interface, strategy tables, betting mechanics, SQLite event logging, and exploratory clustering.",
     image: "./image/Project_Cover/Blackjack-interface.png",
     imageAlt: "Playable blackjack interface showing cards, deck tally, controls, and strategy advice",
+    caption: "The desktop interface, including cards and strategy advice.",
     link: "./projects/Blackjack.html",
     source: "https://github.com/johnson-lee-v0/BlackJackSim",
     tags: ["Python", "SQLite", "Desktop UI", "K-means"]
@@ -1268,11 +1270,15 @@ function renderProjects() {
         decoding: "async"
       }
     });
-    const body = createElement("div", { className: "project-body" });
-    const eyebrow = createElement("p", {
-      className: "project-eyebrow",
-      text: project.eyebrow
+    const figure = createElement("figure", { className: "project-figure" });
+    const visual = createElement("a", {
+      className: `project-visual ${project.visualClass || ""}`,
+      attributes: { href: project.link, "aria-label": `View ${project.title}` }
     });
+    visual.append(image);
+    const caption = createElement("figcaption", { text: project.caption });
+    figure.append(visual, caption);
+    const body = createElement("div", { className: "project-body" });
     const title = createElement("h3", { text: project.title });
     const description = createElement("p", {
       className: "project-description",
@@ -1318,64 +1324,12 @@ function renderProjects() {
       text: ` — ${project.title} repository (opens in a new tab)`
     }));
     footer.append(link, sourceLink);
-    body.append(eyebrow, title, description, tags, footer);
-    card.append(image, body);
+    body.append(title, description, tags, footer);
+    card.append(figure, body);
     fragment.append(card);
   });
 
   grid.replaceChildren(fragment);
-}
-
-function initializeSurfaceInteractions() {
-  const surfaces = document.querySelectorAll(".project-card");
-  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
-
-  surfaces.forEach((surface) => {
-    surface.classList.add("interactive-surface");
-
-    let pointerFrame = 0;
-    let pointerX = 50;
-    let pointerY = 30;
-
-    surface.addEventListener("pointerenter", () => {
-      if (!finePointer.matches || reducedMotion.matches) {
-        return;
-      }
-
-      surface.classList.add("is-pointer-active");
-    });
-
-    surface.addEventListener("pointermove", (event) => {
-      if (!finePointer.matches || reducedMotion.matches) {
-        return;
-      }
-
-      const rect = surface.getBoundingClientRect();
-      pointerX = ((event.clientX - rect.left) / Math.max(rect.width, 1)) * 100;
-      pointerY = ((event.clientY - rect.top) / Math.max(rect.height, 1)) * 100;
-
-      if (pointerFrame) {
-        return;
-      }
-
-      pointerFrame = window.requestAnimationFrame(() => {
-        pointerFrame = 0;
-        surface.style.setProperty("--spot-x", pointerX.toFixed(1) + "%");
-        surface.style.setProperty("--spot-y", pointerY.toFixed(1) + "%");
-      });
-    });
-
-    surface.addEventListener("pointerleave", () => {
-      if (pointerFrame) {
-        window.cancelAnimationFrame(pointerFrame);
-        pointerFrame = 0;
-      }
-
-      surface.classList.remove("is-pointer-active");
-      surface.style.setProperty("--spot-x", "50%");
-      surface.style.setProperty("--spot-y", "30%");
-    });
-  });
 }
 
 function initializeSectionNavigation() {
@@ -1439,31 +1393,15 @@ function renderSneakers(sneakers, query = "") {
       className: "closet-item",
       attributes: { role: "listitem" }
     });
-    const imageWrap = createElement("div", { className: "closet-image-wrap" });
-    const image = createElement("img", {
-      attributes: {
-        src: sneaker.image,
-        alt: sneaker.name,
-        loading: "lazy",
-        decoding: "async"
-      }
-    });
+    const imageWrap = window.PortfolioHobbies?.createSneakerViewer
+      ? window.PortfolioHobbies.createSneakerViewer(sneaker, { fallback: FALLBACK_SNEAKER_IMAGE })
+      : createStaticSneakerPreview(sneaker);
     const content = createElement("div", { className: "closet-item-content" });
     const name = createElement("h3", { className: "ci-name", text: sneaker.name });
     const metadata = createElement("p", { className: "ci-meta" });
     const brand = createElement("span", { text: sneaker.brand });
     const year = createElement("span", { text: String(sneaker.year) });
 
-    image.addEventListener("error", () => {
-      if (image.dataset.fallbackApplied) {
-        return;
-      }
-
-      image.dataset.fallbackApplied = "true";
-      image.src = FALLBACK_SNEAKER_IMAGE;
-    });
-
-    imageWrap.append(image);
     metadata.append(brand, year);
     content.append(name, metadata);
     card.append(imageWrap, content);
@@ -1477,6 +1415,20 @@ function renderSneakers(sneakers, query = "") {
   } else {
     resultsCount.textContent = `${sneakers.length} sneaker${sneakers.length === 1 ? "" : "s"}`;
   }
+}
+
+function createStaticSneakerPreview(sneaker) {
+  const wrap = createElement("div", { className: "closet-image-wrap" });
+  const image = createElement("img", {
+    attributes: { src: sneaker.image, alt: sneaker.name, loading: "lazy", decoding: "async" }
+  });
+  image.addEventListener("error", () => {
+    if (image.dataset.fallbackApplied) return;
+    image.dataset.fallbackApplied = "true";
+    image.src = FALLBACK_SNEAKER_IMAGE;
+  });
+  wrap.append(image);
+  return wrap;
 }
 
 function setBackgroundInert(isInert) {
@@ -1655,11 +1607,12 @@ function initialize() {
   initializeHeroScrollWorld();
   renderProjects();
   initializeRevealAnimations();
-  initializeSurfaceInteractions();
+  // Project figures stay still; only their explicit links need hover feedback.
   initializeSectionNavigation();
   initializeClosetModal();
   initializeGamingModal();
   document.addEventListener("keydown", handleModalKeydown);
+  window.PortfolioHobbies?.initialize();
 }
 
 initialize();
