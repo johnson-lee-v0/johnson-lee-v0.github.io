@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Equity Research: an AI engineering case study in source-linked research, structured model output, deterministic valuation checks, and persistent research memory.">
+  <title>Equity Research — Johnson Lee</title>
+  <link rel="canonical" href="https://johnson-lee-v0.github.io/projects/Equity_Research.html">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/project.css?v=20260905-118">
+  <link rel="stylesheet" href="../css/design-system.css?v=20260920-1">
+  <link rel="stylesheet" href="../css/project-editorial.css?v=20260921-4">
+</head>
+<body class="case-page">
+  <a class="case-skip-link" href="#case-content">Skip to project</a>
+  <header class="case-hero">
+    <div class="container">
+      <a href="../index.html#projects" class="back-link">← Back to side projects</a>
+      <h1>Equity Research</h1>
+      <p class="case-summary">AI engineering for traceable investment research: connecting model-generated assessments to source evidence, explicit assumptions, and reproducible calculations.</p>
+      <p class="project-meta">AI engineering · Python / FastAPI · React / TypeScript · SQLite · Codex CLI</p>
+    </div>
+  </header>
+
+  <main id="case-content">
+    <div class="container">
+      <figure class="project-figure">
+        <a class="project-image-link" href="https://johnson-lee-v0.github.io/Equity-Research/" target="_blank" rel="noopener" aria-label="Open the Equity Research demo in a new tab">
+          <img src="../image/Project_Cover/Equity-Research.webp" width="1300" height="880" alt="Equity Research demo showing META valuation assumptions and calculated scenario values.">
+        </a>
+        <figcaption><span>Explore a public research example.</span> The public demo presents a dated META earnings walkthrough with interactive valuation assumptions and an evidence notebook. <a href="https://johnson-lee-v0.github.io/Equity-Research/" target="_blank" rel="noopener">Open demo ↗</a></figcaption>
+      </figure>
+
+      <section class="project-reading" aria-labelledby="problem-title">
+        <h2 id="problem-title">Make the reasoning inspectable</h2>
+        <div>
+          <p>An investment assessment is only useful if its conclusions can be traced back to evidence. I built Equity Research as a local workspace for bringing earnings releases, transcripts, and filings into a research process that retains the sources, financial inputs, and assumptions behind each assessment.</p>
+          <p>A React and TypeScript interface connects to a Python/FastAPI service. SQLite stores the research ledger; a source archive retains document versions and hashes. The backend invokes an authenticated local Codex CLI for structured model output.</p>
+        </div>
+      </section>
+
+      <section class="project-reading" aria-labelledby="workflow-title">
+        <h2 id="workflow-title">Separate judgment from calculation</h2>
+        <div>
+          <p>For a verified earnings package, code prepares the evidence and financial context before a model produces an investment review. Numerical facts are tied to the issuer, reporting period, units, and cited passages, making the inputs available for inspection alongside the narrative.</p>
+          <p>Bear, base, and bull valuations are recalculated in code from explicit assumptions. Validation checks the generated assessment before it becomes the final report; missing or invalid targets receive one correction attempt, and unresolved failures remain visible. This keeps valuation arithmetic and publication checks outside the model's judgment.</p>
+        </div>
+      </section>
+
+      <section class="project-reading" aria-labelledby="memory-title">
+        <h2 id="memory-title">Carry research forward</h2>
+        <div>
+          <p>Company research persists across runs, so later assessments can reuse saved material while retaining earlier conclusions. An Obsidian-compatible Markdown vault exposes company notes, with SQLite remaining the authoritative record for citations and validation. A Three.js memory view provides another way to inspect the research connections.</p>
+          <p>The public demo is a separate static build with an authored example notebook. It lets visitors explore the workflow and adjust pricing assumptions. Fresh AI research runs in the local application; the public site does not include the local API, personal ledger, or private source archive.</p>
+        </div>
+      </section>
+    </div>
+
+    <footer class="case-visuals" aria-label="Project links">
+      <div class="container">
+        <div class="case-source-row">
+          <a href="../index.html#projects">← All side projects</a>
+          <a href="https://johnson-lee-v0.github.io/Equity-Research/" target="_blank" rel="noopener">Explore public demo ↗</a>
+          <a class="case-button" href="https://github.com/johnson-lee-v0/Equity-Research" target="_blank" rel="noopener">View repository ↗</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>

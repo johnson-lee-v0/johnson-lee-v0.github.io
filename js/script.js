@@ -2,6 +2,18 @@ document.documentElement.classList.replace("no-js", "js");
 
 const PROJECTS = [
   {
+    title: "Equity Research",
+    description: "Built a local AI research workspace that connects earnings assessments to source evidence, checks financial inputs, and recalculates valuation scenarios in code.",
+    image: "./image/Project_Cover/Equity-Research.webp",
+    visualClass: "project-visual-equity",
+    imageAlt: "Equity Research demo showing META valuation assumptions and calculated scenario values",
+    caption: "A dated META research walkthrough, with evidence and valuation assumptions to explore.",
+    link: "./projects/Equity_Research.html",
+    source: "https://github.com/johnson-lee-v0/Equity-Research",
+    tags: ["AI engineering", "Python / FastAPI", "React / TypeScript"],
+    featured: true
+  },
+  {
     title: "NBA game outcomes",
     description: "Explored league-wide shot selection and modeled pregame and in-game win probabilities using historical context, chronological validation, and an interactive game replay.",
     image: "./image/Project_Cover/NBA-shot-locations.png",
@@ -14,8 +26,7 @@ const PROJECTS = [
       title: "Boston Celtics Player Analysis",
       url: "https://github.com/johnson-lee-v0/Boston-Celtics-Player-Analysis"
     },
-    tags: ["Python", "Sports analytics", "Predictive modeling"],
-    featured: true
+    tags: ["Python", "Sports analytics", "Predictive modeling"]
   },
   {
     title: "Max temperature modeling",
@@ -47,8 +58,7 @@ const PROJECTS = [
     caption: "The desktop interface, including cards and strategy advice.",
     link: "./projects/Blackjack.html",
     source: "https://github.com/johnson-lee-v0/BlackJackSim",
-    tags: ["Python", "SQLite", "Desktop UI", "K-means"],
-    compact: true
+    tags: ["Python", "SQLite", "Desktop UI", "K-means"]
   }
 ];
 

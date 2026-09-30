@@ -133,6 +133,7 @@ nav :focus-visible, .hero :focus-visible { outline-color: var(--accent); }
   position: absolute; max-width: none; height: auto; aspect-ratio: auto; padding: 0;
 }
 .project-card .project-visual-universities img { width: 109.40171%; left: -4.2735%; top: -47.72727%; }
+.project-card .project-visual-equity img { aspect-ratio: auto; padding: 0; }
 .project-card:hover img, .project-card:focus-within img { transform: none; filter: none; }
 .project-figure figcaption { font-size: 0.8125rem; color: var(--ink-soft); line-height: 1.5; margin-top: 12px; max-width: 62ch; }
 .project-body, .project-card-featured .project-body { padding: 0; }
@@ -162,6 +163,11 @@ nav :focus-visible, .hero :focus-visible { outline-color: var(--accent); }
 .hobby-desc { max-width: 42ch; font-size: 1rem; line-height: 1.65; }
 .hobby-cta { display: inline-block; font-family: var(--body); font-size: 0.9375rem; letter-spacing: 0; color: var(--link); padding-bottom: 5px; border-bottom: 1px solid currentColor; margin-top: 18px; }
 .hobby-action-card:hover .hobby-cta, .hobby-action-card:focus-within .hobby-cta { transform: none; border-bottom-width: 2px; }
+.hobby-lego { display: grid; grid-column: 1 / -1; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 72px; align-items: center; border-top: 1px solid var(--line); padding-top: 32px; }
+.hobby-lego .hobby-figure { margin: 0; }
+.hobby-lego .hobby-figure a { display: block; }
+.hobby-lego img { aspect-ratio: 1.6; object-fit: contain; }
+.hobby-lego a:focus-visible { outline: 2px solid var(--link); outline-offset: 6px; }
 .hobby-gaming { padding: 26px 0 0; border-top: 1px solid var(--line); }
 .hobby-gaming .hobby-title { font-size: 1.75rem; margin-bottom: 10px; }
 .gaming-rank { font-size: 1.25rem; font-weight: 500; margin: 8px 0 10px; }
@@ -213,6 +219,7 @@ footer h2 { flex: 1; font-family: var(--display); font-size: 2.5rem; font-weight
   .project-card-compact { gap: 28px; }
   .project-card-featured .project-body h3 { font-size: 2.2rem; }
   .hobbies-grid { gap: 36px; }
+  .hobby-lego { gap: 36px; }
   footer { margin-inline: 40px; }
 }
 
@@ -258,6 +265,7 @@ footer h2 { flex: 1; font-family: var(--display); font-size: 2.5rem; font-weight
   .hobbies-section { padding-top: 0; }
   .hobbies-grid { grid-template-columns: 1fr; gap: 44px; }
   .hobby-travel { grid-row: auto; }
+  .hobby-lego { grid-template-columns: 1fr; gap: 22px; }
   .hobby-travel img { aspect-ratio: 1.15; }
   .hobby-sneakers img { aspect-ratio: 1.6; }
   .hobby-figure { margin-bottom: 20px; }
