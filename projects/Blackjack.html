@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/project.css?v=20260905-118">
   <link rel="stylesheet" href="../css/design-system.css?v=20260920-1">
-  <link rel="stylesheet" href="../css/project-editorial.css?v=20260920-1">
+  <link rel="stylesheet" href="../css/project-editorial.css?v=20261002-3">
 </head>
 <body class="case-page">
   <a class="case-skip-link" href="#case-content">Skip to project</a>
@@ -22,11 +22,11 @@
     </div>
   </header>
 
-  <main id="case-content">
+  <main id="case-content" tabindex="-1">
     <div class="container">
       <figure class="project-figure project-figure--app">
         <a class="project-image-link" href="../image/Project_Carousel/Blackjack/Blackjack-1.png" target="_blank" rel="noopener" aria-label="Open the original blackjack application screenshot in a new tab">
-          <img src="../image/Project_Carousel/Blackjack/Blackjack-1.png" width="998" height="787" alt="The Python blackjack application showing the dealer and player hands, Hit and Stand controls, strategy advice, and a tally of the remaining cards.">
+          <img src="../image/Project_Carousel/Blackjack/Blackjack-1.png" width="997" height="787" decoding="async" alt="The Python blackjack application showing the dealer and player hands, Hit and Stand controls, strategy advice, and a tally of the remaining cards.">
         </a>
         <figcaption><span>A hand in progress.</span> The interface puts the player's cards, available actions, strategy advice, and remaining-card tally in one view. <a href="../image/Project_Carousel/Blackjack/Blackjack-1.png" target="_blank" rel="noopener">View full-size screenshot ↗</a></figcaption>
       </figure>
@@ -44,20 +44,34 @@
       <div class="container">
         <details class="project-deck">
           <summary id="visuals-title">View the application screens <span>2 views</span></summary>
-          <p class="project-deck-help">A hand in progress and its completed result. Use the buttons or left and right arrow keys to switch views.</p>
+          <p class="project-deck-help">A hand in progress and its completed result. Opening the presentation loads a screen; use the buttons or left and right arrow keys to switch views.</p>
+          <noscript><p class="project-deck-help">Open the original screenshots: <a href="../image/Project_Carousel/Blackjack/Blackjack-1.png" target="_blank" rel="noopener">hand in progress ↗</a> or <a href="../image/Project_Carousel/Blackjack/Blackjack-2.png" target="_blank" rel="noopener">completed hand ↗</a>.</p></noscript>
 
-        <div class="carousel" aria-label="Blackjack simulator views" tabindex="0">
+        <div class="carousel" aria-label="Blackjack simulator views" tabindex="0" hidden>
           <button class="carousel-button prev" type="button" onclick="moveSlide(-1)" aria-label="Previous slide">&#8249;</button>
           <div class="carousel-viewport">
             <div class="carousel-container">
-              <div class="carousel-slide active"><img src="../image/Project_Carousel/Blackjack/Blackjack-1.png" alt="Blackjack simulator view 1 of 2"></div>
-              <div class="carousel-slide"><img src="../image/Project_Carousel/Blackjack/Blackjack-2.png" alt="Blackjack simulator view 2 of 2"></div>
+              <div class="carousel-slide active"><img data-src="../image/Project_Carousel/Blackjack/Blackjack-1.png" width="997" height="787" decoding="async" alt="A hand in progress, with dealer and player cards, Hit and Stand controls, strategy advice, and the remaining-card tally."></div>
+              <div class="carousel-slide"><img data-src="../image/Project_Carousel/Blackjack/Blackjack-2.png" width="998" height="783" decoding="async" alt="The blackjack application after a completed hand, with its result and game controls."></div>
             </div>
           </div>
           <button class="carousel-button next" type="button" onclick="moveSlide(1)" aria-label="Next slide">&#8250;</button>
           <div class="carousel-dots" aria-label="Choose a slide"></div>
         </div>
+        <p class="project-deck-help" id="slide-summary" aria-live="polite" aria-atomic="true"></p>
         </details>
+        <nav class="project-continuation" aria-label="Next side project">
+          <a class="project-continuation-link" href="./Equity_Research.html" aria-labelledby="next-project-question next-project-name">
+            <div class="project-continuation-art">
+              <img loading="lazy" src="../image/Project_Cover/Equity-Research-preview.svg" width="1200" height="800" decoding="async" alt="Equity Research’s multi-agent workflow from an initial question to a reviewed research decision.">
+            </div>
+            <div class="project-continuation-copy">
+              <p class="project-continuation-kicker">Next investigation</p>
+              <h2 id="next-project-question">Can AI agents take research from question to decision?</h2>
+              <p class="project-continuation-destination"><span id="next-project-name">Equity Research</span><span aria-hidden="true">→</span></p>
+            </div>
+          </a>
+        </nav>
         <div class="case-source-row">
           <a href="../index.html#projects">← All side projects</a>
           <a class="case-button" href="https://github.com/johnson-lee-v0/BlackJackSim" target="_blank" rel="noopener">View repository ↗</a>
@@ -66,6 +80,6 @@
     </section>
   </main>
 
-  <script src="../js/carousel.js?v=20260823-117"></script>
+  <script src="../js/carousel.js?v=20261002-1"></script>
 </body>
 </html>

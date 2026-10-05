@@ -9,6 +9,10 @@ function initCarousel() {
     return;
   }
 
+  carousel.hidden = false;
+  const deck = carousel.closest('details');
+  deck?.addEventListener('toggle', updateCarousel);
+
   dotsContainer.replaceChildren();
 
   slides.forEach((_, index) => {
@@ -37,6 +41,10 @@ function moveSlide(direction) {
   const slides = document.querySelectorAll('.carousel-slide');
   const totalSlides = slides.length;
 
+  if (!totalSlides) {
+    return;
+  }
+
   // Calculate the new slide index
   currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
 
@@ -52,6 +60,10 @@ function updateCarousel() {
   const track = document.querySelector('.carousel-container');
   const slides = document.querySelectorAll('.carousel-slide');
   const dots = document.querySelectorAll('.carousel-dot');
+  const carousel = document.querySelector('.carousel');
+  const deck = carousel?.closest('details');
+  const summary = document.getElementById('slide-summary');
+  const originalLink = document.getElementById('slide-original');
 
   if (!track) {
     return;
@@ -63,6 +75,27 @@ function updateCarousel() {
     const isActive = index === currentSlide;
     slide.classList.toggle('active', isActive);
     slide.setAttribute('aria-hidden', String(!isActive));
+
+    if (isActive) {
+      const image = slide.querySelector('img');
+      if (originalLink && image) {
+        const originalSource = image.dataset.src || image.getAttribute('src');
+        if (originalSource) {
+          originalLink.setAttribute('href', originalSource);
+          originalLink.setAttribute('aria-label', `Open original slide ${index + 1} of ${slides.length} in a new tab`);
+        }
+      }
+
+      if (!deck || deck.open) {
+        if (image?.dataset.src) {
+          image.src = image.dataset.src;
+          delete image.dataset.src;
+        }
+        if (summary && image) {
+          summary.textContent = `Slide ${index + 1} of ${slides.length}: ${image.alt}`;
+        }
+      }
+    }
   });
 
   dots.forEach((dot, index) => {

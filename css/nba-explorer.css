@@ -1,0 +1,37 @@
+/* Crops of the original research figure, with its data and scales unchanged. */
+.nba-explorer[hidden], .nba-view[hidden] { display: none; }
+.nba-explorer .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.nba-explorer-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 24px; }
+.nba-explorer h2 { margin: 0; font-family: "Newsreader", Georgia, serif; font-size: 1.8rem; line-height: 1.15; font-weight: 400; letter-spacing: -0.02em; }
+.nba-view-controls { display: flex; gap: 4px; padding: 4px; border: 1px solid var(--line, #c9cec3); }
+.nba-view-controls button { min-height: 44px; padding: 9px 16px; border: 0; background: transparent; color: var(--ink, #202b28); font: inherit; font-size: 0.9375rem; cursor: pointer; }
+.nba-view-controls button[aria-pressed="true"] { background: var(--ink, #202b28); color: var(--paper, #f3f0e8); }
+.nba-view-controls button:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+.nba-view { margin: 0; }
+.nba-chart-surface { background: #f7fafa; outline: 1px solid var(--line, #c9cec3); outline-offset: -1px; }
+.nba-chart { display: block; width: 100%; height: auto; }
+.nba-chart-change { max-width: 760px; margin-inline: auto; }
+.nba-chart-scroll { overflow-x: auto; overscroll-behavior-inline: contain; }
+.nba-chart-seasons { min-width: 720px; }
+.nba-view figcaption { max-width: 74ch; margin-top: 18px; border-left: 2px solid var(--line, #c9cec3); padding-left: 16px; color: var(--ink-soft, #53605a); font-size: 0.9375rem; line-height: 1.65; }
+.nba-reading-key { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-bottom: 10px; color: var(--ink, #202b28); font-size: 0.875rem; }
+.nba-reading-key span { display: inline-flex; align-items: center; gap: 7px; }
+.nba-reading-key i { display: inline-block; width: 10px; height: 10px; }
+.nba-key-gain { background: #197f75; }
+.nba-key-neutral { background: #f1f0ec; border: 1px solid #bec6bf; }
+.nba-key-loss { background: #b7812d; }
+.nba-chart-note { max-width: 76ch; margin-top: 20px; font-size: 0.875rem; line-height: 1.65; color: var(--ink-soft, #53605a); }
+.nba-chart-note a { white-space: normal; }
+.nba-scroll-help { display: none; margin: 0 0 10px; color: var(--ink-soft, #53605a); font-size: 0.8125rem; }
+@media (max-width: 760px) {
+  .nba-explorer-head { gap: 16px; }
+  .nba-explorer h2 { font-size: 1.65rem; }
+  .nba-scroll-help { display: block; }
+  .nba-view-controls { max-width: 100%; }
+  .nba-view-controls button { padding-inline: 13px; }
+  .nba-view figcaption { padding-left: 12px; }
+}
+@media (forced-colors: active) {
+  .nba-view-controls button[aria-pressed="true"] { outline: 2px solid Highlight; outline-offset: -3px; }
+  .nba-reading-key i { border: 1px solid CanvasText; }
+}

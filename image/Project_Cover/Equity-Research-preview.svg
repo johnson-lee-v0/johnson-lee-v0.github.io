@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title description">
+  <title id="title">End-to-end multi-agent equity research</title>
+  <desc id="description">The local research workflow: Chief of Staff scopes a question, source discovery collects evidence, the fundamental researcher analyzes it, application code calculates and validates valuation, the CIO reviews the decision, and shared memory retains the research trail. The public Meta case is a static sourced illustration, not a live agent run.</desc>
+  <rect width="1200" height="800" fill="#172822"/>
+  <path d="M64 83H1136" stroke="#536657"/>
+  <g font-family="Arial,Helvetica,sans-serif" fill="#d2dcbd">
+    <text x="64" y="58" font-size="22" letter-spacing="2">AI ENGINEERING / MULTI-AGENT RESEARCH</text>
+    <text x="1136" y="58" text-anchor="end" font-size="22">EQUITY RESEARCH</text>
+  </g>
+  <text x="64" y="179" font-family="Georgia,serif" font-size="65" fill="#f3f1e8">Research, from start to finish.</text>
+  <text x="64" y="233" font-family="Arial,Helvetica,sans-serif" font-size="25" fill="#c7d0bd">Agents reason. Code checks. Sources stay linked.</text>
+  <g fill="none" stroke="#71856a" stroke-width="3">
+    <path d="M164 335H468M538 335H842M912 335H1110V556H912M842 556H538M468 556H164"/>
+    <path d="M447 326L460 335L447 344M821 326L834 335L821 344M1101 505L1110 518L1119 505M559 547L546 556L559 565M185 547L172 556L185 565"/>
+  </g>
+  <g font-family="Arial,Helvetica,sans-serif">
+    <g transform="translate(128 335)">
+      <circle r="35" fill="#d3deac"/><text y="11" text-anchor="middle" font-size="30" fill="#172822">01</text>
+      <text x="-64" y="82" fill="#f3f1e8" font-size="37">Question</text>
+      <text x="-64" y="119" fill="#c7d0bd" font-size="23">Chief of Staff</text>
+    </g>
+    <g transform="translate(503 335)">
+      <circle r="35" fill="#d3deac"/><text y="11" text-anchor="middle" font-size="30" fill="#172822">02</text>
+      <text x="-64" y="82" fill="#f3f1e8" font-size="37">Evidence</text>
+      <text x="-64" y="119" fill="#c7d0bd" font-size="23">Source discovery</text>
+    </g>
+    <g transform="translate(877 335)">
+      <circle r="35" fill="#d3deac"/><text y="11" text-anchor="middle" font-size="30" fill="#172822">03</text>
+      <text x="-64" y="82" fill="#f3f1e8" font-size="37">Analysis</text>
+      <text x="-64" y="119" fill="#c7d0bd" font-size="23">Fundamental researcher</text>
+    </g>
+    <g transform="translate(877 556)">
+      <circle r="35" fill="#dbb486"/><text y="11" text-anchor="middle" font-size="30" fill="#172822">04</text>
+      <text x="-64" y="82" fill="#f3f1e8" font-size="37">Valuation</text>
+      <text x="-64" y="119" fill="#c7d0bd" font-size="23">Code + validation</text>
+    </g>
+    <g transform="translate(503 556)">
+      <circle r="35" fill="#d3deac"/><text y="11" text-anchor="middle" font-size="30" fill="#172822">05</text>
+      <text x="-64" y="82" fill="#f3f1e8" font-size="37">Decision</text>
+      <text x="-64" y="119" fill="#c7d0bd" font-size="23">CIO review</text>
+    </g>
+    <g transform="translate(128 556)">
+      <circle r="35" fill="none" stroke="#d3deac" stroke-width="3"/><text y="11" text-anchor="middle" font-size="30" fill="#d3deac">06</text>
+      <text x="-64" y="82" fill="#f3f1e8" font-size="37">Memory</text>
+      <text x="-64" y="119" fill="#c7d0bd" font-size="23">Retained research trail</text>
+    </g>
+  </g>
+  <path d="M64 718H1136" stroke="#536657"/>
+  <text x="64" y="763" font-family="Arial,Helvetica,sans-serif" font-size="22" fill="#c7d0bd">Explore with the sourced META example.</text>
+  <text x="1136" y="763" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#b2bea9">Static walkthrough · agents run locally</text>
+</svg>

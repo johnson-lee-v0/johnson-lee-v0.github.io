@@ -56,6 +56,7 @@ body.case-page {
   font-size: 0.9375rem;
   letter-spacing: 0;
   transition: color 160ms ease;
+  text-underline-offset: 0.3em;
 }
 
 .case-page .back-link:hover,
@@ -87,6 +88,7 @@ body.case-page {
   margin-top: 22px;
   color: var(--ink-soft, #53605a);
   font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
 }
 
 .project-figure {
@@ -96,6 +98,8 @@ body.case-page {
 .project-image-link {
   display: block;
   background: #fff;
+  outline: 1px solid var(--line, #c9cec3);
+  outline-offset: -1px;
 }
 
 .project-image-link img {
@@ -108,6 +112,21 @@ body.case-page {
   position: relative;
   overflow: hidden;
   background: #fff;
+}
+
+/* Keep original chart text readable without widening the page on small screens. */
+.project-chart-reader {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+.project-chart-help {
+  display: none;
+  margin: 0 0 12px;
+  color: var(--ink-soft, #53605a);
+  font-size: .8125rem;
+  line-height: 1.6;
 }
 
 /* Preserve all axes and values; omit the surrounding slide template. */
@@ -154,6 +173,9 @@ body.case-page {
   color: var(--ink-soft, #53605a);
   font-size: 1rem;
   line-height: 1.65;
+  border-left: 2px solid var(--line, #c9cec3);
+  padding-left: 16px;
+  text-wrap: pretty;
 }
 
 .project-figure figcaption > span {
@@ -205,8 +227,10 @@ body.case-page {
 }
 
 .project-reading p {
+  max-width: 64ch;
   font-size: 1.0625rem;
   line-height: 1.75;
+  text-wrap: pretty;
 }
 
 .project-reading p + p {
@@ -230,6 +254,16 @@ body.case-page {
   font-size: 1.125rem;
   font-weight: 500;
   cursor: pointer;
+  text-underline-offset: 0.25em;
+}
+
+.project-deck summary:hover,
+.project-deck summary:focus-visible {
+  text-decoration: underline;
+}
+
+.project-deck[open] summary {
+  margin-bottom: 12px;
 }
 
 .project-deck summary span {
@@ -324,12 +358,101 @@ body.case-page {
   outline-offset: 3px;
 }
 
+/* A genuine next project, not a second gallery or a dead-end utility footer. */
+.project-continuation {
+  margin-top: 32px;
+  padding-top: 38px;
+  border-top: 1px solid var(--line, #c9cec3);
+}
+
+.case-page .project-continuation-link {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: 48px;
+  color: var(--ink, #202b28);
+  text-decoration: none;
+}
+
+.project-continuation-art {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  aspect-ratio: 3 / 2;
+  padding: 12px;
+  border: 1px solid var(--line, #c9cec3);
+  background: #fff;
+}
+
+.project-continuation-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+}
+
+.project-continuation-copy { min-width: 0; }
+
+.project-continuation-kicker {
+  margin: 0 0 20px;
+  color: var(--ink-soft, #53605a);
+  font-size: .75rem;
+  font-weight: 500;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.project-continuation-copy h2 {
+  margin: 0 0 30px;
+  font-family: var(--display, "Newsreader", Georgia, serif);
+  font-size: clamp(2.15rem, 4vw, 3.15rem);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+
+.project-continuation-destination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 0;
+  color: var(--link, #2f5948);
+  font-size: 1rem;
+}
+
+.project-continuation-destination > span:first-child {
+  text-decoration: underline;
+  text-underline-offset: .25em;
+}
+
+.project-continuation-destination > span:last-child {
+  flex-shrink: 0;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.project-continuation-link:hover .project-continuation-destination > span:first-child,
+.project-continuation-link:focus-visible .project-continuation-destination > span:first-child {
+  text-decoration-thickness: 2px;
+}
+
 .case-page .case-source-row {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
   margin-top: 30px;
   font-size: 1rem;
+  border-top: 1px solid var(--line, #c9cec3);
+  padding-top: 24px;
+}
+
+.case-page .case-source-row > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
 }
 
 .case-page .case-button {
@@ -352,6 +475,16 @@ body.case-page {
 }
 
 @media (max-width: 680px) {
+  .project-continuation { margin-top: 24px; padding-top: 28px; }
+  .case-page .project-continuation-link { grid-template-columns: 1fr; gap: 26px; }
+  .project-continuation-art { padding: 8px; }
+  .project-continuation-kicker { margin-bottom: 13px; }
+  .project-continuation-copy h2 { margin-bottom: 22px; font-size: clamp(2rem, 8.5vw, 2.7rem); }
+
+  .project-chart-help { display: block; }
+  .project-chart-reader--temperature > .project-image-link { min-width: 600px; }
+  .project-chart-reader--universities > .project-image-link { min-width: 1170px; }
+
   .case-page .container {
     width: calc(100% - 40px);
   }
@@ -407,4 +540,9 @@ body.case-page {
     flex-wrap: wrap;
     gap: 12px 24px;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:has(body.case-page) { scroll-behavior: auto; }
+  .case-page .carousel-container, .case-page .back-link { transition: none; }
 }

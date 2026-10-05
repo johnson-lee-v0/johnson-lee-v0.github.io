@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" role="img" aria-labelledby="title description">
+  <title id="title">Research, from start to finish</title>
+  <desc id="description">Multi-agent AI engineering from a scoped question through source discovery, research, code-backed valuation and validation, CIO review, and retained memory. The public example is a static illustration of the local workflow.</desc>
+  <rect width="600" height="400" fill="#172822"/>
+  <text x="26" y="30" font-family="Arial,Helvetica,sans-serif" font-size="17" letter-spacing="1" fill="#d2dcbd">AI ENGINEERING / MULTI-AGENT RESEARCH</text>
+  <text x="26" y="85" font-family="Georgia,serif" font-size="41" fill="#f3f1e8">From question to decision.</text>
+  <g fill="none" stroke="#71856a" stroke-width="2">
+    <path d="M63 157H243M273 157H453M483 157H563V273H483M453 273H273M243 273H63"/>
+    <path d="M226 151L236 157L226 163M436 151L446 157L436 163M557 234L563 244L569 234M289 267L280 273L289 279M79 267L70 273L79 279"/>
+  </g>
+  <g font-family="Arial,Helvetica,sans-serif">
+    <g transform="translate(48 157)"><circle r="16" fill="#d3deac"/><text y="6" text-anchor="middle" font-size="17" fill="#172822">1</text><text x="-22" y="44" font-size="24" fill="#f3f1e8">Question</text><text x="-22" y="68" font-size="17" fill="#c7d0bd">Chief of Staff</text></g>
+    <g transform="translate(258 157)"><circle r="16" fill="#d3deac"/><text y="6" text-anchor="middle" font-size="17" fill="#172822">2</text><text x="-22" y="44" font-size="24" fill="#f3f1e8">Evidence</text><text x="-22" y="68" font-size="17" fill="#c7d0bd">Discovery</text></g>
+    <g transform="translate(468 157)"><circle r="16" fill="#d3deac"/><text y="6" text-anchor="middle" font-size="17" fill="#172822">3</text><text x="-22" y="44" font-size="24" fill="#f3f1e8">Analysis</text><text x="-22" y="68" font-size="17" fill="#c7d0bd">Researcher</text></g>
+    <g transform="translate(468 273)"><circle r="16" fill="#dbb486"/><text y="6" text-anchor="middle" font-size="17" fill="#172822">4</text><text x="-22" y="44" font-size="24" fill="#f3f1e8">Valuation</text><text x="-22" y="68" font-size="17" fill="#c7d0bd">Code checks</text></g>
+    <g transform="translate(258 273)"><circle r="16" fill="#d3deac"/><text y="6" text-anchor="middle" font-size="17" fill="#172822">5</text><text x="-22" y="44" font-size="24" fill="#f3f1e8">Decision</text><text x="-22" y="68" font-size="17" fill="#c7d0bd">CIO review</text></g>
+    <g transform="translate(48 273)"><circle r="16" fill="none" stroke="#d3deac" stroke-width="2"/><text y="6" text-anchor="middle" font-size="17" fill="#d3deac">6</text><text x="-22" y="44" font-size="24" fill="#f3f1e8">Memory</text><text x="-22" y="68" font-size="17" fill="#c7d0bd">Research trail</text></g>
+  </g>
+  <path d="M26 364H574" stroke="#536657"/>
+  <text x="26" y="390" font-family="Arial,Helvetica,sans-serif" font-size="17" fill="#b2bea9">Static walkthrough · agents run locally</text>
+</svg>

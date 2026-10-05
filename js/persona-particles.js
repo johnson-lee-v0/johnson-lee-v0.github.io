@@ -37,24 +37,9 @@
   ];
   const MOBILE_RENDER_PASSES = [RENDER_PASSES[1]];
 
-  function isNarrowPortrait(width, height) {
-    return width <= 420 && height >= 600;
-  }
-
-  function isShortNarrowPortrait(width, height) {
-    return width <= 420 && height >= 600 && height <= 760;
-  }
-
   function getFigureScale(width, height) {
-    if (isNarrowPortrait(width, height)) {
-      if (isShortNarrowPortrait(width, height)) {
-        return Math.min(height * 0.165, width * 0.4);
-      }
-      return Math.min(height * 0.218, width * 0.47);
-    }
-
     if (width <= 700) {
-      return Math.min(height * 0.24, width * 0.5);
+      return Math.min(height * 0.255, width * 0.55, 235);
     }
 
     // Keep the tallest hair spike below the fixed navigation on short screens.
@@ -64,15 +49,11 @@
 
   function getFigurePlacement(width, height) {
     const mobile = width <= 700;
-    const narrowPortrait = isNarrowPortrait(width, height);
-    const shortNarrowPortrait = isShortNarrowPortrait(width, height);
+    const figureScale = getFigureScale(width, height);
     return {
-      offsetX: shortNarrowPortrait
-        ? 0.52
-        : (narrowPortrait ? 0.3 : (mobile ? 0.38 : 0.48)),
-      offsetY: shortNarrowPortrait
-        ? -0.64
-        : (narrowPortrait ? -0.54 : (mobile ? -0.02 : -0.03)),
+      offsetX: mobile ? 0.2 : 0.48,
+      // Keep the shoes 24px above the stage edge; the CSS reserves room for copy.
+      offsetY: mobile ? -1 + (48 + figureScale * 1.938) / height : -0.03,
       approachX: mobile ? 0.10 : 0.16
     };
   }

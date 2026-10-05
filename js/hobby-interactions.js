@@ -43,7 +43,11 @@
       const slots = photos.map((_, index) => index);
       const stage = element("div", "travel-orbit-stage");
       const cards = [];
+      const images = [];
       const selectors = [];
+      const previewSize = (featured) => featured
+        ? "(max-width: 700px) 44vw, 248px"
+        : "(max-width: 700px) 26vw, 128px";
       const controls = element("div", "travel-controls");
       const previous = element("button", "travel-step");
       previous.type = "button";
@@ -66,13 +70,22 @@
         card.type = "button";
         card.setAttribute("aria-label", `Show ${photo.place}, ${photo.trip}`);
         const image = element("img", "polaroid-image");
-        image.src = photo.src;
         image.alt = photo.alt;
         image.width = photo.width;
         image.height = photo.height;
         image.loading = "lazy";
         image.decoding = "async";
         image.draggable = false;
+        // Declare responsive candidates before src; never request the full
+        // original just to display a small print. Keep original metadata intact.
+        if (photo.thumbnails?.[240] && photo.thumbnails?.[480]) {
+          image.sizes = previewSize(index === 0);
+          image.srcset = `${photo.thumbnails[240]} 240w, ${photo.thumbnails[480]} 480w`;
+          image.src = photo.thumbnails[240];
+        } else {
+          image.src = photo.src;
+        }
+        images.push(image);
         const caption = element("span", "polaroid-caption");
         caption.append(
           element("strong", "polaroid-place", photo.place),
@@ -99,6 +112,7 @@
         cards.forEach((card, i) => {
           const slot = slots.indexOf(i);
           card.dataset.slot = String(slot);
+          if (images[i].srcset) images[i].sizes = previewSize(slot === 0);
           card.setAttribute("aria-pressed", String(slot === 0));
           // Named selectors also reach every print without aiming at overlapping edges.
           card.tabIndex = slot === 0 ? 0 : -1;
@@ -111,6 +125,7 @@
       previous.addEventListener("click", () => select(current - 1));
       next.addEventListener("click", () => select(current + 1));
       root.addEventListener("keydown", (event) => {
+        if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
         if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
         event.preventDefault();
         select(current + (event.key === "ArrowRight" ? 1 : -1));
@@ -137,6 +152,9 @@
       stage.addEventListener("pointercancel", () => { touch = null; });
       stage.addEventListener("click", (event) => {
         if (!suppressClick) return;
+        // A swipe may finish without a synthetic click. Never let that stale
+        // flag swallow a later keyboard or assistive-technology activation.
+        if (event.detail === 0) { suppressClick = false; return; }
         event.preventDefault();
         event.stopPropagation();
         suppressClick = false;
@@ -204,12 +222,15 @@
     stage.setAttribute("aria-describedby", helpId);
     const angle = element("span", "sneaker-spin-angle", "0°");
     angle.setAttribute("aria-hidden", "true");
-    const keyboardHelp = element("span", "sr-only", "Use left and right arrow keys to rotate, or Enter for the next angle.");
+    const keyboardHelp = element("span", "sr-only", "Use left and right arrow keys to rotate one view, Home and End for the first and last views, or Enter and Space to rotate forward.");
     help.append(keyboardHelp);
     const status = element("p", "sneaker-spin-status");
     status.setAttribute("role", "status");
+    const announcement = element("span", "sr-only");
+    announcement.setAttribute("role", "status");
+    announcement.setAttribute("aria-atomic", "true");
     controls.append(help, angle);
-    root.append(controls, status);
+    root.append(controls, status, announcement);
 
     let requested = 0;
     let requestId = 0;
@@ -221,7 +242,7 @@
       return `https://images.stockx.com/360/${spin.slug}/Images/${spin.slug}/Lv2/img${frame}.jpg?auto=format,compress&w=720&q=80`;
     };
 
-    async function display(index) {
+    async function display(index, announce = true) {
       requested = wrap(index, spin.frames);
       const thisRequest = ++requestId;
       const target = requested;
@@ -234,6 +255,10 @@
         image.alt = `${sneaker.name}, view ${target + 1} of ${spin.frames}`;
         image.dataset.frame = String(target + 1);
         angle.textContent = `${Math.round(target * 360 / spin.frames)}°`;
+        // The image alt is not the accessible name of this explicitly labeled
+        // button. Announce completed keyboard/click changes separately; avoid
+        // a stream of live announcements during continuous pointer dragging.
+        if (announce) announcement.textContent = `${sneaker.name}: view ${target + 1} of ${spin.frames}, ${angle.textContent}.`;
         // Nearby angles warm the cache; do not download every shoe's full set.
         [-1, 1].forEach((step) => { loadFrame(urlFor(target + step)).catch(() => {}); });
       } catch {
@@ -249,15 +274,17 @@
       if (queuedFrame) return;
       queuedFrame = requestAnimationFrame(() => {
         queuedFrame = 0;
-        if (root.isConnected) display(requested);
+        if (root.isConnected) display(requested, false);
       });
     }
 
     stage.addEventListener("click", (event) => {
-      if (dragged) { event.preventDefault(); dragged = false; return; }
+      if (dragged && event.detail !== 0) { event.preventDefault(); dragged = false; return; }
+      dragged = false;
       display(requested + 3);
     });
     stage.addEventListener("keydown", (event) => {
+      if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
       if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
       event.preventDefault();
       event.stopPropagation();

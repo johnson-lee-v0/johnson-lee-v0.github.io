@@ -8,7 +8,11 @@
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/project.css?v=20260905-118">
   <link rel="stylesheet" href="../css/design-system.css?v=20260920-1">
-  <link rel="stylesheet" href="../css/project-editorial.css?v=20260921-4">
+  <link rel="stylesheet" href="../css/project-editorial.css?v=20261002-3">
+  <link rel="stylesheet" href="../css/nba-explorer.css?v=20261002-1">
+  <link rel="stylesheet" href="../css/nba-pattern.css?v=20261004-1">
+  <script src="../js/nba-explorer.js?v=20261002-1" defer></script>
+  <script src="../js/nba-pattern.js?v=20261004-1" defer></script>
 </head>
 <body class="case-page">
   <a class="case-skip-link" href="#case-content">Skip to project</a>
@@ -22,14 +26,131 @@
     </div>
   </header>
 
-  <main id="case-content">
+  <main id="case-content" tabindex="-1">
     <div class="container">
-      <figure class="project-figure">
+      <section class="nba-pattern" id="nba-pattern" aria-labelledby="nba-pattern-title" data-source="../data/nba-shot-patterns.json">
+        <header class="nba-pattern-heading">
+          <h2 id="nba-pattern-title">From recorded shots<br>to a pattern.</h2>
+          <p>A dot is one recorded attempt. Group the locations, compare two seasons, and see how the league’s choices changed.</p>
+        </header>
+
+        <div class="nba-pattern-controls" data-pattern-controls hidden>
+          <div role="group" aria-label="Choose a regular season">
+            <button type="button" data-pattern-season="2017" aria-pressed="false" aria-controls="nba-pattern-map">2017–18</button>
+            <button type="button" data-pattern-season="2025" aria-pressed="true" aria-controls="nba-pattern-map">2025–26</button>
+          </div>
+          <div role="group" aria-label="Choose how to see the shot data">
+            <button type="button" data-pattern-view="sample" aria-pressed="true" aria-controls="nba-pattern-map">Recorded dots</button>
+            <button type="button" data-pattern-view="pattern" aria-pressed="false" aria-controls="nba-pattern-map">Area pattern</button>
+          </div>
+        </div>
+
+        <div class="nba-pattern-layout">
+          <div class="nba-pattern-map">
+            <p class="nba-pattern-map-label" data-pattern-map-label>2025–26 · 1,500 sampled locations</p>
+            <figure class="nba-pattern-fallback" data-pattern-fallback>
+              <img src="../image/Project_Cover/NBA-recorded-shots.svg" width="1000" height="1000" decoding="async" alt="A sample of 1,500 recorded NBA shot locations in the 2025–26 regular season, concentrated near the basket and three-point arc.">
+              <figcaption>The dot map is a sample of actual locations. The zone comparison uses the full eligible dataset, not the sample.</figcaption>
+            </figure>
+            <div class="nba-pattern-surface" id="nba-pattern-map" data-pattern-surface role="img" aria-label="2025–26 sampled shot locations, highlighting midrange" hidden>
+              <canvas width="700" height="700" aria-hidden="true"></canvas>
+            </div>
+            <p class="nba-pattern-map-help" data-pattern-map-help>With JavaScript enabled, choose a season, switch views, or select a shot area. The complete comparison is also available below.</p>
+            <p class="nba-pattern-failure" data-pattern-failure role="status" hidden>The interactive map could not load. The original dot map and complete table remain available.</p>
+            <button type="button" data-pattern-retry hidden>Retry interactive map</button>
+          </div>
+
+          <section class="nba-pattern-inspector" aria-labelledby="nba-pattern-region">
+            <h3 id="nba-pattern-region" data-pattern-zone-label>Midrange</h3>
+            <div class="nba-pattern-zones" data-pattern-zones role="group" aria-label="Choose a shot area" hidden>
+              <button type="button" data-pattern-zone="all" aria-pressed="false">All areas</button>
+              <button type="button" data-pattern-zone="rim" aria-pressed="false">Rim</button>
+              <button type="button" data-pattern-zone="other-paint" aria-pressed="false">Other paint</button>
+              <button type="button" data-pattern-zone="midrange" aria-pressed="true">Midrange</button>
+              <button type="button" data-pattern-zone="corner-3" aria-pressed="false">Corner 3</button>
+              <button type="button" data-pattern-zone="above-break-3" aria-pressed="false">Above-break 3</button>
+            </div>
+            <dl class="nba-pattern-comparison">
+              <div><dt>2017–18</dt><dd><strong data-pattern-share>19.05%</strong><span data-pattern-attempts>40,336 attempts</span></dd></div>
+              <div><dt>2025–26</dt><dd><strong data-pattern-share>10.00%</strong><span data-pattern-attempts>21,945 attempts</span></dd></div>
+            </dl>
+            <p class="nba-pattern-change" data-pattern-change>Down 9.06 percentage points</p>
+            <p class="nba-pattern-scope">Share of all eligible regular-season attempts. This measures where shots were taken—not shooting success or prediction accuracy.</p>
+            <p class="nba-pattern-status" data-pattern-status role="status" aria-live="polite" aria-atomic="true"></p>
+          </section>
+        </div>
+
+        <details class="nba-pattern-methods">
+          <summary>Full zone comparison and sources</summary>
+          <table class="nba-pattern-table">
+            <caption>Shot-area share · full eligible regular-season cohorts</caption>
+            <thead><tr><th scope="col">Shot area</th><th scope="col">2017–18</th><th scope="col">2025–26</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Rim</th><td>31.59%</td><td>28.28%</td></tr>
+              <tr><th scope="row">Other paint</th><td>15.70%</td><td>19.92%</td></tr>
+              <tr><th scope="row">Midrange</th><td>19.05%</td><td>10.00%</td></tr>
+              <tr><th scope="row">Corner 3</th><td>7.37%</td><td>10.70%</td></tr>
+              <tr><th scope="row">Above-break 3</th><td>26.04%</td><td>30.59%</td></tr>
+              <tr><th scope="row">Backcourt</th><td>0.25%</td><td>0.01%</td></tr>
+              <tr><th scope="row">Unlocated heave</th><td>0.00%</td><td>0.50%</td></tr>
+              <tr><th scope="row">Unknown</th><td>0.00%</td><td>0.00%</td></tr>
+            </tbody>
+          </table>
+          <p>The denominators are 211,707 attempts in 2017–18 and 219,553 in 2025–26. The dot view samples 1,500 actual half-court locations from each season; no dots are invented. The area view groups the complete mapped cohort into a 25 × 24 grid. Circle area represents cell share, with a common scale across both seasons.</p>
+          <p>Attempts without valid half-court coordinates remain in the denominator, but are never placed on the court. That includes 1,090 unlocated team-only heaves in 2025–26. The source’s quality screens and shot-area labels are preserved. Displayed percentages are rounded to two decimals.</p>
+          <p><a href="https://github.com/johnson-lee-v0/NBA-Games-Outcome/blob/4e6d2ab76302339d1d6880cce217713877eec3d8/reports/league-playstyle.md" target="_blank" rel="noopener">Read the source analysis ↗</a> · <a href="../data/nba-shot-patterns.json">Inspect the exported data</a></p>
+        </details>
+      </section>
+
+      <details class="nba-figure-details">
+        <summary>See the original research figure</summary>
+      <figure class="project-figure" id="nba-original-figure">
         <a class="project-image-link" href="../image/Project_Cover/NBA-shot-locations.png" target="_blank" rel="noopener" aria-label="Open the original NBA shot-location figure in a new tab">
-          <img src="../image/Project_Cover/NBA-shot-locations.png" width="2577" height="888" alt="Three court heatmaps comparing recorded NBA shot locations in the 2017–18 and 2025–26 regular seasons and the change in each court area's share of attempts.">
+          <img src="../image/Project_Cover/NBA-shot-locations.png" width="2577" height="888" decoding="async" alt="Three court heatmaps comparing recorded NBA shot locations in the 2017–18 and 2025–26 regular seasons and the change in each court area's share of attempts.">
         </a>
         <figcaption><span>Where the league takes its shots.</span> Recorded shot locations compare the 2017–18 and 2025–26 regular seasons, with the right-hand panel showing the change in attempt share. <a href="../image/Project_Cover/NBA-shot-locations.png" target="_blank" rel="noopener">View original figure ↗</a></figcaption>
       </figure>
+
+      <section class="nba-explorer" id="nba-explorer" aria-labelledby="nba-explorer-title" hidden>
+        <div class="nba-explorer-head">
+          <h2 id="nba-explorer-title">Where the league takes its shots</h2>
+          <div class="nba-view-controls" role="group" aria-label="Choose a shot-location view">
+            <button type="button" data-nba-view="seasons" aria-pressed="false" aria-controls="nba-view-seasons">Both seasons</button>
+            <button type="button" data-nba-view="change" aria-pressed="true" aria-controls="nba-view-change">What changed?</button>
+          </div>
+        </div>
+        <figure class="nba-view" id="nba-view-change" data-nba-panel="change">
+          <div class="nba-chart-surface">
+            <svg class="nba-chart nba-chart-change" viewBox="1660 65 917 805" role="img" aria-labelledby="nba-change-title nba-change-description">
+              <title id="nba-change-title">Change in NBA shot-attempt share, 2017–18 to 2025–26</title>
+              <desc id="nba-change-description">Original change panel and its scale. Teal areas gained attempt share, gold areas lost share, and pale areas changed little. Gains are visible around the three-point arc, with losses through much of the midrange.</desc>
+              <image href="../image/Project_Cover/NBA-shot-locations.png" width="2577" height="888" />
+            </svg>
+          </div>
+          <figcaption>
+            <div class="nba-reading-key" aria-label="How to read the colors">
+              <span><i class="nba-key-gain" aria-hidden="true"></i>Gained share</span>
+              <span><i class="nba-key-neutral" aria-hidden="true"></i>Near zero</span>
+              <span><i class="nba-key-loss" aria-hidden="true"></i>Lost share</span>
+            </div>
+            The same court, a different distribution. Each cell shows the percentage-point change in its share of league shot attempts between the two seasons. The original color scale is preserved.
+          </figcaption>
+        </figure>
+        <figure class="nba-view" id="nba-view-seasons" data-nba-panel="seasons" hidden>
+          <p class="nba-scroll-help">Scroll sideways to compare both courts and their shared scale.</p>
+          <div class="nba-chart-surface nba-chart-scroll" tabindex="0" role="region" aria-label="2017–18 and 2025–26 shot-location comparison; scroll horizontally on small screens">
+            <svg class="nba-chart nba-chart-seasons" viewBox="0 65 1660 805" role="img" aria-labelledby="nba-seasons-title nba-seasons-description">
+              <title id="nba-seasons-title">NBA shot locations in the 2017–18 and 2025–26 regular seasons</title>
+              <desc id="nba-seasons-description">Two original court heatmaps with one shared percentage scale. Darker cells contain a greater share of league attempts. The basket and three-point arc concentrate attempts in both seasons.</desc>
+              <image href="../image/Project_Cover/NBA-shot-locations.png" width="2577" height="888" />
+            </svg>
+          </div>
+          <figcaption>2017–18 on the left; 2025–26 on the right. Both courts use the same scale: attempts in each cell as a percentage of all recorded league attempts.</figcaption>
+        </figure>
+        <p class="nba-chart-note">These percentages describe shot distribution, not shooting success or prediction accuracy. <a href="../image/Project_Cover/NBA-shot-locations.png" target="_blank" rel="noopener">View the complete original figure ↗</a></p>
+        <p class="sr-only" id="nba-view-status" role="status" aria-live="polite"></p>
+      </section>
+      </details>
 
       <section class="project-reading" aria-labelledby="reading-title">
         <h2 id="reading-title">From shot selection to win probabilities</h2>
@@ -49,6 +170,18 @@
 
     <footer class="case-visuals" aria-label="Project links">
       <div class="container">
+        <nav class="project-continuation" aria-label="Next side project">
+          <a class="project-continuation-link" href="./Max_Temperature.html" aria-labelledby="next-project-question next-project-name">
+            <div class="project-continuation-art">
+              <img loading="lazy" src="../image/Project_Cover/Max-temperature-landscape.png" width="2040" height="918" decoding="async" alt="Original weather figure comparing seasonal temperatures across three stations and showing gaps in an older New York archive.">
+            </div>
+            <div class="project-continuation-copy">
+              <p class="project-continuation-kicker">Next investigation</p>
+              <h2 id="next-project-question">Can one forecast model work across three cities?</h2>
+              <p class="project-continuation-destination"><span id="next-project-name">Max temperature modeling</span><span aria-hidden="true">→</span></p>
+            </div>
+          </a>
+        </nav>
         <div class="case-source-row">
           <a href="../index.html#projects">← All side projects</a>
           <a href="https://github.com/johnson-lee-v0/NBA-Games-Outcome/blob/main/reports/league-playstyle.md" target="_blank" rel="noopener">Read the league analysis ↗</a>

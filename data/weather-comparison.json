@@ -1,0 +1,93 @@
+{
+  "source": {
+    "repository": "https://github.com/johnson-lee-v0/Max-Temperature-Modeling",
+    "commit": "8d8b132f5228c4002780c29d6da13ce4c8686af7",
+    "metrics": "https://github.com/johnson-lee-v0/Max-Temperature-Modeling/blob/8d8b132f5228c4002780c29d6da13ce4c8686af7/data/report_data.json",
+    "protocol": "https://github.com/johnson-lee-v0/Max-Temperature-Modeling/blob/8d8b132f5228c4002780c29d6da13ce4c8686af7/README.md#evaluation-design",
+    "path": "regional_metrics",
+    "filter": {
+      "period": "later",
+      "season": "all"
+    }
+  },
+  "metric": "mae",
+  "unit": "°F",
+  "lowerIsBetter": true,
+  "scale": [
+    0,
+    4
+  ],
+  "start": "2026-01-08",
+  "end": "2026-09-13",
+  "nPerStation": 249,
+  "models": [
+    {
+      "id": "original_raw",
+      "label": "Raw GFS",
+      "group": "original"
+    },
+    {
+      "id": "original_local",
+      "label": "Local",
+      "group": "original"
+    },
+    {
+      "id": "original_pooled",
+      "label": "Pooled",
+      "group": "original"
+    },
+    {
+      "id": "original_fedavg",
+      "label": "FedAvg",
+      "group": "original"
+    },
+    {
+      "id": "n00_local_ridge_compact",
+      "label": "Local + NBS",
+      "group": "nbs"
+    },
+    {
+      "id": "n06_pooled_ridge_compact",
+      "label": "Pooled + NBS",
+      "group": "nbs"
+    }
+  ],
+  "stations": [
+    {
+      "id": "NYC",
+      "name": "Central Park (NYC)",
+      "mae": {
+        "original_raw": 2.490522088353413,
+        "original_local": 2.398203827836488,
+        "original_pooled": 2.457563862449967,
+        "original_fedavg": 2.459852875712725,
+        "n00_local_ridge_compact": 2.276265477427706,
+        "n06_pooled_ridge_compact": 2.37287811049986
+      }
+    },
+    {
+      "id": "LAX",
+      "name": "Los Angeles airport (LAX)",
+      "mae": {
+        "original_raw": 3.32112449799197,
+        "original_local": 2.000782666193286,
+        "original_pooled": 2.23379347688563,
+        "original_fedavg": 2.058091484755259,
+        "n00_local_ridge_compact": 1.760921482461634,
+        "n06_pooled_ridge_compact": 1.898179313632752
+      }
+    },
+    {
+      "id": "DFW",
+      "name": "Dallas–Fort Worth airport (DFW)",
+      "mae": {
+        "original_raw": 2.84273092369478,
+        "original_local": 2.429310713211832,
+        "original_pooled": 2.313915230693547,
+        "original_fedavg": 2.464337482691421,
+        "n00_local_ridge_compact": 1.928625782461181,
+        "n06_pooled_ridge_compact": 1.97401555490729
+      }
+    }
+  ]
+}

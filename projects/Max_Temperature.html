@@ -8,7 +8,9 @@
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/project.css?v=20260905-118">
   <link rel="stylesheet" href="../css/design-system.css?v=20260920-1">
-  <link rel="stylesheet" href="../css/project-editorial.css?v=20260921-4">
+  <link rel="stylesheet" href="../css/project-editorial.css?v=20261002-3">
+  <link rel="stylesheet" href="../css/weather-explorer.css?v=20261003-1">
+  <script defer src="../js/weather-explorer.js?v=20261003-1"></script>
 </head>
 <body class="case-page">
   <a class="case-skip-link" href="#case-content">Skip to project</a>
@@ -17,19 +19,240 @@
     <div class="container">
       <a href="../index.html#projects" class="back-link">← Back to side projects</a>
       <h1>Max Temperature Modeling</h1>
-      <p class="case-summary">Exploring next-day temperature forecasts through weather feature engineering and comparisons across New York, Los Angeles, and Dallas.</p>
+      <p class="case-summary">Can a station's next-day temperature forecast be improved? An exploration of weather inputs, forecast timing, and regional models across New York, Los Angeles, and Dallas.</p>
       <p class="project-meta">Python · Feature engineering · Forecast modeling</p>
     </div>
   </header>
 
-  <main id="case-content">
+  <main id="case-content" tabindex="-1">
     <div class="container">
+      <section class="weather-explorer" id="weather-explorer" aria-labelledby="weather-question">
+        <div class="weather-opening">
+          <div>
+            <p class="weather-eyebrow">A question for the evidence</p>
+            <h2 id="weather-question">Does sharing help every station?</h2>
+          </div>
+          <div class="weather-takeaway">
+            <p class="weather-answer">Not consistently.</p>
+            <p>Original pooling beats local in Dallas–Fort Worth, but not Central Park or LAX. FedAvg has higher error than local at all three stations. With added NBS inputs, local has lower error than pooled at every station.</p>
+          </div>
+        </div>
+
+        <p class="weather-context">January 8–September 13, 2026 · 249 dates per station</p>
+        <p class="weather-caution">Retrospective comparison on identical dates; not an untouched holdout.</p>
+        <div class="weather-controls" id="weather-controls" role="group" aria-label="Choose a weather station" hidden>
+          <span class="weather-control-label">Inspect a station</span>
+          <button type="button" data-weather-station="NYC" aria-pressed="true" aria-controls="weather-panel-nyc">Central Park <span>NYC</span></button>
+          <button type="button" data-weather-station="LAX" aria-pressed="false" aria-controls="weather-panel-lax">Los Angeles <span>LAX</span></button>
+          <button type="button" data-weather-station="DFW" aria-pressed="false" aria-controls="weather-panel-dfw">Dallas–Fort Worth <span>DFW</span></button>
+        </div>
+        <p class="weather-scale" id="weather-scale">Mean absolute error (MAE), in °F. Lower is better. Every chart uses the same 0–4°F scale.</p>
+        <p class="weather-status" id="weather-status" role="status" aria-live="polite" aria-atomic="true"></p>
+
+        <div class="weather-stations">
+          <section class="weather-station" id="weather-panel-nyc" data-weather-panel="NYC" data-weather-name="Central Park (NYC)" aria-labelledby="weather-title-nyc">
+            <header class="weather-station-header">
+              <h3 id="weather-title-nyc">Central Park (NYC)</h3>
+              <p>Pooling has higher error than local in the original experiment. With added NBS inputs, local also has lower error than pooled.</p>
+            </header>
+            <div class="weather-experiments">
+              <section class="weather-experiment" aria-labelledby="weather-original-nyc">
+                <p class="weather-experiment-number">01 / Original experiment</p>
+                <h4 id="weather-original-nyc">Share the learning.</h4>
+                <p class="weather-experiment-description">One model per station (local), one for all three (pooled), or combined local updates (FedAvg). Raw GFS is the sampled-forecast reference.</p>
+                <div class="weather-axis" aria-hidden="true"><span>0</span><span>2</span><span>4°F</span></div>
+                <table class="weather-chart">
+                  <caption>Central Park (NYC): original experiment, mean absolute error in degrees Fahrenheit.</caption>
+                  <colgroup><col class="weather-model-column"><col></colgroup>
+                  <thead><tr><th scope="col">Model</th><th scope="col">MAE (°F)</th></tr></thead>
+                  <tbody>
+                      <tr data-weather-candidate="original_raw" data-weather-mae="2.490522088353413">
+                        <th scope="row">Raw GFS</th>
+                        <td><div class="weather-measure"><span class="weather-track" aria-hidden="true"><span style="--weather-value: 2.490522088353413"></span></span><span class="weather-value">2.491 <span>°F</span></span></div></td>
+                      </tr>
+                      <tr data-weather-candidate="original_local" data-weather-mae="2.398203827836488">
+                        <th scope="row">Local</th>
+                        <td><div class="weather-measure"><span class="weather-track" aria-hidden="true"><span style="--weather-value: 2.398203827836488"></span></span><span class="weather-value">2.398 <span>°F</span></span></div></td>
+                      </tr>
+                      <tr data-weather-candidate="original_pooled" data-weather-mae="2.457563862449967">
+                        <th scope="row">Pooled</th>
+                        <td><div class="weather-measure"><span class="weather-track" aria-hidden="true"><span style="--weather-value: 2.457563862449967"></span></span><span class="weather-value">2.458 <span>°F</span></span></div></td>
+                      </tr>
+                      <tr data-weather-candidate="original_fedavg" data-weather-mae="2.459852875712725">
+                        <th scope="row">FedAvg</th>
+                        <td><div class="weather-measure"><span class="weather-track" aria-hidden="true"><span style="--weather-value: 2.459852875712725"></span></span><span class="weather-value">2.460 <span>°F</span></span></div></td>
+                      </tr>
+                  </tbody>
+                </table>
+              </section>
+              <section class="weather-experiment weather-experiment--nbs" aria-labelledby="weather-nbs-nyc">
+                <p class="weather-experiment-number">02 / Added NBS information</p>
+                <h4 id="weather-nbs-nyc">Add another forecast.</h4>
+                <p class="weather-experiment-description">Compact Ridge models add National Blend of Models (NBS) short-range guidance. These are different inputs and fits from experiment 01.</p>
+                <div class="weather-axis" aria-hidden="true"><span>0</span><span>2</span><span>4°F</span></div>
+                <table class="weather-chart">
+                  <caption>Central Park (NYC): added-NBS experiment, mean absolute error in degrees Fahrenheit.</caption>
+                  <colgroup><col class="weather-model-column"><col></colgroup>
+                  <thead><tr><th scope="col">Model</th><th scope="col">MAE (°F)</th></tr></thead>
+                  <tbody>
+                      <tr data-weather-candidate="n00_local_ridge_compact" data-weather-mae="2.276265477427706">
+                        <th scope="row">Local + NBS</th>
+                        <td><div class="weather-measure"><span class="weather-track" aria-hidden="true"><span style="--weather-value: 2.276265477427706"></span></span><span class="weather-value">2.276 <span>°F</span></span></div></td>
+                      </tr>
+                      <tr data-weather-candidate="n06_pooled_ridge_compact" data-weather-mae="2.37287811049986">
+                        <th scope="row">Pooled + NBS</th>
+                        <td><div class="weather-measure"><span class="weather-track" aria-hidden="true"><span style="--weather-value: 2.37287811049986"></span></span><span class="weather-value">2.373 <span>°F</span></span></div></td>
+                      </tr>
+                  </tbody>
+                </table>
+              </section>
+            </div>
+          </section>
+
+          <section class="weather-station" id="weather-panel-lax" data-weather-panel="LAX" data-weather-name="Los Angeles airport (LAX)" aria-labelledby="weather-title-lax">
+            <header class="weather-station-header">
+              <h3 id="weather-title-lax">Los Angeles airport (LAX)</h3>
+              <p>Pooling has higher error than local in the original experiment. With added NBS inputs, local also has lower error than pooled.</p>
+            </header>
+            <div class="weather-experiments">
+              <section class="weather-experiment" aria-labelledby="weather-original-lax">
+                <p class="weather-experiment-number">01 / Original experiment</p>
+                <h4 id="weather-original-lax">Share the learning.</h4>
+                <p class="weather-experiment-description">One model per station (local), one for all three (pooled), or combined local updates (FedAvg). Raw GFS is the sampled-forecast reference.</p>
+                <div class="weather-axis" aria-hidden="true"><span>0</span><span>2</span><span>4°F</span></div>
+                <table class="weather-chart">
+                  <caption>Los Angeles airport (LAX): original experiment, mean absolute error in degrees Fahrenheit.</caption>
+                  <colgroup><col class="weather-model-column"><col></colgroup>
+                  <thead><tr><th scope="col">Model</th><th scope="col">MAE (°F)</th></tr></thead>
+                  <tbody>
+                      <tr data-weather-candidate="original_raw" data-weather-mae="3.32112449799197">
+                        <th scope="row">Raw GFS</th>
+                        <td><div class="weather-measure"><span class="weather-track" aria-hidden="true"><span style="--weather-value: 3.32112449799197"></span></span><span class="weather-value">3.321 <span>°F</span></span></div></td>
+                      </tr>
+                      <tr data-weather-candidate="original_local" data-weather-mae="2.000782666193286">
+                        <th scope="row">Local</th>
+                        <td><div class="weather-measure"><span class="weather-track" aria-hidden="true"><span style="--weather-value: 2.000782666193286"></span></span><span class="weather-value">2.001 <span>°F</span></span></div></td>
+                      </tr>
+                      <tr data-weather-candidate="original_pooled" data-weather-mae="2.23379347688563">
+                        <th scope="row">Pooled</th>
+                        <td><div class="weather-measure"><span class="weather-track" aria-hidden="true"><span style="--weather-value: 2.23379347688563"></span></span><span class="weather-value">2.234 <span>°F</span></span></div></td>
+                      </tr>
+                      <tr data-weather-candidate="original_fedavg" data-weather-mae="2.058091484755259">
+                        <th scope="row">FedAvg</th>
+                        <td><div class="weather-measure"><span class="weather-track" aria-hidden="true"><span style="--weather-value: 2.058091484755259"></span></span><span class="weather-value">2.058 <span>°F</span></span></div></td>
+                      </tr>
+                  </tbody>
+                </table>
+              </section>
+              <section class="weather-experiment weather-experiment--nbs" aria-labelledby="weather-nbs-lax">
+                <p class="weather-experiment-number">02 / Added NBS information</p>
+                <h4 id="weather-nbs-lax">Add another forecast.</h4>
+                <p class="weather-experiment-description">Compact Ridge models add National Blend of Models (NBS) short-range guidance. These are different inputs and fits from experiment 01.</p>
+                <div class="weather-axis" aria-hidden="true"><span>0</span><span>2</span><span>4°F</span></div>
+                <table class="weather-chart">
+                  <caption>Los Angeles airport (LAX): added-NBS experiment, mean absolute error in degrees Fahrenheit.</caption>
+                  <colgroup><col class="weather-model-column"><col></colgroup>
+                  <thead><tr><th scope="col">Model</th><th scope="col">MAE (°F)</th></tr></thead>
+                  <tbody>
+                      <tr data-weather-candidate="n00_local_ridge_compact" data-weather-mae="1.760921482461634">
+                        <th scope="row">Local + NBS</th>
+                        <td><div class="weather-measure"><span class="weather-track" aria-hidden="true"><span style="--weather-value: 1.760921482461634"></span></span><span class="weather-value">1.761 <span>°F</span></span></div></td>
+                      </tr>
+                      <tr data-weather-candidate="n06_pooled_ridge_compact" data-weather-mae="1.898179313632752">
+                        <th scope="row">Pooled + NBS</th>
+                        <td><div class="weather-measure"><span class="weather-track" aria-hidden="true"><span style="--weather-value: 1.898179313632752"></span></span><span class="weather-value">1.898 <span>°F</span></span></div></td>
+                      </tr>
+                  </tbody>
+                </table>
+              </section>
+            </div>
+          </section>
+
+          <section class="weather-station" id="weather-panel-dfw" data-weather-panel="DFW" data-weather-name="Dallas–Fort Worth airport (DFW)" aria-labelledby="weather-title-dfw">
+            <header class="weather-station-header">
+              <h3 id="weather-title-dfw">Dallas–Fort Worth airport (DFW)</h3>
+              <p>Pooling has lower error than local in the original experiment. With added NBS inputs, local has lower error than pooled.</p>
+            </header>
+            <div class="weather-experiments">
+              <section class="weather-experiment" aria-labelledby="weather-original-dfw">
+                <p class="weather-experiment-number">01 / Original experiment</p>
+                <h4 id="weather-original-dfw">Share the learning.</h4>
+                <p class="weather-experiment-description">One model per station (local), one for all three (pooled), or combined local updates (FedAvg). Raw GFS is the sampled-forecast reference.</p>
+                <div class="weather-axis" aria-hidden="true"><span>0</span><span>2</span><span>4°F</span></div>
+                <table class="weather-chart">
+                  <caption>Dallas–Fort Worth airport (DFW): original experiment, mean absolute error in degrees Fahrenheit.</caption>
+                  <colgroup><col class="weather-model-column"><col></colgroup>
+                  <thead><tr><th scope="col">Model</th><th scope="col">MAE (°F)</th></tr></thead>
+                  <tbody>
+                      <tr data-weather-candidate="original_raw" data-weather-mae="2.84273092369478">
+                        <th scope="row">Raw GFS</th>
+                        <td><div class="weather-measure"><span class="weather-track" aria-hidden="true"><span style="--weather-value: 2.84273092369478"></span></span><span class="weather-value">2.843 <span>°F</span></span></div></td>
+                      </tr>
+                      <tr data-weather-candidate="original_local" data-weather-mae="2.429310713211832">
+                        <th scope="row">Local</th>
+                        <td><div class="weather-measure"><span class="weather-track" aria-hidden="true"><span style="--weather-value: 2.429310713211832"></span></span><span class="weather-value">2.429 <span>°F</span></span></div></td>
+                      </tr>
+                      <tr data-weather-candidate="original_pooled" data-weather-mae="2.313915230693547">
+                        <th scope="row">Pooled</th>
+                        <td><div class="weather-measure"><span class="weather-track" aria-hidden="true"><span style="--weather-value: 2.313915230693547"></span></span><span class="weather-value">2.314 <span>°F</span></span></div></td>
+                      </tr>
+                      <tr data-weather-candidate="original_fedavg" data-weather-mae="2.464337482691421">
+                        <th scope="row">FedAvg</th>
+                        <td><div class="weather-measure"><span class="weather-track" aria-hidden="true"><span style="--weather-value: 2.464337482691421"></span></span><span class="weather-value">2.464 <span>°F</span></span></div></td>
+                      </tr>
+                  </tbody>
+                </table>
+              </section>
+              <section class="weather-experiment weather-experiment--nbs" aria-labelledby="weather-nbs-dfw">
+                <p class="weather-experiment-number">02 / Added NBS information</p>
+                <h4 id="weather-nbs-dfw">Add another forecast.</h4>
+                <p class="weather-experiment-description">Compact Ridge models add National Blend of Models (NBS) short-range guidance. These are different inputs and fits from experiment 01.</p>
+                <div class="weather-axis" aria-hidden="true"><span>0</span><span>2</span><span>4°F</span></div>
+                <table class="weather-chart">
+                  <caption>Dallas–Fort Worth airport (DFW): added-NBS experiment, mean absolute error in degrees Fahrenheit.</caption>
+                  <colgroup><col class="weather-model-column"><col></colgroup>
+                  <thead><tr><th scope="col">Model</th><th scope="col">MAE (°F)</th></tr></thead>
+                  <tbody>
+                      <tr data-weather-candidate="n00_local_ridge_compact" data-weather-mae="1.928625782461181">
+                        <th scope="row">Local + NBS</th>
+                        <td><div class="weather-measure"><span class="weather-track" aria-hidden="true"><span style="--weather-value: 1.928625782461181"></span></span><span class="weather-value">1.929 <span>°F</span></span></div></td>
+                      </tr>
+                      <tr data-weather-candidate="n06_pooled_ridge_compact" data-weather-mae="1.97401555490729">
+                        <th scope="row">Pooled + NBS</th>
+                        <td><div class="weather-measure"><span class="weather-track" aria-hidden="true"><span style="--weather-value: 1.97401555490729"></span></span><span class="weather-value">1.974 <span>°F</span></span></div></td>
+                      </tr>
+                  </tbody>
+                </table>
+              </section>
+            </div>
+          </section>
+        </div>
+
+        <details class="weather-methods">
+          <summary>How was this comparison made?</summary>
+          <div class="weather-methods-content">
+            <p>Forecasts were issued at 18:00 local time on the day before the target date, using archived IEM forecasts and NOAA daily observations. The target is each station’s midnight-to-midnight local-standard-time maximum—not a citywide average.</p>
+            <dl>
+              <div><dt>Forecast availability</dt><dd>A six-hour forecast-arrival delay was assumed. Archived records establish that a forecast exists now, not exactly when it arrived historically.</dd></div>
+              <div><dt>Learning over time</dt><dd>Labels became eligible seven days after the climate-day end, by assumption. Models refit weekly on eligible past labels, then predicted the following week.</dd></div>
+              <div><dt>Earlier inspection</dt><dd>These assessment dates had already been examined in earlier work. Chronological fitting prevents future-label training, but does not make the comparison an untouched holdout.</dd></div>
+              <div><dt>Reading the experiments</dt><dd>Original local, pooled, and simulated FedAvg models share a linear residual architecture. The second group changes both the fitting approach and the available forecast inputs; it does not isolate a same-input improvement from sharing.</dd></div>
+            </dl>
+            <p class="weather-source-links">Source snapshot: <a href="https://github.com/johnson-lee-v0/Max-Temperature-Modeling/blob/8d8b132f5228c4002780c29d6da13ce4c8686af7/data/report_data.json" target="_blank" rel="noopener">Exact regional results ↗</a> · <a href="https://github.com/johnson-lee-v0/Max-Temperature-Modeling/blob/8d8b132f5228c4002780c29d6da13ce4c8686af7/README.md#evaluation-design" target="_blank" rel="noopener">Evaluation protocol ↗</a>. The displayed subset uses <code>regional_metrics</code>, <code>period=later</code>, and <code>season=all</code>. Values are rounded to three decimals for display.</p>
+          </div>
+        </details>
+      </section>
+
+
       <figure class="project-figure">
+        <p class="project-chart-help" id="temperature-chart-help">Scroll sideways to read the chart at a larger size. With the chart focused, use the left and right arrow keys.</p>
+        <div class="project-chart-reader project-chart-reader--temperature" tabindex="0" role="region" aria-label="Monthly temperature chart" aria-describedby="temperature-chart-help">
         <a class="project-image-link" href="../image/Project_Cover/Max-temperature-landscape.png" target="_blank" rel="noopener" aria-label="Open the original temperature data landscape figure in a new tab">
           <div class="project-chart-crop project-chart-crop--temperature">
-            <img src="../image/Project_Cover/Max-temperature-landscape.png" width="2040" height="918" alt="Monthly mean daily maximum temperatures for New York, Los Angeles, and Dallas, showing different seasonal patterns across the three stations.">
+            <img src="../image/Project_Cover/Max-temperature-landscape.png" width="2040" height="918" decoding="async" alt="Monthly mean daily maximum temperatures for New York, Los Angeles, and Dallas. New York and Dallas vary more by season than Los Angeles; all three are warmest in summer.">
           </div>
         </a>
+        </div>
         <figcaption><span>Three stations, different temperature patterns.</span> Monthly averages from matched dates in 2024–2025 provide context for the regional modeling comparisons. <a href="../image/Project_Cover/Max-temperature-landscape.png" target="_blank" rel="noopener">View original figure ↗</a></figcaption>
       </figure>
 
@@ -44,6 +267,18 @@
 
     <footer class="case-visuals" aria-label="Project links">
       <div class="container">
+        <nav class="project-continuation" aria-label="Next side project">
+          <a class="project-continuation-link" href="./University_Twitter.html" aria-labelledby="next-project-question next-project-name">
+            <div class="project-continuation-art">
+              <img loading="lazy" src="../image/Project_Carousel/University Twitter Account Analysis/Slide3.JPG" width="1280" height="720" decoding="async" alt="Original term-frequency slide comparing public posts from Waterloo, U of T, and Western.">
+            </div>
+            <div class="project-continuation-copy">
+              <p class="project-continuation-kicker">Next investigation</p>
+              <h2 id="next-project-question">What do universities choose to talk about?</h2>
+              <p class="project-continuation-destination"><span id="next-project-name">University Twitter analysis</span><span aria-hidden="true">→</span></p>
+            </div>
+          </a>
+        </nav>
         <div class="case-source-row">
           <a href="../index.html#projects">← All side projects</a>
           <a href="https://github.com/johnson-lee-v0/Max-Temperature-Modeling/blob/main/docs/MODEL_DEVELOPMENT.md" target="_blank" rel="noopener">Model development guide ↗</a>

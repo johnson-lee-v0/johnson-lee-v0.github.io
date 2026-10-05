@@ -1,0 +1,59 @@
+/* Real shot records and full-cohort cell counts share the portrait's point language. */
+.nba-pattern { margin: 0 0 56px; padding: 30px 0 34px; border-block: 1px solid var(--line); }
+.nba-pattern [hidden] { display: none !important; }
+.nba-pattern-heading { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 42px; align-items: end; margin-bottom: 28px; }
+.nba-pattern-heading h2 { margin: 0; font-family: var(--display); font-size: clamp(2rem, 3.5vw, 2.9rem); font-weight: 400; letter-spacing: -.025em; line-height: 1.1; }
+.nba-pattern-heading p { margin: 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.65; }
+.nba-pattern-controls { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 28px; padding-block: 20px; border-block: 1px solid var(--line); }
+.nba-pattern-controls > div { display: flex; flex-wrap: wrap; gap: 6px; }
+.nba-pattern button { padding: 9px 14px; min-height: 44px; border: 1px solid var(--line); border-radius: 0; background: transparent; color: var(--ink); font: inherit; font-size: .875rem; cursor: pointer; }
+.nba-pattern button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.nba-pattern button:hover { text-decoration: underline; text-underline-offset: .2em; }
+.nba-pattern-layout { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(270px, 1fr); gap: 48px; align-items: start; margin-top: 28px; }
+.nba-pattern-map { margin: 0; min-width: 0; }
+.nba-pattern-map-label { margin: 0 0 8px; color: var(--ink-soft); font-size: .8125rem; }
+.nba-pattern-surface { border: 1px solid var(--line); background: var(--paper); }
+.nba-pattern canvas { display: block; width: 100%; height: auto; aspect-ratio: 1; cursor: crosshair; }
+.nba-pattern-map-help { margin: 16px 0 0; color: var(--ink-soft); font-size: .875rem; line-height: 1.6; }
+.nba-pattern-fallback img { display: block; width: 100%; height: auto; }
+.nba-pattern-fallback figcaption { color: var(--ink-soft); font-size: .875rem; line-height: 1.6; margin-top: 14px; }
+.nba-pattern-inspector { padding-top: 24px; }
+.nba-pattern-inspector h3 { font-family: var(--display); font-size: 2rem; font-weight: 400; line-height: 1.15; margin: 0 0 16px; }
+.nba-pattern-zones { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; }
+.nba-pattern-zones button { font-size: .8125rem; padding-inline: 12px; }
+.nba-pattern-comparison { margin: 0; }
+.nba-pattern-comparison > div { display: grid; grid-template-columns: 1fr auto; column-gap: 12px; padding-block: 18px; border-top: 1px solid var(--line); }
+.nba-pattern-comparison dt { font-size: .875rem; color: var(--ink-soft); align-self: end; }
+.nba-pattern-comparison dd { margin: 0; text-align: right; }
+.nba-pattern-comparison strong { display: block; font-family: var(--display); font-size: 2.4rem; line-height: 1.1; font-weight: 400; font-variant-numeric: tabular-nums; }
+.nba-pattern-comparison span { display: block; margin-top: 8px; font-size: .8125rem; color: var(--ink-soft); }
+.nba-pattern-change { color: var(--link); font-size: .9375rem; margin: 10px 0 20px; }
+.nba-pattern-scope { color: var(--ink-soft); font-size: .8125rem; line-height: 1.65; margin: 0; }
+.nba-pattern-methods { margin-top: 30px; border-top: 1px solid var(--line); }
+.nba-pattern-methods summary, .nba-figure-details > summary { min-height: 44px; padding: 18px 0; cursor: pointer; }
+.nba-pattern-methods summary:hover, .nba-figure-details > summary:hover { text-decoration: underline; }
+.nba-pattern-methods p { color: var(--ink-soft); font-size: .9375rem; max-width: 78ch; }
+.nba-pattern-table { width: 100%; border-collapse: collapse; font-size: .875rem; margin: 18px 0 24px; font-variant-numeric: tabular-nums; }
+.nba-pattern-table caption { text-align: left; font-weight: 500; padding-bottom: 14px; }
+.nba-pattern-table th, .nba-pattern-table td { padding: 12px 8px; border-bottom: 1px solid var(--line); }
+.nba-pattern-table th { text-align: left; font-weight: 500; }
+.nba-pattern-table th:not(:first-child), .nba-pattern-table td { text-align: right; }
+.nba-pattern-failure { font-size: .875rem; color: var(--ink-soft); }
+.nba-pattern-status { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.nba-figure-details { margin: 0 0 48px; }
+.nba-figure-details .nba-explorer { margin-top: 22px; }
+@media (max-width: 850px) {
+  .nba-pattern-heading { grid-template-columns: 1fr; gap: 16px; }
+  .nba-pattern-layout { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .nba-pattern-inspector { padding-top: 14px; }
+}
+@media (max-width: 480px) {
+  .nba-pattern-controls { flex-direction: column; gap: 14px; }
+  .nba-pattern-controls > div { display: grid; grid-template-columns: 1fr 1fr; }
+  .nba-pattern button { padding-inline: 12px; }
+  .nba-pattern-table { font-size: .8125rem; }
+  .nba-pattern-table th, .nba-pattern-table td { padding-inline: 4px; }
+}
+@media (forced-colors: active) {
+  .nba-pattern button[aria-pressed="true"] { outline: 2px solid Highlight; outline-offset: -4px; }
+}

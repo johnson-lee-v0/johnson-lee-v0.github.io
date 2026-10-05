@@ -3,11 +3,15 @@ document.documentElement.classList.replace("no-js", "js");
 const PROJECTS = [
   {
     title: "Equity Research",
-    description: "Built a local AI research workspace that connects earnings assessments to source evidence, checks financial inputs, and recalculates valuation scenarios in code.",
-    image: "./image/Project_Cover/Equity-Research.webp",
+    question: "Can AI agents take research from question to decision?",
+    action: "Explore the agent workflow",
+    description: "A multi-agent AI research system that takes an investment question through source discovery, earnings analysis, valuation, validation, and a final research decision.",
+    image: "./image/Project_Cover/Equity-Research-preview.svg",
+    imageWidth: 1200,
+    imageHeight: 800,
     visualClass: "project-visual-equity",
-    imageAlt: "Equity Research demo showing META valuation assumptions and calculated scenario values",
-    caption: "A dated META research walkthrough, with evidence and valuation assumptions to explore.",
+    imageAlt: "The multi-agent research workflow: scope a question, discover sources, research the business, calculate and validate valuation, review the decision, and retain memory.",
+    caption: "From the initial question to a research decision. Explore the workflow through a sourced Meta, Q2 FY2026 example.",
     link: "./projects/Equity_Research.html",
     source: "https://github.com/johnson-lee-v0/Equity-Research",
     tags: ["AI engineering", "Python / FastAPI", "React / TypeScript"],
@@ -15,11 +19,15 @@ const PROJECTS = [
   },
   {
     title: "NBA game outcomes",
-    description: "Explored league-wide shot selection and modeled pregame and in-game win probabilities using historical context, chronological validation, and an interactive game replay.",
-    image: "./image/Project_Cover/NBA-shot-locations.png",
-    visualClass: "project-visual-nba",
-    imageAlt: "Court heatmap showing changes in NBA shot-attempt share between the 2017–18 and 2025–26 regular seasons",
-    caption: "How NBA shot locations shifted between 2017–18 and 2025–26.",
+    question: "How has the league’s shot selection changed?",
+    action: "Compare the seasons",
+    description: "An NBA exploration from shot selection to pregame and in-game win probabilities, with chronological validation and an interactive game replay.",
+    image: "./image/Project_Cover/NBA-recorded-shots.svg",
+    imageWidth: 1000,
+    imageHeight: 1000,
+    visualClass: "project-visual-pointmap",
+    imageAlt: "Actual sampled NBA shot locations concentrated near the basket and three-point arc in the 2025–26 regular season.",
+    caption: "Sampled recorded shots from the 2025–26 regular season.",
     link: "./projects/NBA_Games_Outcome.html",
     source: "https://github.com/johnson-lee-v0/NBA-Games-Outcome",
     origin: {
@@ -30,10 +38,14 @@ const PROJECTS = [
   },
   {
     title: "Max temperature modeling",
-    description: "Compared next-day maximum-temperature forecasts using weather feature engineering, chronological validation, and regional models for New York, Los Angeles, and Dallas.",
-    image: "./image/Project_Cover/Max-temperature-landscape.png",
-    visualClass: "project-visual-temperature",
-    imageAlt: "Monthly mean daily high temperatures for New York, Los Angeles, and Dallas–Fort Worth in 2024–2025",
+    question: "Can one forecast model work across three cities?",
+    action: "Explore the forecast study",
+    description: "Next-day forecasts for New York, Los Angeles, and Dallas, comparing weather features and regional models on a chronological split.",
+    image: "./image/Project_Cover/Weather-preview.svg",
+    imageWidth: 1200,
+    imageHeight: 1000,
+    visualClass: "project-visual-weather",
+    imageAlt: "Monthly mean observed daily maximum temperatures for NYC, LAX, and DFW, across matched station dates in 2024–2025.",
     caption: "Three cities, different seasonal temperature patterns. Observations from 2024–2025.",
     link: "./projects/Max_Temperature.html",
     source: "https://github.com/johnson-lee-v0/Max-Temperature-Modeling",
@@ -41,8 +53,12 @@ const PROJECTS = [
   },
   {
     title: "University Twitter analysis",
-    description: "Compared public posts from Waterloo, U of T, and Western using sentiment and entity analysis to explore how each university communicates online.",
+    question: "What do universities choose to talk about?",
+    action: "Read the language patterns",
+    description: "A comparison of language, sentiment, and subjects in public posts from Waterloo, U of T, and Western.",
     image: "./image/Project_Carousel/University Twitter Account Analysis/Slide3.JPG",
+    imageWidth: 1280,
+    imageHeight: 720,
     visualClass: "project-visual-universities",
     imageAlt: "Three bar charts comparing common terms across Waterloo, U of T, and Western posts",
     caption: "Common terms across Waterloo, U of T, and Western posts.",
@@ -52,8 +68,12 @@ const PROJECTS = [
   },
   {
     title: "Blackjack simulator",
-    description: "Built a six-deck blackjack simulator with a desktop interface, strategy tables, betting mechanics, SQLite event logging, and exploratory clustering.",
+    question: "What can a game reveal when every hand is logged?",
+    action: "Look inside the simulator",
+    description: "A six-deck desktop simulator with strategy advice, betting mechanics, and a SQLite record of each hand.",
     image: "./image/Project_Cover/Blackjack-interface.png",
+    imageWidth: 998,
+    imageHeight: 523,
     imageAlt: "Playable blackjack interface showing cards, deck tally, controls, and strategy advice",
     caption: "The desktop interface, including cards and strategy advice.",
     link: "./projects/Blackjack.html",
@@ -280,7 +300,7 @@ function initializeHeroScrollWorld() {
       return;
     }
 
-    sequenceTrigger.disabled = isComplete || isIntroRunning;
+    sequenceTrigger.disabled = isComplete;
     sequenceLabel.textContent = isRunning
       ? "Skip particle transition"
       : (isComplete
@@ -288,7 +308,7 @@ function initializeHeroScrollWorld() {
           : (isIntroRunning
               ? (isIntroPaused
                   ? "Walk paused"
-                  : (exitRequested ? "Finishing walk…" : "Walking on stage…"))
+                  : (exitRequested ? "Finishing walk…" : "Continue after walk"))
               : (scrollWorldCapable ? "Scroll once to continue" : "Continue to portfolio")));
     sequenceTrigger.setAttribute(
       "aria-label",
@@ -301,7 +321,7 @@ function initializeHeroScrollWorld() {
                     ? "The persona walk is paused"
                     : (exitRequested
                         ? "The persona is finishing the walk before continuing"
-                        : "The persona is walking onto the stage"))
+                        : "Continue to the portfolio after the persona finishes walking onto the stage"))
                 : (scrollWorldCapable
                     ? "Continue to the portfolio with the particle transition"
                     : "Continue to the portfolio")))
@@ -330,6 +350,16 @@ function initializeHeroScrollWorld() {
     }
 
     exitRequested = true;
+    updateScrollWorldCue();
+  }
+
+  function cancelQueuedExit() {
+    if (scrollWorldState !== "idle" || !exitRequested) {
+      return;
+    }
+
+    exitRequested = false;
+    exitRequestedByHeroTrigger = false;
     updateScrollWorldCue();
   }
 
@@ -722,34 +752,45 @@ function initializeHeroScrollWorld() {
         return;
       }
 
-      if (rendererNeedsFrameLoop && !shouldAnimate() && isHeroVisible && !document.hidden && !forcedColors.matches) {
-        renderPersona();
-      }
+      // Scroll does not change a paused/static pose. Resize, visibility, and
+      // motion-state handlers already redraw it when those inputs change.
     });
   }
 
   motionToggle?.addEventListener("click", () => {
     userPaused = !userPaused;
 
-    if (userPaused && exitRequested) {
-      requestExitAfterIntro();
-      return;
+    if (userPaused && scrollWorldState === "idle" && sequenceProgress < 1) {
+      // Pause leaves a settled, usable stage instead of freezing the entrance
+      // before its navigation controls can become ready.
+      sequenceProgress = 1;
+      introCompleted = true;
+      animationTime = Math.max(animationTime, WALK_DURATION);
+
+      if (exitRequested) {
+        startScrollWorld({ explicitHeroExit: exitRequestedByHeroTrigger });
+        return;
+      }
     }
 
     updateScrollWorldCue();
+    renderPersona();
     refreshMotionState();
   });
 
   sequenceTrigger?.addEventListener("click", () => {
     if (scrollWorldState === "running") {
       completeScrollWorld();
+    } else if (scrollWorldCapable && sequenceProgress < 0.999) {
+      requestExitAfterIntro({ explicitHeroExit: true });
     } else {
       startScrollWorld();
     }
   });
 
   heroExitTrigger?.addEventListener("click", (event) => {
-    if (!scrollWorldCapable) {
+    if (!scrollWorldCapable || event.defaultPrevented || event.button > 0
+      || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
       return;
     }
 
@@ -784,6 +825,9 @@ function initializeHeroScrollWorld() {
 
     if (delta <= 0) {
       wheelIntent = 0;
+      if (delta < 0) {
+        cancelQueuedExit();
+      }
       return;
     }
 
@@ -801,9 +845,9 @@ function initializeHeroScrollWorld() {
 
     wheelIntent = 0;
 
-    // The entrance owns this moment. A fresh gesture after the settled wave
-    // starts the exit; only the explicit hero CTA may queue it early.
+    // Keep the entrance timing, but remember the first deliberate down gesture.
     if (sequenceProgress < 0.999) {
+      requestExitAfterIntro();
       return;
     }
 
@@ -845,6 +889,8 @@ function initializeHeroScrollWorld() {
 
         if (sequenceProgress >= 0.999) {
           startScrollWorld();
+        } else {
+          requestExitAfterIntro();
         }
       }
     }
@@ -937,6 +983,9 @@ function initializeHeroScrollWorld() {
         behavior: reducedMotion.matches || forcedColors.matches ? "auto" : "smooth",
         block: "start"
       });
+      // Intercepted skip links must transfer keyboard focus, not only scroll.
+      // Honor explicitly focusable destinations without adding new tab stops.
+      if (target.hasAttribute("tabindex")) target.focus({ preventScroll: true });
 
       if (window.location.hash !== targetHash) {
         window.history.pushState(null, "", targetHash);
@@ -968,6 +1017,19 @@ function initializeHeroScrollWorld() {
       || event.altKey
       || isEditableTarget
     ) {
+      return;
+    }
+
+    if (
+      scrollWorldState === "idle"
+      && exitRequested
+      && !preservesSpaceActivation
+      && (event.key === "Escape" || isUpNavigation || isDocumentStartShortcut)
+    ) {
+      cancelQueuedExit();
+      if (event.key === "Escape") {
+        event.preventDefault();
+      }
       return;
     }
 
@@ -1005,8 +1067,12 @@ function initializeHeroScrollWorld() {
         returnToHeroFromNavigation();
       } else if (scrollWorldState === "running") {
         completeScrollWorld();
-      } else if (ownsHeroViewport() && sequenceProgress >= 0.999 && !event.repeat) {
-        startScrollWorld();
+      } else if (ownsHeroViewport() && !event.repeat) {
+        if (sequenceProgress >= 0.999) {
+          startScrollWorld();
+        } else {
+          requestExitAfterIntro();
+        }
       }
 
       return;
@@ -1056,9 +1122,13 @@ function initializeHeroScrollWorld() {
     if (isDownNavigation && !preservesSpaceActivation && ownsHeroViewport()) {
       event.preventDefault();
 
-      if (!event.repeat && sequenceProgress >= 0.999) {
+      if (!event.repeat) {
         latchedHeroNavigationKeys.add(event.key);
-        startScrollWorld();
+        if (sequenceProgress >= 0.999) {
+          startScrollWorld();
+        } else {
+          requestExitAfterIntro();
+        }
       }
     }
   });
@@ -1077,6 +1147,10 @@ function initializeHeroScrollWorld() {
   });
 
   document.addEventListener("click", (event) => {
+    // Modified link activation belongs to the browser (new tab/window,
+    // download, or an earlier handler), not the portrait transition.
+    if (event.defaultPrevented || event.button > 0
+      || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const hashLink = event.target instanceof Element
       ? event.target.closest("a[href^='#']")
       : null;
@@ -1282,16 +1356,25 @@ function observeReveal(element) {
 
 function renderProjects() {
   const grid = document.getElementById("projects-grid");
+
+  // The document owns the project content. Only fill an empty legacy grid.
+  if (!grid || grid.children.length) {
+    return;
+  }
+
   const fragment = document.createDocumentFragment();
 
-  PROJECTS.forEach((project) => {
+  PROJECTS.forEach((project, index) => {
     const card = createElement("article", {
-      className: `project-card${project.featured ? " project-card-featured" : ""}${project.compact ? " project-card-compact" : ""} reveal`
+      className: `project-card${project.featured ? " project-card-featured" : ""}${project.compact ? " project-card-compact" : ""} reveal`,
+      attributes: { "aria-labelledby": `project-${index}-name project-${index}-title` }
     });
     const image = createElement("img", {
       attributes: {
         src: project.image,
         alt: project.imageAlt || `${project.title} project cover`,
+        width: project.imageWidth,
+        height: project.imageHeight,
         loading: "lazy",
         decoding: "async"
       }
@@ -1305,7 +1388,15 @@ function renderProjects() {
     const caption = createElement("figcaption", { text: project.caption });
     figure.append(visual, caption);
     const body = createElement("div", { className: "project-body" });
-    const title = createElement("h3", { text: project.title });
+    const name = createElement("p", {
+      className: "project-name",
+      text: project.title,
+      attributes: { id: `project-${index}-name` }
+    });
+    const title = createElement("h3", {
+      text: project.question,
+      attributes: { id: `project-${index}-title` }
+    });
     const description = createElement("p", {
       className: "project-description",
       text: project.description
@@ -1330,7 +1421,7 @@ function renderProjects() {
         rel: "noopener"
       }
     });
-    const linkText = createElement("span", { text: "View project " });
+    const linkText = createElement("span", { text: `${project.action} ` });
     const linkArrow = createElement("span", {
       text: "↗",
       attributes: { "aria-hidden": "true" }
@@ -1350,7 +1441,7 @@ function renderProjects() {
       text: ` — ${project.title} repository (opens in a new tab)`
     }));
     footer.append(link, sourceLink);
-    body.append(title, description);
+    body.append(name, title, description);
     if (project.origin) {
       const origin = createElement("p", { className: "project-origin" });
       const originLink = createElement("a", {
@@ -1486,8 +1577,12 @@ function setBackgroundInert(isInert) {
 }
 
 function getModalFocusables(modal) {
-  return Array.from(modal.querySelectorAll("button, input, [href], [tabindex]:not([tabindex='-1'])"))
-    .filter((element) => !element.disabled && !element.hidden);
+  return Array.from(modal.querySelectorAll("button, input, select, textarea, [href], [tabindex]"))
+    .filter((element) => !element.matches(":disabled")
+      && element.tabIndex >= 0
+      && !element.closest("[hidden], [inert]")
+      && element.getClientRects().length > 0
+      && window.getComputedStyle(element).visibility !== "hidden");
 }
 
 function openModal(modal, trigger, initialFocus) {
@@ -1504,6 +1599,7 @@ function openModal(modal, trigger, initialFocus) {
   setBackgroundInert(true);
 
   window.requestAnimationFrame(() => {
+    if (activeModal !== modal || modal.hidden) return;
     (initialFocus || modal.querySelector(".modal-inner")).focus();
   });
 }
@@ -1644,7 +1740,6 @@ function initializeGamingModal() {
 }
 
 function initialize() {
-  initializeHeroScrollWorld();
   renderProjects();
   initializeRevealAnimations();
   // Project figures stay still; only their explicit links need hover feedback.
@@ -1653,6 +1748,8 @@ function initialize() {
   initializeGamingModal();
   document.addEventListener("keydown", handleModalKeydown);
   window.PortfolioHobbies?.initialize();
+  // The optional hero renderer must not gate the portfolio or its navigation.
+  initializeHeroScrollWorld();
 }
 
 initialize();

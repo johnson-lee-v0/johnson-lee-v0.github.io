@@ -22,15 +22,17 @@
   <meta name="twitter:image" content="https://johnson-lee-v0.github.io/image/particle-persona-preview-20260928.jpg">
   <meta name="twitter:image:alt" content="Johnson Lee's waving particle persona on a dark green background.">
   <meta name="theme-color" content="#172822">
+  <link rel="preload" href="./fonts/newsreader-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./fonts/dm-sans-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="./css/style.css?v=20260905-123">
   <link rel="stylesheet" href="./css/design-system.css?v=20260920">
-  <link rel="stylesheet" href="./css/editorial.css?v=20260930">
+  <link rel="stylesheet" href="./css/editorial.css?v=20261005-2">
   <link rel="stylesheet" href="./css/hobby-interactions.css?v=20260921">
   <link rel="stylesheet" href="./css/closet-controls.css?v=20260921">
-  <script src="./js/persona-particles.js?v=20260919-125" defer></script>
+  <script src="./js/persona-particles.js?v=20261002-1" defer></script>
   <script src="./js/sneaker-spins.js?v=20260920-2" defer></script>
-  <script src="./js/hobby-interactions.js?v=20260921" defer></script>
-  <script src="./js/script.js?v=20260930" defer></script>
+  <script src="./js/hobby-interactions.js?v=20261004-1" defer></script>
+  <script src="./js/script.js?v=20261005-2" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -45,7 +47,7 @@
     </div>
   </nav>
 
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
     <section class="hero" id="about" aria-labelledby="about-title">
       <div class="hero-sticky">
         <div class="orb orb-1" aria-hidden="true"></div>
@@ -211,9 +213,111 @@
     <section class="section-wrap projects-section" id="projects" aria-labelledby="projects-title">
       <div class="section-head projects-section-head">
         <h2 class="section-title" id="projects-title">Side projects</h2>
-        <p class="section-intro">A few things I've explored and built, from AI research tools to sports analytics, weather forecasts, language data, and blackjack.</p>
+        <p class="section-intro">Make the thinking visible. Explore the evidence, assumptions, and decisions behind things I've built.</p>
       </div>
-      <div id="projects-grid" class="projects-grid"></div>
+      <div id="projects-grid" class="projects-grid">
+        <article class="project-card project-card-featured" aria-labelledby="project-0-name project-0-title">
+          <figure class="project-figure">
+            <a class="project-visual project-visual-equity" href="./projects/Equity_Research.html" aria-label="View Equity Research">
+              <picture>
+                <source media="(max-width: 700px)" srcset="./image/Project_Cover/Equity-Research-mobile.svg">
+                <img src="./image/Project_Cover/Equity-Research-preview.svg" alt="The multi-agent research workflow: scope a question, discover sources, research the business, calculate and validate valuation, review the decision, and retain memory." loading="lazy" decoding="async" width="1200" height="800">
+              </picture>
+            </a>
+            <figcaption>From the initial question to a research decision. Explore the workflow through a sourced Meta, Q2 FY2026 example.</figcaption>
+          </figure>
+          <div class="project-body">
+            <p class="project-name" id="project-0-name">Equity Research</p>
+            <h3 id="project-0-title">Can AI agents take research from question to decision?</h3>
+            <p class="project-description">A multi-agent AI research system that takes an investment question through source discovery, earnings analysis, valuation, validation, and a final research decision.</p>
+
+            <ul class="project-tags" role="list" aria-label="Equity Research tools and topics"><li>AI engineering</li><li>Python / FastAPI</li><li>React / TypeScript</li></ul>
+            <div class="project-footer">
+              <a class="btn btn-accent" href="./projects/Equity_Research.html">Explore the agent workflow <span aria-hidden="true">↗</span><span class="sr-only"> — Equity Research</span></a>
+              <a class="project-source-link" href="https://github.com/johnson-lee-v0/Equity-Research" target="_blank" rel="noopener">View code ↗<span class="sr-only"> — Equity Research repository (opens in a new tab)</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="project-card" aria-labelledby="project-1-name project-1-title">
+          <figure class="project-figure">
+            <a class="project-visual project-visual-pointmap" href="./projects/NBA_Games_Outcome.html" aria-label="View NBA game outcomes">
+              <img src="./image/Project_Cover/NBA-recorded-shots.svg" alt="Actual sampled NBA shot locations concentrated near the basket and three-point arc in the 2025–26 regular season." loading="lazy" decoding="async" width="1000" height="1000">
+            </a>
+            <figcaption>Sampled recorded shots from the 2025–26 regular season.</figcaption>
+          </figure>
+          <div class="project-body">
+            <p class="project-name" id="project-1-name">NBA game outcomes</p>
+            <h3 id="project-1-title">How has the league’s shot selection changed?</h3>
+            <p class="project-description">An NBA exploration from shot selection to pregame and in-game win probabilities, with chronological validation and an interactive game replay.</p>
+            <p class="project-origin">Built from my original <a href="https://github.com/johnson-lee-v0/Boston-Celtics-Player-Analysis" target="_blank" rel="noopener">Boston Celtics Player Analysis<span class="sr-only"> repository (opens in a new tab)</span></a>.</p>
+            <ul class="project-tags" role="list" aria-label="NBA game outcomes tools and topics"><li>Python</li><li>Sports analytics</li><li>Predictive modeling</li></ul>
+            <div class="project-footer">
+              <a class="btn btn-accent" href="./projects/NBA_Games_Outcome.html">Compare the seasons <span aria-hidden="true">↗</span><span class="sr-only"> — NBA game outcomes</span></a>
+              <a class="project-source-link" href="https://github.com/johnson-lee-v0/NBA-Games-Outcome" target="_blank" rel="noopener">View code ↗<span class="sr-only"> — NBA game outcomes repository (opens in a new tab)</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="project-card" aria-labelledby="project-2-name project-2-title">
+          <figure class="project-figure">
+            <a class="project-visual project-visual-weather" href="./projects/Max_Temperature.html" aria-label="View Max temperature modeling">
+              <picture>
+                <source media="(max-width: 700px)" srcset="./image/Project_Cover/Weather-mobile.svg">
+                <img src="./image/Project_Cover/Weather-preview.svg" alt="Monthly mean observed daily maximum temperatures for NYC, LAX, and DFW, across matched station dates in 2024–2025." loading="lazy" decoding="async" width="1200" height="1000">
+              </picture>
+            </a>
+            <figcaption>Three cities, different seasonal temperature patterns. Observations from 2024–2025.</figcaption>
+          </figure>
+          <div class="project-body">
+            <p class="project-name" id="project-2-name">Max temperature modeling</p>
+            <h3 id="project-2-title">Can one forecast model work across three cities?</h3>
+            <p class="project-description">Next-day forecasts for New York, Los Angeles, and Dallas, comparing weather features and regional models on a chronological split.</p>
+
+            <ul class="project-tags" role="list" aria-label="Max temperature modeling tools and topics"><li>Python</li><li>Feature engineering</li><li>Forecast modeling</li></ul>
+            <div class="project-footer">
+              <a class="btn btn-accent" href="./projects/Max_Temperature.html">Explore the forecast study <span aria-hidden="true">↗</span><span class="sr-only"> — Max temperature modeling</span></a>
+              <a class="project-source-link" href="https://github.com/johnson-lee-v0/Max-Temperature-Modeling" target="_blank" rel="noopener">View code ↗<span class="sr-only"> — Max temperature modeling repository (opens in a new tab)</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="project-card" aria-labelledby="project-3-name project-3-title">
+          <figure class="project-figure">
+            <a class="project-visual project-visual-universities" href="./projects/University_Twitter.html" aria-label="View University Twitter analysis">
+              <img src="./image/Project_Carousel/University Twitter Account Analysis/Slide3.JPG" alt="Three bar charts comparing common terms across Waterloo, U of T, and Western posts" loading="lazy" decoding="async" width="1280" height="720">
+            </a>
+            <figcaption>Common terms across Waterloo, U of T, and Western posts.</figcaption>
+          </figure>
+          <div class="project-body">
+            <p class="project-name" id="project-3-name">University Twitter analysis</p>
+            <h3 id="project-3-title">What do universities choose to talk about?</h3>
+            <p class="project-description">A comparison of language, sentiment, and subjects in public posts from Waterloo, U of T, and Western.</p>
+
+            <ul class="project-tags" role="list" aria-label="University Twitter analysis tools and topics"><li>R</li><li>NLP</li><li>Sentiment analysis</li><li>Entity analysis</li></ul>
+            <div class="project-footer">
+              <a class="btn btn-accent" href="./projects/University_Twitter.html">Read the language patterns <span aria-hidden="true">↗</span><span class="sr-only"> — University Twitter analysis</span></a>
+              <a class="project-source-link" href="https://github.com/johnson-lee-v0/University-Twitter-Analysis" target="_blank" rel="noopener">View code ↗<span class="sr-only"> — University Twitter analysis repository (opens in a new tab)</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="project-card" aria-labelledby="project-4-name project-4-title">
+          <figure class="project-figure">
+            <a class="project-visual " href="./projects/Blackjack.html" aria-label="View Blackjack simulator">
+              <img src="./image/Project_Cover/Blackjack-interface.png" alt="Playable blackjack interface showing cards, deck tally, controls, and strategy advice" loading="lazy" decoding="async" width="998" height="523">
+            </a>
+            <figcaption>The desktop interface, including cards and strategy advice.</figcaption>
+          </figure>
+          <div class="project-body">
+            <p class="project-name" id="project-4-name">Blackjack simulator</p>
+            <h3 id="project-4-title">What can a game reveal when every hand is logged?</h3>
+            <p class="project-description">A six-deck desktop simulator with strategy advice, betting mechanics, and a SQLite record of each hand.</p>
+
+            <ul class="project-tags" role="list" aria-label="Blackjack simulator tools and topics"><li>Python</li><li>SQLite</li><li>Desktop UI</li><li>K-means</li></ul>
+            <div class="project-footer">
+              <a class="btn btn-accent" href="./projects/Blackjack.html">Look inside the simulator <span aria-hidden="true">↗</span><span class="sr-only"> — Blackjack simulator</span></a>
+              <a class="project-source-link" href="https://github.com/johnson-lee-v0/BlackJackSim" target="_blank" rel="noopener">View code ↗<span class="sr-only"> — Blackjack simulator repository (opens in a new tab)</span></a>
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section class="section-wrap hobbies-section" id="hobbies" aria-labelledby="hobbies-title">
@@ -225,7 +329,7 @@
         <article class="hobby-card hobby-travel reveal">
           <div class="travel-carousel" id="travel-carousel" role="region" aria-roledescription="carousel" aria-label="Travel photographs">
           <figure class="hobby-figure travel-static">
-            <img src="./image/personal/travel/kinkaku-ji.webp" alt="Kinkaku-ji's golden pavilion reflected in the pond, framed by pine trees under a blue sky." width="960" height="1280" loading="lazy" decoding="async">
+            <img src="./image/personal/travel/thumbs/kinkaku-ji-240.webp" srcset="./image/personal/travel/thumbs/kinkaku-ji-240.webp 240w, ./image/personal/travel/thumbs/kinkaku-ji-480.webp 480w" sizes="(max-width: 700px) 44vw, 248px" alt="Kinkaku-ji's golden pavilion reflected in the pond, framed by pine trees under a blue sky." width="960" height="1280" loading="lazy" decoding="async">
             <figcaption>Kinkaku-ji, Kyoto · Japan 2026</figcaption>
           </figure>
           </div>

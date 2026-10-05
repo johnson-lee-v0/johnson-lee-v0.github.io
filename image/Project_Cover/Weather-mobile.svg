@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1000" viewBox="0 0 900 1000" role="img" aria-labelledby="weather-title weather-description">
+  <title id="weather-title">Temperature, place by place</title>
+  <desc id="weather-description">Monthly means of observed daily maximum temperatures for Central Park (NYC), Los Angeles airport (LAX), and Dallas–Fort Worth airport (DFW), across 729 matched dates per station in 2024–2025. Dallas and New York show larger seasonal changes than Los Angeles. This is observed weather context, not a forecast or a model-performance chart.</desc>
+  <metadata id="weather-source">{&quot;source&quot;:{&quot;repository&quot;:&quot;https://github.com/johnson-lee-v0/Max-Temperature-Modeling&quot;,&quot;commit&quot;:&quot;8d8b132f5228c4002780c29d6da13ce4c8686af7&quot;,&quot;file&quot;:&quot;data/report_data.json&quot;,&quot;sha256&quot;:&quot;412a70964876267653d76d20ec42ee594d7cac983f2c274705471e03589fad11&quot;,&quot;figure&quot;:&quot;assets/01_data_landscape.png&quot;,&quot;figureRecipe&quot;:&quot;build_report.py: figures → dev.groupby(month).target.mean()&quot;},&quot;measure&quot;:&quot;Observed daily maximum temperature&quot;,&quot;unit&quot;:&quot;°F&quot;,&quot;period&quot;:[&quot;2024-01-01&quot;,&quot;2025-12-31&quot;],&quot;aggregation&quot;:&quot;Arithmetic mean of target grouped by station and calendar month across 2024–2025; matched dates only. No smoothing, prediction, or imputation.&quot;,&quot;datesPerStation&quot;:729,&quot;omittedDates&quot;:[&quot;2024-01-01&quot;,&quot;2025-05-30&quot;],&quot;plot&quot;:{&quot;left&quot;:101,&quot;right&quot;:834,&quot;top&quot;:356,&quot;bottom&quot;:792,&quot;min&quot;:35,&quot;max&quot;:100},&quot;stations&quot;:[{&quot;id&quot;:&quot;NYC&quot;,&quot;name&quot;:&quot;Central Park&quot;,&quot;color&quot;:&quot;#3e5541&quot;,&quot;noaa&quot;:&quot;USW00094728&quot;,&quot;months&quot;:[{&quot;month&quot;:1,&quot;n&quot;:61,&quot;mean&quot;:39.14098360655737},{&quot;month&quot;:2,&quot;n&quot;:57,&quot;mean&quot;:43.62105263157895},{&quot;month&quot;:3,&quot;n&quot;:62,&quot;mean&quot;:55.669999999999995},{&quot;month&quot;:4,&quot;n&quot;:60,&quot;mean&quot;:63.767},{&quot;month&quot;:5,&quot;n&quot;:61,&quot;mean&quot;:70.93606557377046},{&quot;month&quot;:6,&quot;n&quot;:60,&quot;mean&quot;:81.67999999999999},{&quot;month&quot;:7,&quot;n&quot;:62,&quot;mean&quot;:86.99870967741936},{&quot;month&quot;:8,&quot;n&quot;:62,&quot;mean&quot;:82.24032258064516},{&quot;month&quot;:9,&quot;n&quot;:60,&quot;mean&quot;:76.75099999999999},{&quot;month&quot;:10,&quot;n&quot;:62,&quot;mean&quot;:66.87645161290322},{&quot;month&quot;:11,&quot;n&quot;:60,&quot;mean&quot;:55.60400000000001},{&quot;month&quot;:12,&quot;n&quot;:62,&quot;mean&quot;:41.7983870967742}]},{&quot;id&quot;:&quot;LAX&quot;,&quot;name&quot;:&quot;Los Angeles&quot;,&quot;color&quot;:&quot;#aa7b26&quot;,&quot;noaa&quot;:&quot;USW00023174&quot;,&quot;months&quot;:[{&quot;month&quot;:1,&quot;n&quot;:61,&quot;mean&quot;:65.30590163934426},{&quot;month&quot;:2,&quot;n&quot;:57,&quot;mean&quot;:63.75263157894737},{&quot;month&quot;:3,&quot;n&quot;:62,&quot;mean&quot;:63.57548387096774},{&quot;month&quot;:4,&quot;n&quot;:60,&quot;mean&quot;:65.714},{&quot;month&quot;:5,&quot;n&quot;:61,&quot;mean&quot;:67.79344262295083},{&quot;month&quot;:6,&quot;n&quot;:60,&quot;mean&quot;:71.61200000000001},{&quot;month&quot;:7,&quot;n&quot;:62,&quot;mean&quot;:73.41451612903224},{&quot;month&quot;:8,&quot;n&quot;:62,&quot;mean&quot;:77.35419354838712},{&quot;month&quot;:9,&quot;n&quot;:60,&quot;mean&quot;:76.19900000000001},{&quot;month&quot;:10,&quot;n&quot;:62,&quot;mean&quot;:73.29838709677422},{&quot;month&quot;:11,&quot;n&quot;:60,&quot;mean&quot;:69.28999999999999},{&quot;month&quot;:12,&quot;n&quot;:62,&quot;mean&quot;:66.89967741935484}]},{&quot;id&quot;:&quot;DFW&quot;,&quot;name&quot;:&quot;Dallas–Fort Worth&quot;,&quot;color&quot;:&quot;#b26246&quot;,&quot;noaa&quot;:&quot;USW00003927&quot;,&quot;months&quot;:[{&quot;month&quot;:1,&quot;n&quot;:61,&quot;mean&quot;:53.05114754098362},{&quot;month&quot;:2,&quot;n&quot;:57,&quot;mean&quot;:65.05684210526316},{&quot;month&quot;:3,&quot;n&quot;:62,&quot;mean&quot;:74.05903225806452},{&quot;month&quot;:4,&quot;n&quot;:60,&quot;mean&quot;:77.80099999999999},{&quot;month&quot;:5,&quot;n&quot;:61,&quot;mean&quot;:84.91704918032787},{&quot;month&quot;:6,&quot;n&quot;:60,&quot;mean&quot;:92.06000000000002},{&quot;month&quot;:7,&quot;n&quot;:62,&quot;mean&quot;:94.50354838709673},{&quot;month&quot;:8,&quot;n&quot;:62,&quot;mean&quot;:96.89},{&quot;month&quot;:9,&quot;n&quot;:60,&quot;mean&quot;:89.72899999999998},{&quot;month&quot;:10,&quot;n&quot;:62,&quot;mean&quot;:84.73129032258066},{&quot;month&quot;:11,&quot;n&quot;:60,&quot;mean&quot;:72.842},{&quot;month&quot;:12,&quot;n&quot;:62,&quot;mean&quot;:63.64806451612904}]}]}</metadata>
+  <rect width="900" height="1000" fill="#f3f0e8"/>
+  <path d="M64 76H836" stroke="#d4d6c9" stroke-width="2"/>
+  <g font-family="Arial,Helvetica,sans-serif" fill="#33483a">
+    <text x="64" y="58" font-size="21" letter-spacing="2.4">WEATHER / OBSERVATIONS</text>
+    <text x="836" y="58" text-anchor="end" font-size="21">2024–2025</text>
+    <text x="64" y="160" font-family="Georgia,Times New Roman,serif" font-size="66" fill="#24372b">Temperature,</text>
+    <text x="64" y="238" font-family="Georgia,Times New Roman,serif" font-size="66" fill="#24372b">place by place.</text>
+    <text x="64" y="294" font-size="24" fill="#626f60">Monthly mean daily maximum · °F</text>
+  </g>
+  <g font-family="Arial,Helvetica,sans-serif" font-size="23" fill="#65715f">
+    <path d="M101 758.462H834" stroke="#d4d9cb" stroke-width="1.6"/>
+    <text x="79" y="766.462" text-anchor="end">40</text>
+    <path d="M101 624.308H834" stroke="#d4d9cb" stroke-width="1.6"/>
+    <text x="79" y="632.308" text-anchor="end">60</text>
+    <path d="M101 490.154H834" stroke="#d4d9cb" stroke-width="1.6"/>
+    <text x="79" y="498.154" text-anchor="end">80</text>
+    <path d="M101 356H834" stroke="#d4d9cb" stroke-width="1.6"/>
+    <text x="79" y="364" text-anchor="end">100</text>
+  </g>
+  <polygon points="101,792 101,764.224 167.636,734.173 234.273,653.352 300.909,599.04 367.545,550.952 434.182,478.885 500.818,443.209 567.455,475.126 634.091,511.947 700.727,578.183 767.364,653.795 834,746.399 834,792" fill="#3e5541" opacity="0.055"/>
+  <g data-station="NYC">
+    <polyline data-observation-profile="NYC" points="101,764.224 167.636,734.173 234.273,653.352 300.909,599.04 367.545,550.952 434.182,478.885 500.818,443.209 567.455,475.126 634.091,511.947 700.727,578.183 767.364,653.795 834,746.399" fill="none" stroke="#3e5541" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="101" cy="764.224" r="5.5" fill="#3e5541"><title>NYC · Jan · 39.14 °F · 61 observed dates</title></circle>
+    <circle cx="167.636" cy="734.173" r="5.5" fill="#3e5541"><title>NYC · Feb · 43.62 °F · 57 observed dates</title></circle>
+    <circle cx="234.273" cy="653.352" r="5.5" fill="#3e5541"><title>NYC · Mar · 55.67 °F · 62 observed dates</title></circle>
+    <circle cx="300.909" cy="599.04" r="5.5" fill="#3e5541"><title>NYC · Apr · 63.77 °F · 60 observed dates</title></circle>
+    <circle cx="367.545" cy="550.952" r="5.5" fill="#3e5541"><title>NYC · May · 70.94 °F · 61 observed dates</title></circle>
+    <circle cx="434.182" cy="478.885" r="5.5" fill="#3e5541"><title>NYC · Jun · 81.68 °F · 60 observed dates</title></circle>
+    <circle cx="500.818" cy="443.209" r="5.5" fill="#3e5541"><title>NYC · Jul · 87.00 °F · 62 observed dates</title></circle>
+    <circle cx="567.455" cy="475.126" r="5.5" fill="#3e5541"><title>NYC · Aug · 82.24 °F · 62 observed dates</title></circle>
+    <circle cx="634.091" cy="511.947" r="5.5" fill="#3e5541"><title>NYC · Sep · 76.75 °F · 60 observed dates</title></circle>
+    <circle cx="700.727" cy="578.183" r="5.5" fill="#3e5541"><title>NYC · Oct · 66.88 °F · 62 observed dates</title></circle>
+    <circle cx="767.364" cy="653.795" r="5.5" fill="#3e5541"><title>NYC · Nov · 55.60 °F · 60 observed dates</title></circle>
+    <circle cx="834" cy="746.399" r="5.5" fill="#3e5541"><title>NYC · Dec · 41.80 °F · 62 observed dates</title></circle>
+  </g>
+  <g data-station="LAX">
+    <polyline data-observation-profile="LAX" points="101,588.717 167.636,599.136 234.273,600.324 300.909,585.98 367.545,572.032 434.182,546.418 500.818,534.327 567.455,507.901 634.091,515.65 700.727,535.106 767.364,561.993 834,578.027" fill="none" stroke="#aa7b26" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="101" cy="588.717" r="5.5" fill="#aa7b26"><title>LAX · Jan · 65.31 °F · 61 observed dates</title></circle>
+    <circle cx="167.636" cy="599.136" r="5.5" fill="#aa7b26"><title>LAX · Feb · 63.75 °F · 57 observed dates</title></circle>
+    <circle cx="234.273" cy="600.324" r="5.5" fill="#aa7b26"><title>LAX · Mar · 63.58 °F · 62 observed dates</title></circle>
+    <circle cx="300.909" cy="585.98" r="5.5" fill="#aa7b26"><title>LAX · Apr · 65.71 °F · 60 observed dates</title></circle>
+    <circle cx="367.545" cy="572.032" r="5.5" fill="#aa7b26"><title>LAX · May · 67.79 °F · 61 observed dates</title></circle>
+    <circle cx="434.182" cy="546.418" r="5.5" fill="#aa7b26"><title>LAX · Jun · 71.61 °F · 60 observed dates</title></circle>
+    <circle cx="500.818" cy="534.327" r="5.5" fill="#aa7b26"><title>LAX · Jul · 73.41 °F · 62 observed dates</title></circle>
+    <circle cx="567.455" cy="507.901" r="5.5" fill="#aa7b26"><title>LAX · Aug · 77.35 °F · 62 observed dates</title></circle>
+    <circle cx="634.091" cy="515.65" r="5.5" fill="#aa7b26"><title>LAX · Sep · 76.20 °F · 60 observed dates</title></circle>
+    <circle cx="700.727" cy="535.106" r="5.5" fill="#aa7b26"><title>LAX · Oct · 73.30 °F · 62 observed dates</title></circle>
+    <circle cx="767.364" cy="561.993" r="5.5" fill="#aa7b26"><title>LAX · Nov · 69.29 °F · 60 observed dates</title></circle>
+    <circle cx="834" cy="578.027" r="5.5" fill="#aa7b26"><title>LAX · Dec · 66.90 °F · 62 observed dates</title></circle>
+  </g>
+  <g data-station="DFW">
+    <polyline data-observation-profile="DFW" points="101,670.918 167.636,590.388 234.273,530.004 300.909,504.904 367.545,457.172 434.182,409.259 500.818,392.869 567.455,376.861 634.091,424.895 700.727,458.418 767.364,538.168 834,599.838" fill="none" stroke="#b26246" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="101" cy="670.918" r="5.5" fill="#b26246"><title>DFW · Jan · 53.05 °F · 61 observed dates</title></circle>
+    <circle cx="167.636" cy="590.388" r="5.5" fill="#b26246"><title>DFW · Feb · 65.06 °F · 57 observed dates</title></circle>
+    <circle cx="234.273" cy="530.004" r="5.5" fill="#b26246"><title>DFW · Mar · 74.06 °F · 62 observed dates</title></circle>
+    <circle cx="300.909" cy="504.904" r="5.5" fill="#b26246"><title>DFW · Apr · 77.80 °F · 60 observed dates</title></circle>
+    <circle cx="367.545" cy="457.172" r="5.5" fill="#b26246"><title>DFW · May · 84.92 °F · 61 observed dates</title></circle>
+    <circle cx="434.182" cy="409.259" r="5.5" fill="#b26246"><title>DFW · Jun · 92.06 °F · 60 observed dates</title></circle>
+    <circle cx="500.818" cy="392.869" r="5.5" fill="#b26246"><title>DFW · Jul · 94.50 °F · 62 observed dates</title></circle>
+    <circle cx="567.455" cy="376.861" r="5.5" fill="#b26246"><title>DFW · Aug · 96.89 °F · 62 observed dates</title></circle>
+    <circle cx="634.091" cy="424.895" r="5.5" fill="#b26246"><title>DFW · Sep · 89.73 °F · 60 observed dates</title></circle>
+    <circle cx="700.727" cy="458.418" r="5.5" fill="#b26246"><title>DFW · Oct · 84.73 °F · 62 observed dates</title></circle>
+    <circle cx="767.364" cy="538.168" r="5.5" fill="#b26246"><title>DFW · Nov · 72.84 °F · 60 observed dates</title></circle>
+    <circle cx="834" cy="599.838" r="5.5" fill="#b26246"><title>DFW · Dec · 63.65 °F · 62 observed dates</title></circle>
+  </g>
+  <g font-family="Arial,Helvetica,sans-serif" font-size="23" fill="#667260" text-anchor="middle">
+    <text x="101" y="827">Jan</text>
+    <text x="234.273" y="827">Mar</text>
+    <text x="367.545" y="827">May</text>
+    <text x="500.818" y="827">Jul</text>
+    <text x="634.091" y="827">Sep</text>
+    <text x="834" y="827">Dec</text>
+  </g>
+  <path d="M64 861H836" stroke="#d4d6c9" stroke-width="1.6"/>
+  <g font-family="Arial,Helvetica,sans-serif">
+    <path d="M64 896H107" stroke="#3e5541" stroke-width="8" stroke-linecap="round"/>
+    <text x="122" y="908" fill="#3e5541" font-size="36" font-weight="700">NYC</text>
+    <text x="64" y="946" fill="#4c5f4e" font-size="23">Central Park</text>
+    <path d="M321.333 896H364.333" stroke="#aa7b26" stroke-width="8" stroke-linecap="round"/>
+    <text x="379.333" y="908" fill="#aa7b26" font-size="36" font-weight="700">LAX</text>
+    <text x="321.333" y="946" fill="#4c5f4e" font-size="23">Los Angeles</text>
+    <path d="M578.667 896H621.667" stroke="#b26246" stroke-width="8" stroke-linecap="round"/>
+    <text x="636.667" y="908" fill="#b26246" font-size="36" font-weight="700">DFW</text>
+    <text x="578.667" y="946" fill="#4c5f4e" font-size="23">Dallas–Fort Worth</text>
+    <text x="64" y="986" fill="#697461" font-size="18">729 matched dates per station · NOAA observations</text>
+  </g>
+</svg>

@@ -3,13 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Equity Research: an AI engineering case study in source-linked research, structured model output, deterministic valuation checks, and persistent research memory.">
+  <meta name="description" content="Equity Research: end-to-end AI engineering with agents for source discovery, earnings research, valuation review, and source-backed decisions.">
   <title>Equity Research — Johnson Lee</title>
   <link rel="canonical" href="https://johnson-lee-v0.github.io/projects/Equity_Research.html">
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/project.css?v=20260905-118">
   <link rel="stylesheet" href="../css/design-system.css?v=20260920-1">
-  <link rel="stylesheet" href="../css/project-editorial.css?v=20260921-4">
+  <link rel="stylesheet" href="../css/project-editorial.css?v=20261002-3">
+  <link rel="stylesheet" href="../css/research-explorer.css?v=20261002-4">
+  <link rel="stylesheet" href="../css/earnings-explorer.css?v=20261005-2">
+  <script src="../js/earnings-explorer.js?v=20261005-1" defer></script>
+  <script src="../js/research-explorer.js?v=20261002-4" defer></script>
 </head>
 <body class="case-page">
   <a class="case-skip-link" href="#case-content">Skip to project</a>
@@ -17,24 +21,197 @@
     <div class="container">
       <a href="../index.html#projects" class="back-link">← Back to side projects</a>
       <h1>Equity Research</h1>
-      <p class="case-summary">AI engineering for traceable investment research: connecting model-generated assessments to source evidence, explicit assumptions, and reproducible calculations.</p>
+      <p class="case-summary">AI agents carry an investment question from source discovery through earnings research, valuation, and a reviewed decision. Code handles calculation and validation; a shared research ledger keeps the evidence and history.</p>
       <p class="project-meta">AI engineering · Python / FastAPI · React / TypeScript · SQLite · Codex CLI</p>
     </div>
   </header>
 
-  <main id="case-content">
+  <main id="case-content" tabindex="-1">
     <div class="container">
-      <figure class="project-figure">
-        <a class="project-image-link" href="https://johnson-lee-v0.github.io/Equity-Research/" target="_blank" rel="noopener" aria-label="Open the Equity Research demo in a new tab">
-          <img src="../image/Project_Cover/Equity-Research.webp" width="1300" height="880" alt="Equity Research demo showing META valuation assumptions and calculated scenario values.">
-        </a>
-        <figcaption><span>Explore a public research example.</span> The public demo presents a dated META earnings walkthrough with interactive valuation assumptions and an evidence notebook. <a href="https://johnson-lee-v0.github.io/Equity-Research/" target="_blank" rel="noopener">Open demo ↗</a></figcaption>
-      </figure>
+      <section class="agent-workflow" id="agent-workflow" aria-labelledby="agent-workflow-title">
+        <header><p class="research-step">End-to-end AI engineering</p><h2 id="agent-workflow-title">From question to research decision.</h2><p>Specialized agents handle the research. Application code checks the evidence and arithmetic before the result is recorded.</p></header>
+        <ol class="agent-workflow-steps">
+          <li><span class="agent-workflow-role">01 · Chief of Staff</span><h3>Scope the question</h3><p>Identify the company, research question, and investment horizon.</p></li>
+          <li><span class="agent-workflow-role">02 · Source discovery</span><h3>Gather the evidence</h3><p>Find public materials and retain the source versions behind the research.</p></li>
+          <li><span class="agent-workflow-role">03 · Fundamental researcher</span><h3>Build the analysis</h3><p>Read earnings and filings, connect business themes, and answer the investment questions.</p></li>
+          <li><span class="agent-workflow-role">04 · Application code</span><h3>Calculate and validate</h3><p>Check cited inputs and calculate valuation from explicit assumptions.</p></li>
+          <li><span class="agent-workflow-role">05 · CIO reviewer</span><h3>Challenge and decide</h3><p>Review the thesis, opposing evidence, risks, and valuation; record a supported decision or unresolved gap.</p></li>
+          <li><span class="agent-workflow-role">06 · Shared research memory</span><h3>Keep the trail</h3><p>Save sources, attempts, and decisions for follow-up research without replacing earlier versions.</p></li>
+        </ol>
+        <footer><a class="earnings-primary" href="/Equity-Research/#research" target="_blank" rel="noopener">Explore the agent workflow <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a><p>The public demo illustrates this local workflow with dated, sourced Meta material. It does not run agents or claim that its editorial example is a recorded agent execution.</p></footer>
+      </section>
+
+      <section class="earnings-explorer" id="earnings-call" aria-labelledby="earnings-title" data-earnings-explorer>
+        <header class="earnings-header">
+          <p class="research-eyebrow">Inside the research: earnings-call analysis <span>Meta · Q2 FY2026 · July 29, 2026</span></p>
+          <h2 id="earnings-title">What did management actually answer?</h2>
+          <p>Choose a theme. Follow the analyst’s question, management’s response, and the evidence still missing.</p>
+          <a class="earnings-primary" href="/Equity-Research/#earnings-call" target="_blank" rel="noopener">Inspect the earnings-call analysis <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+        </header>
+        <div class="earnings-controls" data-earnings-controls role="group" aria-label="Choose an earnings-call theme" hidden>
+          <button type="button" data-earnings-theme="ai-payoff" aria-pressed="true" aria-controls="earnings-ai-payoff">AI returns</button>
+          <button type="button" data-earnings-theme="capex-uncertainty" aria-pressed="false" aria-controls="earnings-capex-uncertainty">Future spending</button>
+          <button type="button" data-earnings-theme="consumer-agents" aria-pressed="false" aria-controls="earnings-consumer-agents">Consumer agents</button>
+          <button type="button" data-earnings-theme="recommendations" aria-pressed="false" aria-controls="earnings-recommendations">Recommendations</button>
+          <button type="button" data-earnings-theme="payback-delay" aria-pressed="false" aria-controls="earnings-payback-delay">Computing capacity</button>
+        </div>
+        <div class="earnings-panels">
+          <article class="earnings-panel" id="earnings-ai-payoff" data-earnings-panel="ai-payoff" aria-labelledby="ai-payoff-title">
+            <div class="earnings-topic"><p class="research-step">AI returns</p><h3 id="ai-payoff-title">Which AI business pays first?</h3></div>
+            <div class="earnings-chain">
+              <section><p class="earnings-label">01 · Analyst question</p><p>Which parts of Meta’s AI investment could produce the largest returns?</p><p class="earnings-speaker">Brian Nowak · Morgan Stanley</p><a href="https://s21.q4cdn.com/399680738/files/doc_financials/2026/q2/META-Q2-2026-Earnings-Call-Transcript.pdf#page=10" target="_blank" rel="noopener">Question · transcript p. 10 ↗</a></section>
+              <section><p class="earnings-label">02 · Management response</p><p>Zuckerberg describes several opportunities without choosing one winning business or giving a return timeline.</p><p class="earnings-speaker">Mark Zuckerberg · CEO</p><a href="https://s21.q4cdn.com/399680738/files/doc_financials/2026/q2/META-Q2-2026-Earnings-Call-Transcript.pdf#page=10" target="_blank" rel="noopener">Response · transcript p. 10 ↗</a></section>
+              <section class="earnings-open"><p class="earnings-label">03 · Research follow-up</p><p>Which product earns a return, and when?</p><p class="earnings-speaker">An open research question, not company guidance.</p></section>
+            </div>
+          </article>
+          <article class="earnings-panel" id="earnings-capex-uncertainty" data-earnings-panel="capex-uncertainty" aria-labelledby="capex-title">
+            <div class="earnings-topic"><p class="research-step">Future spending</p><h3 id="capex-title">What about 2027 spending?</h3></div>
+            <div class="earnings-chain">
+              <section><p class="earnings-label">01 · Analyst question</p><p>How should investors think about capital spending beyond 2026?</p><p class="earnings-speaker">Brian Nowak · Morgan Stanley</p><a href="https://s21.q4cdn.com/399680738/files/doc_financials/2026/q2/META-Q2-2026-Earnings-Call-Transcript.pdf#page=10" target="_blank" rel="noopener">Question · transcript p. 10 ↗</a></section>
+              <section><p class="earnings-label">02 · Management response</p><p>Li says infrastructure planning is changing; she does not give a specific 2027 capital-spending forecast.</p><p class="earnings-speaker">Susan Li · CFO</p><a href="https://s21.q4cdn.com/399680738/files/doc_financials/2026/q2/META-Q2-2026-Earnings-Call-Transcript.pdf#page=10" target="_blank" rel="noopener">Response · transcript p. 10 ↗</a></section>
+              <section class="earnings-open"><p class="earnings-label">03 · Research follow-up</p><p>What spending range should a future valuation account for?</p><p class="earnings-speaker">No specific range was supplied in this answer.</p></section>
+            </div>
+          </article>
+          <article class="earnings-panel" id="earnings-consumer-agents" data-earnings-panel="consumer-agents" aria-labelledby="consumer-title">
+            <div class="earnings-topic"><p class="research-step">Consumer agents</p><h3 id="consumer-title">Are consumers ready?</h3></div>
+            <div class="earnings-chain">
+              <section><p class="earnings-label">01 · Analyst question</p><p>How ready are consumers to use AI agents, and what could adoption look like?</p><p class="earnings-speaker">Mark Shmulik · Bernstein</p><a href="https://s21.q4cdn.com/399680738/files/doc_financials/2026/q2/META-Q2-2026-Earnings-Call-Transcript.pdf#page=12" target="_blank" rel="noopener">Question · transcript p. 12 ↗</a></section>
+              <section><p class="earnings-label">02 · Management response</p><p>Zuckerberg emphasizes reliability and a forthcoming product, rather than proven paid demand.</p><p class="earnings-speaker">Mark Zuckerberg · CEO</p><a href="https://s21.q4cdn.com/399680738/files/doc_financials/2026/q2/META-Q2-2026-Earnings-Call-Transcript.pdf#page=13" target="_blank" rel="noopener">Response · transcript p. 13 ↗</a></section>
+              <section class="earnings-open"><p class="earnings-label">03 · Research follow-up</p><p>Will consumers pay, and keep using the product?</p><p class="earnings-speaker">The July call predates the September product announcement.</p></section>
+            </div>
+          </article>
+          <article class="earnings-panel" id="earnings-recommendations" data-earnings-panel="recommendations" aria-labelledby="recommendations-title">
+            <div class="earnings-topic"><p class="research-step">Recommendations</p><h3 id="recommendations-title">What improves recommendations?</h3></div>
+            <div class="earnings-chain">
+              <section><p class="earnings-label">01 · Analyst question</p><p>What is driving better recommendation systems, and where could they improve next?</p><p class="earnings-speaker">Douglas Anmuth · JPMorgan</p><a href="https://s21.q4cdn.com/399680738/files/doc_financials/2026/q2/META-Q2-2026-Earnings-Call-Transcript.pdf#page=14" target="_blank" rel="noopener">Question · transcript p. 14 ↗</a></section>
+              <section><p class="earnings-label">02 · Management response</p><p>Li points to better models, data, and personalization as improvement levers.</p><p class="earnings-speaker">Susan Li · CFO</p><a href="https://s21.q4cdn.com/399680738/files/doc_financials/2026/q2/META-Q2-2026-Earnings-Call-Transcript.pdf#page=14" target="_blank" rel="noopener">Response · transcript p. 14 ↗</a></section>
+              <section class="earnings-open"><p class="earnings-label">03 · Research follow-up</p><p>How much incremental return comes from each lever?</p><p class="earnings-speaker">Direction is clearer than the incremental economics.</p></section>
+            </div>
+          </article>
+          <article class="earnings-panel" id="earnings-payback-delay" data-earnings-panel="payback-delay" aria-labelledby="capacity-title">
+            <div class="earnings-topic"><p class="research-step">Computing capacity</p><h3 id="capacity-title">Why buy and sell computing?</h3></div>
+            <div class="earnings-chain">
+              <section><p class="earnings-label">01 · Analyst question</p><p>Why could Meta buy external computing while also offering capacity to others?</p><p class="earnings-speaker">Douglas Anmuth · JPMorgan</p><a href="https://s21.q4cdn.com/399680738/files/doc_financials/2026/q2/META-Q2-2026-Earnings-Call-Transcript.pdf#page=14" target="_blank" rel="noopener">Question · transcript p. 14 ↗</a></section>
+              <section><p class="earnings-label">02 · Management response</p><p>Zuckerberg describes competing uses for capacity and the time needed to bring new facilities online.</p><p class="earnings-speaker">Mark Zuckerberg · CEO</p><a href="https://s21.q4cdn.com/399680738/files/doc_financials/2026/q2/META-Q2-2026-Earnings-Call-Transcript.pdf#page=15" target="_blank" rel="noopener">Response begins · transcript p. 15 ↗</a></section>
+              <section class="earnings-open"><p class="earnings-label">03 · Research follow-up</p><p>When will new capacity be used enough to earn a return?</p><p class="earnings-speaker">Construction spending and operating value arrive at different times.</p></section>
+            </div>
+          </article>
+        </div>
+        <p class="earnings-method">This historical preview uses source-linked editorial paraphrases—not a live NLP run or a sentiment score. The local project uses lexical cues and rule-based themes, with optional source-validated AI summaries, to help organize a call. Interpretation remains a research judgment.</p>
+      </section>
+
+      <section class="earnings-valuation" aria-labelledby="valuation-title">
+        <div><p class="research-step">From the call to valuation</p><h2 id="valuation-title">Context first. Multiple second.</h2></div>
+        <div><p>Compare valuation multiples and make the target multiple explicit. The public Meta example shows five years of the company’s own historical ratios—not a verified peer-company comparison.</p><a href="/Equity-Research/#valuation" target="_blank" rel="noopener">Explore multiple-based valuation ↗</a></div>
+      </section>
+
+      <details class="research-optional">
+        <summary>Optional: see how one growth assumption changes the arithmetic</summary>
+      <section class="research-explorer" aria-labelledby="explorer-title" data-research-explorer>
+        <header class="research-explorer__header">
+          <p class="research-eyebrow">A working example <span>Meta · Q2 FY2026 · Historical data</span></p>
+          <h2 id="explorer-title">One assumption, isolated.</h2>
+          <p>A small arithmetic illustration, separate from the earnings-call analysis and multiple-based valuation.</p>
+          <a class="research-jump" href="#research-assumption">Try an assumption <span aria-hidden="true">↓</span></a>
+        </header>
+
+        <div class="research-workbench">
+          <section class="research-evidence" aria-labelledby="evidence-title">
+            <p class="research-step">01 <span>Inspect the evidence</span></p>
+            <h3 id="evidence-title">Meta Platforms</h3>
+            <p class="research-context">Historical results for the quarter ended June 30, 2026, released July 29, 2026. Source amounts are in USD millions. No current market data or live AI is used.</p>
+
+            <table class="research-table">
+              <caption>Reported quarterly results · USD millions</caption>
+              <thead>
+                <tr><th scope="col">Measure</th><th scope="col">Q2 FY2025</th><th scope="col">Q2 FY2026</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Revenue</th><td>47,516</td><td>60,801</td></tr>
+                <tr><th scope="row">Operating income</th><td>20,441</td><td>18,775</td></tr>
+              </tbody>
+            </table>
+
+            <aside class="research-source" aria-labelledby="source-title">
+              <h4 id="source-title">Source facts <span>Meta earnings release · July 29, 2026</span></h4>
+              <p class="research-source__summary">Meta reported Q2 FY2026 revenue of $60,801 million and operating income of $18,775 million. The same release gives the prior-year quarterly comparison above.</p>
+              <p>Paraphrased from the primary source. <a href="https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/" target="_blank" rel="noopener">Read Meta's release ↗</a> · <a href="https://www.sec.gov/Archives/edgar/data/1326801/000162828026050705/meta-20260630.htm" target="_blank" rel="noopener">SEC filing ↗</a></p>
+            </aside>
+
+            <p class="research-observation"><span>What to notice</span>Revenue rose while operating income fell. The historical operating margin is <strong>18,775 ÷ 60,801 ≈ 30.88%</strong>. The calculation keeps the full ratio; holding it fixed is our simplifying assumption, not Meta's guidance.</p>
+          </section>
+
+          <section class="research-scenario" id="research-assumption" tabindex="-1" aria-labelledby="scenario-title">
+            <p class="research-step">02 <span>Change an assumption</span></p>
+            <h3 id="scenario-title">What if revenue grows?</h3>
+            <p class="research-context">Start from Q2 FY2026 revenue. Hold its operating margin fixed and choose a hypothetical next-quarter growth rate. This is an illustrative scenario, not Meta's forecast or guidance.</p>
+
+            <div class="research-access" data-research-access hidden>
+              <p id="research-access-status" role="status">Read-only example. Review the educational-use notice to adjust the assumption.</p>
+              <button class="research-action" type="button" data-research-open aria-haspopup="dialog">Review notice &amp; enable explorer</button>
+            </div>
+
+            <div class="research-control" data-research-controls hidden>
+              <div class="research-control__label">
+                <label for="research-growth">Next-quarter revenue growth</label>
+                <output for="research-growth" id="research-growth-value">+8%</output>
+              </div>
+              <input id="research-growth" type="range" min="-10" max="30" step="1" value="8" aria-describedby="research-growth-help" disabled>
+              <div class="research-range-labels" aria-hidden="true"><span>−10%</span><span>+30%</span></div>
+              <div class="research-control__footer">
+                <p id="research-growth-help">Use the arrow keys to adjust by 1%.</p>
+                <button type="button" data-research-reset disabled>Reset to 8%</button>
+              </div>
+            </div>
+            <noscript><p class="research-noscript">The worked example below uses 8% revenue growth. Enable JavaScript to adjust that assumption.</p></noscript>
+
+            <div class="research-result" aria-live="polite" aria-atomic="true">
+              <p class="research-step">03 <span>Recalculate in code</span></p>
+              <p class="research-result__label">Hypothetical next-quarter operating income</p>
+              <p class="research-result__number"><output id="research-profit">20,277.00</output> <span>USD millions</span></p>
+              <p class="research-result__change" id="research-change">+1,502.00 versus Q2 FY2026's 18,775 USD millions</p>
+              <dl class="research-calculation">
+                <div><dt>Starting revenue</dt><dd>60,801 <span>Q2 FY2026</span></dd></div>
+                <div><dt>Growth assumption</dt><dd id="research-growth-math">× 1.08</dd></div>
+                <div><dt>Hypothetical revenue</dt><dd id="research-revenue">65,665.08</dd></div>
+                <div><dt>Fixed margin, exact</dt><dd>× (18,775 ÷ 60,801)</dd></div>
+              </dl>
+              <p class="research-formula" id="research-formula">60,801 × 1.08 × (18,775 ÷ 60,801) = 20,277.00</p>
+            </div>
+            <p class="research-caveat">An assumption is not evidence. The fixed margin is a simplifying choice, not a forecast. This is deterministic arithmetic—not model performance or investment advice.</p>
+          </section>
+        </div>
+        <footer class="research-explorer__footer">
+          <p><span>The design principle</span>Keep source facts, human assumptions, and calculated results separate.</p>
+          <a href="/Equity-Research/#valuation" target="_blank" rel="noopener">Open valuation demo ↗</a>
+        </footer>
+        <dialog class="research-dialog" data-research-dialog aria-labelledby="research-notice-title" aria-describedby="research-notice-description">
+          <form method="dialog" data-research-acknowledgment>
+            <div class="research-dialog__top">
+              <p class="research-step">Before you explore</p>
+              <button class="research-dialog__close" type="button" data-research-dismiss aria-label="Close notice and continue read-only"><span aria-hidden="true">×</span></button>
+            </div>
+            <h2 id="research-notice-title" tabindex="-1">Understand the limits.</h2>
+            <div id="research-notice-description">
+              <p>This historical illustration is for education only. It is not personalized financial advice or a recommendation to buy, sell, or hold any investment.</p>
+              <p>Assumptions can be wrong. Historical results do not guarantee future outcomes, and this simplified calculation makes no guarantee of accuracy, completeness, or returns. Do not rely on it for investment decisions.</p>
+              <p>The explorer does not place trades or connect to a brokerage. Acknowledging this notice does not create a legal release.</p>
+            </div>
+            <label class="research-acknowledge" for="research-notice-checkbox"><input id="research-notice-checkbox" type="checkbox" required> <span>I understand these limits and risks, and that this example is educational only.</span></label>
+            <div class="research-dialog__actions">
+              <button class="research-action" type="submit" data-research-accept disabled>I understand — enable explorer</button>
+              <button class="research-action research-action--quiet" type="button" data-research-cancel>Continue read-only</button>
+            </div>
+            <p class="research-dialog__footnote">Applies only to this page visit. No acknowledgment is stored or sent.</p>
+          </form>
+        </dialog>
+      </section>
+      </details>
 
       <section class="project-reading" aria-labelledby="problem-title">
-        <h2 id="problem-title">Make the reasoning inspectable</h2>
+        <h2 id="problem-title">Engineer the research process</h2>
         <div>
-          <p>An investment assessment is only useful if its conclusions can be traced back to evidence. I built Equity Research as a local workspace for bringing earnings releases, transcripts, and filings into a research process that retains the sources, financial inputs, and assumptions behind each assessment.</p>
+          <p>I built Equity Research to coordinate the work between agents: understand the question, discover sources, assess the business, prepare valuation, and review the conclusion. Each stage retains its inputs and outputs so the final decision can be traced through the process.</p>
           <p>A React and TypeScript interface connects to a Python/FastAPI service. SQLite stores the research ledger; a source archive retains document versions and hashes. The backend invokes an authenticated local Codex CLI for structured model output.</p>
         </div>
       </section>
@@ -51,16 +228,26 @@
         <h2 id="memory-title">Carry research forward</h2>
         <div>
           <p>Company research persists across runs, so later assessments can reuse saved material while retaining earlier conclusions. An Obsidian-compatible Markdown vault exposes company notes, with SQLite remaining the authoritative record for citations and validation. A Three.js memory view provides another way to inspect the research connections.</p>
-          <p>The public demo is a separate static build with an authored example notebook. It lets visitors explore the workflow and adjust pricing assumptions. Fresh AI research runs in the local application; the public site does not include the local API, personal ledger, or private source archive.</p>
+          <p>This on-page preview makes five source-linked call discussions inspectable. The full walkthrough adds the remaining themes, multiple-based valuation, scenarios, and a connected research notebook. Fresh AI research runs in the local application; the static examples do not include the local API, personal ledger, or private source archive.</p>
         </div>
       </section>
     </div>
 
     <footer class="case-visuals" aria-label="Project links">
       <div class="container">
+        <nav class="project-continuation" aria-label="Next side project">
+          <a class="project-continuation-link" href="./NBA_Games_Outcome.html" aria-labelledby="next-project-question next-project-name">
+            <div class="project-continuation-art"><img loading="lazy" src="../image/Project_Cover/NBA-shot-locations.png" width="2577" height="888" decoding="async" alt="Original court heatmaps comparing NBA shot locations and the change in attempt share."></div>
+            <div class="project-continuation-copy">
+              <p class="project-continuation-kicker">Next investigation</p>
+              <h2 id="next-project-question">How has the league’s shot selection changed?</h2>
+              <p class="project-continuation-destination"><span id="next-project-name">NBA game outcomes</span><span aria-hidden="true">→</span></p>
+            </div>
+          </a>
+        </nav>
         <div class="case-source-row">
           <a href="../index.html#projects">← All side projects</a>
-          <a href="https://johnson-lee-v0.github.io/Equity-Research/" target="_blank" rel="noopener">Explore public demo ↗</a>
+          <a href="/Equity-Research/#research" target="_blank" rel="noopener">Explore the agent workflow ↗</a>
           <a class="case-button" href="https://github.com/johnson-lee-v0/Equity-Research" target="_blank" rel="noopener">View repository ↗</a>
         </div>
       </div>
